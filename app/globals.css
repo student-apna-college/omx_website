@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
+@theme {
+  --color-tomato: #FF6347;
+  --color-ink: #111111;
+  --color-ghost: #F8F9FA;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 17, 17, 17;
+  --background-rgb: 255, 255, 255;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground-rgb);
+  background: white;
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .btn-main {
+    @apply bg-[tomato] text-white px-10 py-4 rounded-xl font-bold 
+    transition-all duration-300 hover:shadow-[0_10px_30px_rgba(255,99,71,0.3)]
+    hover:-translate-y-1 active:scale-95 cursor-pointer;
+  }
+  
+  .card-white {
+    @apply bg-white border border-gray-100 rounded-[32px] p-10
+    transition-all duration-500 hover:border-[tomato]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)];
+  }
+
+  .huge-text {
+    @apply text-6xl md:text-[100px] font-black tracking-tighter leading-[0.9] text-ink;
+  }
+}
+
+@layer utilities {
+  .spotlight-line-item {
+    /* Default: Inactive Grey */
+    color: #e5e7eb; /* gray-200 */
+    display: inline-block;
+    animation: spotlight-horizontal 9s infinite; /* Total items (9) * delay (1s) */
+    transition: all 0.5s ease;
+  }
+
+  @keyframes spotlight-horizontal {
+    0%, 5% {
+      color: #1a1a1a; /* Active: Dark Black */
+      transform: translateY(-2px);
+      text-decoration: underline;
+      text-decoration-color: [tomato];
+      text-underline-offset: 8px;
+    }
+    11.1%, 100% {
+      color: #e5e7eb; /* Back to Grey */
+      transform: translateY(0);
+      text-decoration: none;
+    }
+  }
+
+  /* Manual Hover override */
+  .spotlight-line-item:hover {
+    color: [tomato] !important;
+    animation-play-state: paused;
+  }
+}
+
+
+@layer utilities {
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    /* Adjust '40s' to '60s' if you want it to move slower */
+    animation: marquee-infinite 40s linear infinite;
+  }
+
+  .group:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-infinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
