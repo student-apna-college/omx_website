@@ -5,6 +5,8 @@ import {
   Database, Zap, Trash2, HardDrive, Settings, 
   Shield, CheckCircle2, ArrowRight, Info 
 } from 'lucide-react';
+import { ShieldCheck, Clock, Truck, BadgeCheck } from "lucide-react";
+
 
 // Technical Content Mapping
 export async function generateStaticParams() {
@@ -28,7 +30,19 @@ const serviceContent: any = {
     id: "SRV-001",
     tagline: "Industrial-grade vaulting for high-frequency corporate assets.",
     icon: <Database size={32} strokeWidth={1.5} />,
-    features: ["24-Hour Retrieval Guarantee", "RSSQL Tracking System", "Biometric Access Control", "Pest & Moisture Control"],
+   features: [
+  "24-Hour Retrieval Guarantee",
+  "RSSQL Tracking System",
+  "Biometric Access Control",
+  "Pest & Moisture Control",
+  "Fire Safety Protection",
+  "Barcode File Tracking",
+  "Secure Document Shredding",
+  "Climate Controlled Storage",
+  "24/7 CCTV Surveillance",
+  "Fast File Indexing System",
+  "Pickup & Delivery Service"
+],
     imageSrc: "/banner/placeholder_01.png",
     metaTitle: "Physical Records Management | OMX Info Management",
     metaDesc: "Secure off-site document storage and physical records management with Tier 4 security and RSSQL tracking."
@@ -38,7 +52,18 @@ const serviceContent: any = {
     id: "SRV-002",
     tagline: "High-throughput data conversion for institutional memory.",
     icon: <Zap size={32} strokeWidth={1.5} />,
-    features: ["Industrial Batch Scanning", "Automated Meta-Tagging", "OCR Searchability", "Cloud/On-Prem Integration"],
+   features: [
+  "Industrial Batch Scanning",
+  "OCR Searchability",
+  "Cloud / On-Premise Integration",
+  "High-Speed Document Digitization",
+  "Barcode Based File Indexing",
+  "Bulk File Processing",
+  "Secure Data Encryption",
+  "Multi-Format Export (PDF, TIFF, JPEG)",
+  "Quality Checked Scanning",
+  "Document Version Control"
+],
     imageSrc: "/banner/placeholder_02.png",
     metaTitle: "Scanning & Digitization Services | OMX Info Management",
     metaDesc: "Transform physical documents into searchable digital assets with industrial-grade OCR scanning services."
@@ -48,7 +73,20 @@ const serviceContent: any = {
     id: "SRV-003",
     tagline: "Compliance-driven purging of semi-active and inactive records.",
     icon: <Trash2 size={32} strokeWidth={1.5} />,
-    features: ["Destruction Certification", "Eco-friendly Purging", "On-site Shredding Logistics", "Legal Compliance Audit"],
+   features: [
+  "Certified Document Destruction",
+  "Eco-Friendly Recycling Process",
+  "On-Site & Off-Site Shredding",
+  "Legal & Compliance Approved",
+  "Secure File Tracking Before Destruction",
+  "Barcode Verified Purging",
+  "Confidential Data Protection",
+  "Bulk Record Disposal",
+  "Authorized Audit Trail",
+  "Scheduled Destruction Service",
+  "Certificate of Destruction Provided",
+  "Client Approved Destruction",
+],
     imageSrc: "/banner/placeholder_03.png",
     metaTitle: "Secure Data Destruction & Shredding | OMX Info Management",
     metaDesc: "Certified document destruction services ensuring complete data privacy and legal compliance."
@@ -58,7 +96,20 @@ const serviceContent: any = {
     id: "SRV-004",
     tagline: "Climate-engineered environments for irreplaceable assets.",
     icon: <HardDrive size={32} strokeWidth={1.5} />,
-    features: ["Magnetic Tape Protection", "Fire-Rated Vaulting", "Dust-Free Environment", "Humidity Level Control"],
+   features: [
+  "HDD Protection",
+  "Fire-Rated Secure Vault",
+  "Dust-Free Controlled Environment",
+  "Humidity & Temperature Control",
+  "Climate Controlled Storage",
+  "24/7 CCTV Monitoring",
+  "Barcode Based Media Tracking",
+  "Disaster Recovery Safe Storage",
+  "Restricted Biometric Access",
+  "Shock-Proof Storage Racks",
+  "Offsite Backup Protection",
+  "High Security Vault Facility"
+],
     imageSrc: "/banner/placeholder_04.png",
     metaTitle: "Climate Controlled Media Storage | OMX Info Management",
     metaDesc: "Specialized vaulting for magnetic tapes, hard drives, and sensitive media assets with fire-rated protection."
@@ -78,7 +129,20 @@ const serviceContent: any = {
     id: "SRV-006",
     tagline: "Advanced cybersecurity frameworks for digital asset protection.",
     icon: <Shield size={32} strokeWidth={1.5} />,
-    features: ["End-to-End Encryption", "Multi-factor Authentication", "Automated Cloud Backups", "Disaster Recovery Planning"],
+    features: [
+  "End-to-End Encryption",
+  "Multi-Factor Authentication",
+  "Automated Cloud Backups",
+  "Disaster Recovery Planning",
+  "Secure Data Access Control",
+  "Role-Based Permissions",
+  "Real-Time Data Sync",
+  "Encrypted File Transfer",
+  "Audit Log Monitoring",
+  "High Availability Servers",
+  "Data Loss Prevention",
+  "24/7 System Monitoring"
+],
     imageSrc: "/banner/placeholder_06.png",
     metaTitle: "Cloud DMS & Data Security | OMX Info Management",
     metaDesc: "Secure cloud-based document management systems with military-grade encryption and automated backups."
@@ -207,30 +271,82 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* 3. PERFORMANCE STRIP */}
-      <section className="border-y border-gray-100 py-16">
-        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-[#1a1a1a]">
-           <div>
-             <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Security</p>
-             <p className="text-3xl font-bold tracking-tighter">Tier 4 Compliant</p>
-           </div>
-           <div>
-             <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Uptime</p>
-             <p className="text-3xl font-bold tracking-tighter">99.9% Retrieval</p>
-           </div>
-           <div>
-             <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Logistics</p>
-             <p className="text-3xl font-bold tracking-tighter">Own Fleet</p>
-           </div>
-           <div>
-             <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Certification</p>
-             <p className="text-3xl font-bold tracking-tighter">ISO 9001:2015</p>
-           </div>
-        </div>
-      </section>
+      <section className="py-24 bg-gradient-to-b from-[#f8fbff] to-white border-y border-gray-200">
+
+  <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+    {/* Card 1 */}
+    <div className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-1">
+
+      <ShieldCheck className="text-[#ff6347] mb-5 group-hover:scale-110 transition" size={32} />
+
+      <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">
+        Security
+      </p>
+
+      <p className="text-3xl font-bold tracking-tight text-[#1a1a1a]">
+        Tier 4 Compliant
+      </p>
+
+    </div>
+
+
+    {/* Card 2 */}
+    <div className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-1">
+
+      <Clock className="text-[#ff6347] mb-5 group-hover:scale-110 transition" size={32} />
+
+      <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">
+        Uptime
+      </p>
+
+      <p className="text-3xl font-bold tracking-tight text-[#1a1a1a]">
+        99.9% Retrieval
+      </p>
+
+    </div>
+
+
+    {/* Card 3 */}
+    <div className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-1">
+
+      <Truck className="text-[#ff6347] mb-5 group-hover:scale-110 transition" size={32} />
+
+      <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">
+        Logistics
+      </p>
+
+      <p className="text-3xl font-bold tracking-tight text-[#1a1a1a]">
+        Own Fleet
+      </p>
+
+    </div>
+
+
+    {/* Card 4 */}
+    <div className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-1">
+
+      <BadgeCheck className="text-[#ff6347] mb-5 group-hover:scale-110 transition" size={32} />
+
+      <p className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">
+        Certification
+      </p>
+
+      <p className="text-3xl font-bold tracking-tight text-[#1a1a1a]">
+        ISO 9001:2015
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
       {/* 4. CROSS-NAVIGATION */}
       <section className="py-24 text-center">
-        <Link href="/services" className="text-xs font-black uppercase tracking-[0.5em] text-gray-300 hover:text-[tomato] transition-colors">
+        <Link href="/services" className="text-1xl font-black uppercase tracking-[0.5em] text-gray-300 hover:text-[tomato] transition-colors">
           View All Core Infrastructure Services
         </Link>
       </section>

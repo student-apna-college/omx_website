@@ -2,6 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Linkedin, Twitter, Facebook, Instagram, ArrowUpRight } from 'lucide-react';
 
+const services = [
+  { name: "Records Management", href: "/services/records-management" },
+  { name: "Digitization", href: "/services/scanning-digitization" },
+  { name: "Secure Shredding", href: "/services/secure-shredding" },
+  { name: "Cloud DMS", href: "services/data-security" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#0a0a0a] text-white border-t border-white/5 pt-32 pb-12">
@@ -62,16 +69,24 @@ export default function Footer() {
           </div>
 
           {/* Services Quick Access */}
-          <div className="lg:col-span-2 space-y-8">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">Solutions</h4>
-            <ul className="space-y-4">
-              {['Records Management', 'Digitization', 'Secure Shredding', 'Cloud DMS'].map((item) => (
-                <li key={item} className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-white cursor-pointer transition-colors">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+<div className="lg:col-span-2 space-y-8">
+  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">
+    Solutions
+  </h4>
+
+  <ul className="space-y-4">
+    {services.map((item) => (
+      <li key={item.name}>
+        <Link
+          href={item.href}
+          className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
+        >
+          {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
           {/* Contact Details */}
           <div className="lg:col-span-3 space-y-8">

@@ -53,8 +53,7 @@ export default function Navbar() {
         {/* DESKTOP LINKS */}
         <div className={`hidden md:flex gap-14 items-center ${navType} text-gray-500`}>
           <Link href="/" className="hover:text-[#111] transition-colors">Home</Link>
-          <Link href="/about" className="hover:text-[#111] transition-colors">About Us</Link>
-          
+          <Link href="/about" className="hover:text-[#111] transition-colors">About Us</Link>   
           <div 
             className="relative"
             onMouseEnter={() => setIsDropdownOpen(true)}

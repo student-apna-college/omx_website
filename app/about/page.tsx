@@ -1,6 +1,9 @@
+"use client";
+
 import Image from 'next/image';
 import { Target, Eye, ShieldCheck, ArrowDownRight, Award, Zap, Globe } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useEffect } from "react";
 
 export default function AboutPage() {
   const clientData = [
@@ -18,7 +21,30 @@ export default function AboutPage() {
     { name: "Catalyst Clinical Services", logo: "/logo/client12.jpg" },
     { name: "Tokai Imperial", logo: "/logo/client13.jpg" },
     { name: "Fortis Hospital", logo: "/logo/client14.jpg" },
+    { name: "IBS Hospital", logo: "/logo/client16.jpg" },
+    { name: "FARO", logo: "/logo/client17.png" },
   ];
+
+
+
+    // ✅ slider images
+  const images = [
+    "/images/wahrehouse1.png",
+    "/images/wahrehouse.png",
+    "/images/placeholder_3.jpeg",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div className="bg-white text-[#1a1a1a]">
       
@@ -26,7 +52,7 @@ export default function AboutPage() {
         <div className="relative w-full h-[80vh] min-h-[500px] group overflow-hidden bg-gray-100">
           {/* Image fills full width, height reduced to 60% of viewport */}
           <Image 
-            src="/images/placeholder_1.jpeg" 
+            src="/images/aboutu.jpeg" 
             alt="OMX Industrial Infrastructure" 
             fill 
             className="object-cover transition-all duration-[2000ms] group-hover:scale-105"
@@ -88,45 +114,157 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-40 bg-[#fcfcfc]">
+     <section className="py-40 bg-[#fcfcfc]">
+
         <div className="max-w-[1440px] mx-auto px-8 grid lg:grid-cols-2 gap-32 items-center">
+
+          {/* ✅ IMAGE SLIDER */}
           <div className="relative aspect-[4/5] bg-gray-200 border border-gray-100 overflow-hidden shadow-sm group">
-            <Image 
-              src="/images/placeholder_2.jpeg" 
-              alt="Archives" 
-              fill 
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-            />
+
+            {images.map((img, i) => (
+              <Image
+                key={i}
+                src={img}
+                alt="Archives"
+                fill
+                className={`object-cover absolute inset-0 transition-all duration-1000
+                ${i === index ? "opacity-100 scale-100" : "opacity-0 scale-105"}
+                `}
+              />
+            ))}
+
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60" />
+
             <div className="absolute bottom-12 left-12 text-white z-10">
-              <p className="text-xs font-mono uppercase tracking-[0.3em] opacity-70 mb-2">Corporate Mantra</p>
-              <h3 className="text-3xl font-light italic">"Managing Information with <br/> Safer Smarter Solutions."</h3>
+              <p className="text-xs font-mono uppercase tracking-[0.3em] opacity-70 mb-2">
+                Corporate Mantra
+              </p>
+
+              <h3 className="text-3xl font-light italic">
+                "Managing Information with <br />
+                Safer Smarter Solutions."
+              </h3>
             </div>
+
           </div>
 
+
+          {/* RIGHT TEXT */}
           <div className="space-y-12">
-            <h2 className="text-6xl font-light tracking-tighter leading-none">A Story of <br/><span className="font-medium">Strategic Expansion.</span></h2>
+
+            <h2 className="text-6xl font-light tracking-tighter leading-none">
+              A Story of <br />
+              <span className="font-medium">Strategic Expansion.</span>
+            </h2>
+
             <div className="space-y-8 text-gray-500 text-lg leading-relaxed">
+
               <p>
-                OMX Info Management operates as an <strong>ISO 9001:2015 Certified</strong> entity, 
-                leveraging the immense infrastructure of the <strong>3000 Crore OM Group</strong>. 
-                Our journey began with a single vision: to redefine document security in India.
+                OMX Info Management operates as an <strong>ISO 9001:2015 Certified</strong>
+                entity, leveraging the immense infrastructure of the
+                <strong> 3000 Crore OM Group</strong>.
               </p>
+
               <p>
-                Today, we manage Banking Records and Pharmaceutical data with clinical 
-                precision. Our proprietary DMS Software ensures that while your records are physically 
-                stored in Tier-4 vaults, they are digitally at your fingertips.
+                Today, we manage Banking Records and Pharmaceutical data with clinical
+                precision.
               </p>
+
             </div>
+
+
             <div className="pt-8">
-               <Link href="/services" className="flex items-center gap-4 group">
-                  <span className="text-xs font-black uppercase tracking-widest border-b-2 border-black pb-1 group-hover:text-[tomato] group-hover:border-[tomato] transition-all">Explore Infrastructure</span>
-                  <ArrowDownRight size={20} className="group-hover:translate-x-1 group-hover:translate-y-1 transition-transform" />
-               </Link>
+              <Link href="/services" className="flex items-center gap-4 group">
+
+                <span className="text-xs font-black uppercase tracking-widest border-b-2 border-black pb-1 group-hover:text-[tomato] group-hover:border-[tomato] transition-all">
+                  Explore Infrastructure
+                </span>
+
+                <ArrowDownRight
+                  size={20}
+                  className="group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"
+                />
+
+              </Link>
             </div>
           </div>
+    
         </div>
+
       </section>
+      
+      <section className="py-24 bg-[#f9f9f9] w-full">
+
+  <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
+
+    {/* Heading */}
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a1a1a] mb-4">
+        About OMX Info Management Ltd
+      </h2>
+
+      <p className="text-gray-500 max-w-[900px] mx-auto text-sm sm:text-base md:text-lg">
+        Established in 2004, OMX Info Management Ltd is one of the leading
+        record management and document storage service providers in India.
+      </p>
+    </div>
+
+
+    {/* Card */}
+    <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8 md:p-12 space-y-6 text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">
+
+      <p>
+        Established in 2004, OMX Info Management Ltd is one of the leading
+        record management and document storage service providers in India.
+        The company was founded with a clear vision to redefine document
+        security, record storage, and digital document management by
+        providing safe, reliable, and technology-driven solutions for
+        businesses across different industries.
+      </p>
+
+      <p>
+        OMX Info Management Ltd is an <strong>ISO 9001:2015 certified</strong> company
+        and operates with the strong infrastructure support of the OM Group,
+        a trusted business group with a turnover of more than
+        <strong> 3000 Crore</strong>.
+      </p>
+
+      <p>
+        We specialize in secure document storage, warehouse record
+        management, document scanning, secure shredding services, and
+        advanced DMS (Document Management System) software.
+      </p>
+
+      <p>
+        Our storage facilities are designed with high-level security
+        systems, fire protection, controlled environment, and proper
+        tracking methods to ensure complete safety of important records.
+      </p>
+
+      <p>
+        Our company manages highly confidential records for industries
+        such as banking, finance, pharmaceutical, corporate, and
+        institutional sectors where accuracy and safety are critical.
+      </p>
+
+      <p>
+        With our advanced DMS software, clients can access records digitally
+        while physical files remain stored safely inside secure
+        <strong> Tier-4 level storage vaults</strong>.
+      </p>
+
+      <p className="font-semibold text-[#1a1a1a]">
+        At OMX Info Management Ltd, our mission is to provide modern,
+        secure, and efficient document management solutions that help
+        organizations protect their data and move towards a smart
+        digital record system with confidence.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
      <section className="py-40 bg-white">
         <div className="max-w-[1440px] mx-auto px-8">
@@ -241,6 +379,6 @@ export default function AboutPage() {
       <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
     </div>
   </section>
-    </div>
+    </div>  
   );
 }

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import IndustryTicker from '@/components/IndustryTicker';
 import { motion } from "framer-motion";
+import Accordian from "@/components/Accordian";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +16,7 @@ export default function Home() {
   const slides = [
     {
       title: "Secure Document Management Solutions",
-      sub: "OMX Infor Management Ltd provides professional document management services including scanning, storage, shredding, and digital record management. We help businesses keep their important files safe, organized, and easy to access using modern technology and secure storage facilities. Our goal is to provide reliable solutions that improve efficiency and reduce paperwork.",
+      sub: "OMX Info Management Ltd provides professional document management services including scanning, storage, shredding, and digital record management. We help businesses keep their important files safe, organized, and easy to access using modern technology and secure storage facilities. Our goal is to provide reliable solutions that improve efficiency and reduce paperwork.",
       img: "/images/placeholder_1.png",
       accent: "OMX INFO MANAGEMENT LTD"
     },
@@ -28,7 +29,7 @@ export default function Home() {
     {
       title: "Scanning, Shredding & DMS Software",
       sub: "Our company provides high-quality document scanning, secure shredding, and advanced DMS software to help organizations manage records digitally. We help businesses move from paper files to digital systems safely and quickly. Our services improve document security, reduce storage space, and make file searching fast and easy.",
-      img: "/images/placeholder_3.jpeg",
+      img: "/images/wharhouse2.png",
       accent: "OMX INFO MANAGEMENT LTD"
     }
   ];
@@ -197,7 +198,7 @@ export default function Home() {
       className="space-y-12"
     >
       <div className="space-y-4">
-        <h2 className="text-2xl font-black text-[tomato] uppercase tracking-[0.4em]">
+        <h2 className="text-xs font-black text-[tomato] uppercase tracking-[0.4em]">
           Secure Record Storage Facility
         </h2>
 
@@ -208,7 +209,7 @@ export default function Home() {
       </div>
 
       <p className="text-lg text-gray-600 leading-relaxed border-l-4 border-[tomato] pl-8">
-        Our storage service helps companies free their office space while keeping documents safe and organized. With OMX Infor Management Ltd, clients get reliable storage solutions with full safety, confidentiality, and professional record management support.
+        Our storage service helps companies free their office space while keeping documents safe and organized. With OMX info Management Ltd, clients get reliable storage solutions with full safety, confidentiality, and professional record management support.
       </p>
 
       <div className="grid grid-cols-2 gap-8">
@@ -231,6 +232,34 @@ export default function Home() {
 
   </div>
 </section>
+
+
+
+
+<div className="relative w-full h-[600px] rounded-lg overflow-hidden">
+  {/* Image */}
+  <Image
+    src="/images/wharhouse2.png"
+    alt="Warehouse"
+    fill
+    className="object-cover"
+  />
+
+  {/* Overlay */}
+<div className="absolute inset-0 flex items-center">
+  <div className="ml-8 max-w-xl">
+    <h2 className="text-1xl md:text-8xl font-light text-white leading-none tracking-tighter">
+      Best Warehouse Solutions
+    </h2>
+
+    <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
+      We specialize in secure document storage, warehouse record
+      management, document scanning, and secure shredding services.
+      Our solutions ensure safety, efficiency, and reliability for your business.
+    </p>
+  </div>
+</div>
+</div>
 
      {/* 4. TECHNICAL SERVICES PREVIEW */}
 <section className="py-32 bg-[#fcfcfc] border-y border-gray-100">
@@ -367,6 +396,8 @@ export default function Home() {
 
   </div>
 </section>
+ <Accordian></Accordian>
     </div>
+   
   );
 }

@@ -18,7 +18,7 @@ const branchData = [
     category: "Regional Hub",
     address: "Srambikkal House, Koduvazhanga, Neericode, 683511",
     gst: "32AAACO7157P1Z2",
-    contact: "kochin.hub@omx.in"
+    contact: "omxinfo@omx.in"
   },
   {
     city: "Hyderabad",
@@ -26,7 +26,7 @@ const branchData = [
     category: "Technical Center",
     address: "Survey No.185/186 Yellampet Village, Medchal, 501401",
     gst: "36AAACO7157P1ZU",
-    contact: "hyd.center@omx.in"
+    contact: "omxinfo@omx.in"
   },
   {
     city: "Jaipur",
@@ -34,7 +34,7 @@ const branchData = [
     category: "Records Vault",
     address: "651,652,661,663 Village Keshwana Rajpoot, 303108",
     gst: "08AAACO7157P1ZT",
-    contact: "jaipur.vault@omx.in"
+    contact: "omxinfo@omx.in"
   },
   {
     city: "Indore",
@@ -42,8 +42,37 @@ const branchData = [
     category: "Logistics Node",
     address: "Survey No-310 Sullakhedi Road, Manglia Village, 453771",
     gst: "23AAACO7157P1Z1",
-    contact: "indore.node@omx.in"
-  }
+    contact: "omxinfo@omx.in"
+  },
+
+  {
+  city: "Noida",
+  state: "Uttar Pradesh",
+  category: "Logistics Noida",
+  address: "B-202, Phase II, Sector 81, Noida, Uttar Pradesh - 201306",
+  gst: "23AAACO7157P1Z1",
+  contact: "omxinfo@omx.in"
+  },
+
+
+  {
+  city: "Faridabad",
+  state: "Haryana",
+  category: "Logistics Faridabad",
+  address: "2nd Floor, 23/1, DLF Industrial Area Phase 1, near NHPC Metro Station, Faridabad - 121003",
+  contact: "omxinfo@omx.in"  
+},
+
+
+  {
+   
+  city: "Jamalpur",
+  state: "Haryana",
+  category: "Logistics Jamalpur",
+  address: "Khasara No. 2/11, Near Bharat Petrol Pump, Highway No-26, Jamalpur, Haryana - 123003",
+  contact: "omxinfo@omx.in"  
+}
+
 ];
 
 export default function BranchesPage() {
