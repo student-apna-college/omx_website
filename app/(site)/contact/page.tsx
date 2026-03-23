@@ -7,10 +7,74 @@ export default function ContactPage() {
   const [focused, setFocused] = useState<string | null>(null);
 
   const branches = [
-    { city: "Kochin", state: "Kerala", gst: "32AAACO7157P1Z2", address: "Srambikkal House, Neericode, 683511" },
-    { city: "Hyderabad", state: "Telangana", gst: "36AAACO7157P1ZU", address: "Yellampet Village, Medchal, 501401" },
-    { city: "Jaipur", state: "Rajasthan", gst: "08AAACO7157P1ZT", address: "Village Keshwana Rajpoot, 303108" },
-    { city: "Indore", state: "Madhya Pradesh", gst: "23AAACO7157P1Z1", address: "Sullakhedi Road, Mangalya, 453771" },
+   {
+    city: "New Delhi",
+    state: "Delhi NCR",
+    category: "Corporate Headquarters",
+    address: "141 Ring Road Transport Centre, Punjabi Bagh, New Delhi-110035",
+    gst: "07AAACO7157P1ZX", // Example GST for Delhi
+    contact: "omxinfo@omx.in"
+  },
+  {
+    city: "Kochin",
+    state: "Kerala",
+    category: "Regional Hub",
+    address: "Srambikkal House, Koduvazhanga, Neericode, 683511",
+    gst: "32AAACO7157P1Z2",
+    contact: "omxinfo@omx.in"
+  },
+  {
+    city: "Hyderabad",
+    state: "Telangana",
+    category: "Technical Center",
+    address: "Survey No.185/186 Yellampet Village, Medchal, 501401",
+    gst: "36AAACO7157P1ZU",
+    contact: "omxinfo@omx.in"
+  },
+  {
+    city: "Jaipur",
+    state: "Rajasthan",
+    category: "Records Vault",
+    address: "651,652,661,663 Village Keshwana Rajpoot, 303108",
+    gst: "08AAACO7157P1ZT",
+    contact: "omxinfo@omx.in"
+  },
+  {
+    city: "Indore",
+    state: "Madhya Pradesh",
+    category: "Logistics Node",
+    address: "Survey No-310 Sullakhedi Road, Manglia Village, 453771",
+    gst: "23AAACO7157P1Z1",
+    contact: "omxinfo@omx.in"
+  },
+
+  {
+  city: "Noida",
+  state: "Uttar Pradesh",
+  category: "Logistics Noida",
+  address: "B-202, Phase II, Sector 81, Noida, Uttar Pradesh - 201306",
+  gst: "23AAACO7157P1Z",
+  contact: "omxinfo@omx.in"
+  },
+
+
+  {
+  city: "Faridabad",
+  state: "Haryana",
+  category: "Logistics Faridabad",
+  address: "2nd Floor, 23/1, DLF Industrial Area Phase 1, near NHPC Metro Station, Faridabad - 121003",
+  contact: "omxinfo@omx.in"  
+},
+
+
+  {
+   
+  city: "Jamalpur",
+  state: "Haryana",
+  category: "Logistics Jamalpur",
+  address: "Khasara No. 2/11, Near Bharat Petrol Pump, Highway No-26, Jamalpur, Haryana - 123003",
+  contact: "omxinfo@omx.in"  
+}
   ];
 
   return (

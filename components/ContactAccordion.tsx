@@ -28,8 +28,8 @@ export default function FAQAccordion() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto px-4 py-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+    <section className="max-w-[900px] mx-auto px-6">
+      <h2 className="text-4xl font-bold text-black text-center mb-12">
         Frequently Asked Questions
       </h2>
 
@@ -37,14 +37,14 @@ export default function FAQAccordion() {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className={`border border-gray-200 rounded-xl overflow-hidden shadow-lg transition-all duration-500 ${
+            className={`mb-4 rounded-xl border border-white/30 backdrop-blur-lg bg-white/30 shadow-md ${
               openIndex === index ? "scale-105" : "scale-100"
             }`}
           >
             {/* Question */}
             <button
               onClick={() => toggleAccordion(index)}
-              className="w-full flex justify-between items-center px-6 py-5 text-left text-lg md:text-xl font-semibold text-gray-900 bg-white hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-500"
+              className="w-full flex justify-between items-center px-6 py-5 text-left text-lg md:text-xl font-semibold text-gray-900 bg-white  transition-all duration-500"
             >
               {faq.question}
               <ChevronDown

@@ -355,10 +355,10 @@ export default function AboutPage() {
         {[...clientData, ...clientData].map((client, index) => (
           <div 
             key={index} 
-            className="mx-16 flex flex-col items-center justify-center min-w-[180px] group/item transition-all duration-500"
+            className="mx-2 flex flex-col items-center justify-center min-w-[180px] group/item transition-all duration-500"
           >
             {/* Image is now full opacity/color by default */}
-            <div className="relative w-40 h-20 transition-all duration-500 transform group-hover/item:scale-125 group-hover/item:-translate-y-2">
+            <div className="relative w-40 h-30 transition-all duration-500 transform group-hover/item:scale-125 group-hover/item:-translate-y-2">
               <Image 
                 src={client.logo} 
                 alt={client.name} 
