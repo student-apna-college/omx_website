@@ -11,7 +11,7 @@ export default function LoginPage() {
     password: "",
   });
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert(
       mode === "client"
@@ -23,7 +23,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
 
-      {/* 🏠 HOME BUTTON */}
+     
       <button
         onClick={() => (window.location.href = "/")}
         className="fixed top-4 right-4 z-50 bg-white px-4 py-2 rounded-lg shadow hover:bg-gray-100 transition"
@@ -45,14 +45,14 @@ export default function LoginPage() {
   alt="OMX Logo"
   width={200}
   height={120}
-  className="mb-4 object-contain animate-bounce"
+  className="mb-4 object-contain "
 />
 
-          <h1 className="text-2xl md:text-4xl font-extrabold text-white drop-shadow-lg">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-black drop-shadow-lg">
             OMX Info Management
           </h1>
 
-          <p className="text-sm md:text-base leading-relaxed text-white/90 drop-shadow-md max-h-72 overflow-y-auto">
+          <p className="text-sm md:text-base leading-relaxed text-black/90 drop-shadow-md max-h-72 overflow-y-auto">
             Welcome to OMX Info Management (OM Group Company) offering Records & Information Management Services. We can help you manage and secure your company's greatest asset - your business information. We at OMX believe that your business data is only valuable if it is readily accessible when needed.
             <br /><br />
             Safety, compliance, quality, and innovation are at the heart of everything we do. By customizing our processes to your protocols, we make collaboration effortless.
@@ -135,27 +135,6 @@ export default function LoginPage() {
           </form>
         </div>
       </div>
-
-      {/* Blob Animation CSS */}
-      <style jsx>{`
-        @keyframes blob {
-          0%, 100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-        }
-        .animate-blob {
-          animation: blob 8s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-      `}</style>
     </div>
   );
 }
