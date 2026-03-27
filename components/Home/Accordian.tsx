@@ -37,6 +37,7 @@ export default function CompanyAccordion() {
   },
 ];
 
+console.log(setOpen)
   return (
     <section className="py-24 ">
 
@@ -91,3 +92,30 @@ export default function CompanyAccordion() {
     </section>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

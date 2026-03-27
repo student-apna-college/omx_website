@@ -86,7 +86,7 @@ export default function Navbar() {
             onMouseLeave={() => setIsContactDropdownOpen(false)}
           >
             <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isContactDropdownOpen ? 'text-[tomato]' : 'hover:text-[#111]'}`}>
-              <Link href="/services">Contact Us</Link>
+              <p>Contact Us</p>
               <ChevronDown size={14} className={`transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`} />
             </div>
 

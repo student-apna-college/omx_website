@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 // Define the shape of a single slide
@@ -51,7 +51,7 @@ export default function Carousel({
                   {slide.accent}
                 </span>
               </div>
-              <h1 className="text-1xl md:text-8xl font-light text-white leading-none tracking-tighter">
+              <h1 className="text-2xl md:text-8xl font-light text-white leading-none tracking-tighter">
                 {slide.title.split(" ").map((word, i) => (
                   <span key={i} className={i === 1 ? "font-medium" : ""}>
                     {word}{" "}

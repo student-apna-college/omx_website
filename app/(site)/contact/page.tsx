@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Globe, ArrowRight, Send, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { MapPin, Globe, ArrowRight, Send, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import ContactAccordion from '@/components/ContactAccordion'
+
+
 export default function ContactPage() {
   const [focused, setFocused] = useState<string | null>(null);
 

@@ -1,5 +1,4 @@
-"use client";
-import React from 'react';
+
 import Image from 'next/image';
 import { MapPin, Globe, ShieldCheck, ArrowRight, Building2, Phone, Mail } from 'lucide-react';
 
