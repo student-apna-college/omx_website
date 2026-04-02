@@ -5,39 +5,59 @@ import ShowcaseSection from "@/components/Home/ShowcaseSection";
 import Accordian from "@/components/Home/Accordian";
 
 export default function Home() {
+
   const slides = [
     {
-      title: "Secure Document Management Solutions",
-      sub: "OMX Info Management Ltd provides professional document management services including scanning, storage, shredding, and digital record management. We help businesses keep their important files safe, organized, and easy to access using modern technology and secure storage facilities. Our goal is to provide reliable solutions that improve efficiency and reduce paperwork.",
-      img: "/images/placeholder_1.png",
+      title: "Safer Document Management Solutions",
+      sub: "OMX Info Management Ltd provides professional document management services including scanning, storage, shredding, and digital record management.",
+      img: "/images/shradding.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
       title: "Warehouse & Record Storage Facility",
-      sub: "We offer secure warehouse and record storage services designed for companies that need safe space for important documents and files. Our storage facility includes proper security systems, fire protection, and organized record management to ensure complete safety. With our professional storage solutions, businesses can store records for long periods without worrying about damage or loss.",
+      sub: "We offer secure warehouse and record storage services designed for companies that need safe space for important documents.",
       img: "/images/placeholder_2.jpeg",
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
       title: "Scanning, Shredding & DMS Software",
-      sub: "Our company provides high-quality document scanning, secure shredding, and advanced DMS software to help organizations manage records digitally. We help businesses move from paper files to digital systems safely and quickly. Our services improve document security, reduce storage space, and make file searching fast and easy.",
+      sub: "High-quality document scanning, secure shredding, and advanced DMS software to help organizations manage records digitally.",
       img: "/images/wharhouse2.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
   ];
 
   const industries = [
-    "Banking","Insurance","Hospitals","Telecom","Pharma","Real Estate",
-    "Airlines","FMCG","Logistics"
+    "Banking","Insurance","Hospitals","Telecom","Pharma",
+    "Real Estate","Airlines","FMCG","Logistics"
   ];
 
   return (
-    <div className="bg-white text-[#1a1a1a] selection:bg-[tomato] selection:text-white">
+    <div className="bg-gradient-to-b from-white via-blue-50 to-white text-[#0f172a] selection:bg-[rgb(0,104,83)] selection:text-white">
+
+      {/* HERO */}
       <HeroSection slides={slides} />
-      <TechnicalSection />
-      <ShowcaseSection />
-      <IndustryTicker industries={industries} />
-      <Accordian />
+
+      {/* TECH SECTION */}
+      <section className="py-16 md:py-24 bg-white">
+        <TechnicalSection />
+      </section>
+
+      {/* SHOWCASE */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
+        <ShowcaseSection />
+      </section>
+
+      {/* INDUSTRY TICKER */}
+      <section className="py-12 md:py-16 bg-white">
+        <IndustryTicker industries={industries} />
+      </section>
+
+      {/* ACCORDION (FAQ) */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
+        <Accordian />
+      </section>
+
     </div>
   );
 }

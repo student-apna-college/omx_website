@@ -50,14 +50,14 @@ export default function FAQAccordion() {
               <ChevronDown
                 size={24}
                 className={`transform transition-transform duration-500 ${
-                  openIndex === index ? "rotate-180 text-[tomato]" : "text-gray-400"
+                  openIndex === index ? "rotate-180 text-gray-600 leading-relaxed" : "text-gray-400"
                 }`}
               />
             </button>
 
             {/* Answer */}
             <div
-              className={`px-6 pt-0 pb-5 text-[tomato] text-base md:text-lg transition-all duration-500 overflow-hidden ${
+              className={`px-6 pt-0 pb-5 text-gray-600 leading-relaxed text-base md:text-lg transition-all duration-500 overflow-hidden ${
                 openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               }`}
             >

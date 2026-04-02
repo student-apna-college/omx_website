@@ -13,10 +13,10 @@ export default function ShowcaseSection() {
       />
       <div className="absolute inset-0 flex items-center">
         <div className="ml-8 max-w-xl">
-          <h2 className="text-1xl md:text-8xl font-light text-white leading-none tracking-tighter">
+          <h2 className="text-2xl md:text-8xl font-bold text-white leading-none tracking-tighter">
             Best Warehouse Solutions
           </h2>
-          <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
+          <p className="text-xl text-gray-100 max-w-xl leading-relaxed">
             We specialize in secure document storage, warehouse record
             management, document scanning, and secure shredding services.
             Our solutions ensure safety, efficiency, and reliability for your business.

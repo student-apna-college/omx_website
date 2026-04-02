@@ -30,9 +30,9 @@ export default function Navbar() {
   return (
     <nav className="w-full px-0 py-0">
       {/* MAIN DESKTOP BAR */}
-      <div className="w-full flex justify-between items-center bg-white border-b border-gray-100 px-6 md:px-12 py-3 md:py-5 shadow-md relative z-[60]">
+      <div className="w-full flex justify-between items-center bg-[rgb(0,104,83)] border-b border-gray-100 px-6 md:px-12 py-3 md:py-5 shadow-md relative z-[60]">
         
-        <Link href="/" className="relative h-13 w-44 md:h-18 md:w-60 transition-all duration-300">
+        <Link href="/" className="relative h-13 w-44 md:h-18 md:w-60 transition-all duration-300 bg-white">
           <Image
             src="/images/omx info.png"
             alt="OMX Logo"
@@ -51,15 +51,15 @@ export default function Navbar() {
         </button>
 
         {/* DESKTOP LINKS */}
-        <div className={`hidden md:flex gap-14 items-center ${navType} text-gray-500`}>
-          <Link href="/" className="hover:text-[#111] transition-colors">Home</Link>
-          <Link href="/about" className="hover:text-[#111] transition-colors">About Us</Link>   
+        <div className={`hidden md:flex gap-14 items-center ${navType} text-white`}>
+          <Link href="/" className="hover:text-[#404040] transition-colors">Home</Link>
+          <Link href="/about" className="hover:text-[#404040] transition-colors">About Us</Link>   
           <div 
             className="relative"
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isDropdownOpen ? 'text-[tomato]' : 'hover:text-[#111]'}`}>
+            <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isDropdownOpen ? 'text-[#404040]' : 'hover:text-[#404040]'}`}>
               <Link href="/services">Services</Link>
               <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </div>
@@ -71,21 +71,21 @@ export default function Navbar() {
                 {/* <p className="px-4 py-2 text-[10px] text-gray-400 font-mono tracking-[0.3em] border-b border-gray-50 mb-2 italic uppercase">// Core Infrastructure</p> */}
                 {serviceLinks.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}`} className="flex items-center gap-5 px-4 py-3 rounded-lg hover:bg-gray-50 group transition-all" onClick={() => setIsDropdownOpen(false)}>
-                    <div className="text-gray-400 group-hover:text-[tomato] transition-colors">{s.icon}</div>
-                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#111] transition-colors">{s.title}</span>
+                    <div className="text-gray-400 group-hover:text-[#404040] transition-colors">{s.icon}</div>
+                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#404040] transition-colors">{s.title}</span>
                   </Link>
                 ))}
               </div>
             </div>
           </div>
 
-          <Link href="/careers" className="hover:text-[#111] transition-colors">Careers</Link>
+          <Link href="/careers" className="hover:text-[#404040] transition-colors">Careers</Link>
           <div 
             className="relative"
             onMouseEnter={() => setIsContactDropdownOpen(true)}
             onMouseLeave={() => setIsContactDropdownOpen(false)}
           >
-            <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isContactDropdownOpen ? 'text-[tomato]' : 'hover:text-[#111]'}`}>
+            <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isContactDropdownOpen ? 'text-[#404040]' : 'hover:text-[#404040]'}`}>
               <p>Contact Us</p>
               <ChevronDown size={14} className={`transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`} />
             </div>
@@ -97,8 +97,8 @@ export default function Navbar() {
                 {/* <p className="px-4 py-2 text-[10px] text-gray-400 font-mono tracking-[0.3em] border-b border-gray-50 mb-2 italic uppercase">// Core Infrastructure</p> */}
                 {contactUsLinks.map((s) => (
                   <Link key={s.slug} href={`/${s.slug}`} className="flex items-center gap-5 px-4 py-3 rounded-lg hover:bg-gray-50 group transition-all" onClick={() => setIsContactDropdownOpen(false)}>
-                    <div className="text-gray-400 group-hover:text-[tomato] transition-colors">{s.icon}</div>
-                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#111] transition-colors">{s.title}</span>
+                    <div className="text-gray-400 group-hover:text-[#404040] transition-colors">{s.icon}</div>
+                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#404040] transition-colors">{s.title}</span>
                   </Link>
                 ))}
               </div>
@@ -112,11 +112,11 @@ export default function Navbar() {
 
       {/* MOBILE FULL-SCREEN MENU */}
       <div 
-        className={`fixed inset-0 h-screen w-full bg-white z-[50] transition-transform duration-500 ease-in-out md:hidden ${
+        className={`fixed inset-0 h-screen w-full bg-white z-[60] transition-transform duration-500 ease-in-out md:hidden ${
           isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className={`flex flex-col h-full pt-36 px-10 gap-10 ${navType} text-[#1a1a1a]`}>
+        <div className={`flex flex-col min-h-screen pt-24 px-6 gap-8 ${navType} text-[#1a1a1a] overflow-y-auto`}>
           <Link 
             href="/about" 
             className="border-b border-gray-100 pb-6 flex justify-between items-center group"
@@ -143,10 +143,10 @@ export default function Navbar() {
           
           <Link 
             href="/contact" 
-            className="text-[tomato] pt-4 flex items-center gap-4"
+            className="text-[#404040] pt-4 flex items-center gap-4"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Contact Us<div className="h-[2px] w-12 bg-[tomato]"></div>
+            Contact Us<div className="h-[2px] w-12 bg-[#404040]"></div>
           </Link>
 
           {/* Institutional Note at Bottom */}

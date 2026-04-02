@@ -35,42 +35,43 @@ export default function Carousel({
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="absolute inset-0 bg-black/50 z-10" />
-          <Image
+          <div className="absolute inset-0 bg-black/10 z-10 " />
+          <Image 
             src={slide.img}
             alt={slide.title}
             fill
-            className="object-cover"
+            className="object-cover "
             priority={index === 0}
+            
           />
           <div className="relative z-20 h-full max-w-[1400px] mx-auto px-6 flex flex-col justify-center">
             <div className="max-w-4xl space-y-6">
               <div className="flex items-center gap-3">
-                <span className="h-[1px] w-12 bg-[tomato]"></span>
-                <span className="text-[tomato] text-xs font-bold uppercase tracking-[0.4em]">
+                <span className="h-[1px] w-12 text-[#006853]"></span>
+                <span className="text-[#006853] text-1xl font-bold uppercase tracking-[0.4em]">
                   {slide.accent}
                 </span>
               </div>
-              <h1 className="text-2xl md:text-8xl font-light text-white leading-none tracking-tighter">
+              <h1 className="text-2xl md:text-8xl font-bold text-white leading-none tracking-tighter">
                 {slide.title.split(" ").map((word, i) => (
                   <span key={i} className={i === 1 ? "font-medium" : ""}>
                     {word}{" "}
                   </span>
                 ))}
               </h1>
-              <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
+              <p className="text-xl text-gray-100 max-w-xl leading-relaxed">
                 {slide.sub}
               </p>
               <div className="pt-8 flex gap-4">
                 <Link
                   href="/services"
-                  className="bg-[tomato] text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                  className="text-[#006853] text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all rounded-[12px] border p-4"
                 >
                   Our Services
                 </Link>
                 <Link
                   href="/contact"
-                  className="border border-white/30 text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                  className="border border-white/30 text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all rounded-[12px] border p-4"
                 >
                   Get a Quote
                 </Link>

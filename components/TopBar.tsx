@@ -24,7 +24,7 @@ export default function TopBar() {
             <User size={12} />
             Employee Login
           </Link>
-          <Link href="/login" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] bg-[tomato] px-4 py-2 rounded-md hover:bg-white hover:text-black transition-all">
+          <Link href="/login" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em]  px-4 py-2 rounded-md hover:bg-white hover:text-black transition-all">
             <ShieldCheck size={12} />
             Client Login
           </Link>

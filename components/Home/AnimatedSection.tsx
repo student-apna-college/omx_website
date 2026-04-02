@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function TechnicalSection() {
   return (
-    <section className="py-16 md:py-24 px-6">
+    <section className="py-16 md:py-24 px-6 bg-gradient-to-br from-white via-white to-white">
       <div className="max-w-[1400px] mx-auto space-y-16 md:space-y-32">
 
-        {/* BLOCK 1 */}
+        {/* BLOCK 1: Document Scanning */}
         <div className="grid lg:grid-cols-2 gap-12 md:gap-24 items-center">
 
           {/* TEXT */}
@@ -17,23 +17,21 @@ export default function TechnicalSection() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-8"
           >
-            <div className="space-y-4">
-              <h2 className="text-xl md:text-2xl font-black text-[tomato] uppercase tracking-widest">
-                Document Scanning Services
-              </h2>
+            <h2 className="text-xl md:text-2xl font-black text-[#006853] uppercase tracking-widest">
+              Document Scanning Services
+            </h2>
 
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-tight">
-                OMX Info Management Ltd provides reliable document scanning services for companies that want to convert physical records into digital format.
-                <span className="font-medium italic">
-                  {" "}Digital records help businesses save office space, improve work speed, and protect files from damage.
-                </span>
-              </h3>
-            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-snug tracking-tight">
+              OMX Info Management Ltd provides reliable document scanning services to convert physical records into digital format.
+              <span className="block mt-2 font-light text-[#1a1a1a]">
+                Digital records save office space, improve work speed, and protect files from damage.
+              </span>
+            </h3>
 
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed border-l-4 border-[tomato] pl-6">
-              Our trained team carefully handles all documents to maintain privacy and accuracy. Whether you have old files, office records, legal papers, or daily documents.
+            <p className="text-base md:text-lg text-gray-500 leading-relaxed border-l-4  pl-6">
+              Our trained team carefully handles all documents to maintain privacy and accuracy. From old files to legal papers, we manage every document with care.
             </p>
           </motion.div>
 
@@ -43,20 +41,19 @@ export default function TechnicalSection() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative aspect-square bg-gray-100 border border-gray-200 shadow-xl overflow-hidden"
+            className="relative aspect-[4/3] bg-gray-100 border border-gray-200 shadow-xl overflow-hidden rounded-xl"
           >
             <Image
               src="/images/abc.png"
               alt="Document Scanning Services"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              quality={90}
               className="object-cover"
             />
           </motion.div>
         </div>
 
-        {/* BLOCK 2 */}
+        {/* BLOCK 2: Record Storage Facility */}
         <div className="grid lg:grid-cols-2 gap-12 md:gap-24 items-center">
 
           {/* IMAGE */}
@@ -65,14 +62,13 @@ export default function TechnicalSection() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative aspect-square bg-gray-100 border border-gray-200 shadow-xl overflow-hidden"
+            className="relative aspect-[4/3] bg-gray-100 border border-gray-200 shadow-xl overflow-hidden rounded-xl"
           >
             <Image
               src="/images/wharehouse.png"
-              alt="Secure Record Storage Facility"
+              alt="Safer Record Storage Facility"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              quality={90}
               className="object-cover"
             />
           </motion.div>
@@ -83,37 +79,32 @@ export default function TechnicalSection() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-8"
           >
-            <div className="space-y-4">
-              <h2 className="text-xl md:text-2xl font-black text-[tomato] uppercase tracking-widest">
-                Secure Record Storage Facility
-              </h2>
+            <h2 className="text-xl md:text-2xl font-black text-[#006853] uppercase tracking-widest">
+              Safer Record Storage Facility
+            </h2>
 
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-tight">
-                We provide secure and well-managed record storage facilities for businesses that need safe space for their important files and documents. Our warehouse is designed with strong security, fire safety systems, and proper storage arrangements to keep records protected for long periods.
-                <span className="font-medium italic">
-                  {" "}Each file is stored with proper labelling and tracking so it can be found quickly whenever required.
-                </span>
-              </h3>
-            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-snug tracking-tight text-[#1a1a1a]">
+              We provide secure and well-managed storage facilities for important business files. Our warehouses feature strong security, fire safety systems, and organized storage arrangements.
+              <span className="block mt-2 font-light">
+                Each file is labeled and tracked to ensure it can be located quickly whenever required.
+              </span>
+            </h3>
 
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed border-l-4 border-[tomato] pl-6">
-              Our storage service helps companies free their office space while keeping documents safe and organized. With OMX Info Management Ltd, clients get reliable storage solutions with full safety, confidentiality, and professional record management support.
+            <p className="text-base md:text-lg text-gray-500 leading-relaxed border-l-4  pl-6">
+              Our storage services help companies free up office space while keeping documents safe and organized. Clients get reliable solutions with full safety, confidentiality, and professional support.
             </p>
 
+            {/* Highlights */}
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h4 className="font-bold">Accountability</h4>
-                <p className="text-sm text-gray-500">
-                  Full expert management at local levels across India.
-                </p>
+                <h4 className="font-bold text-[#1a1a1a]">Accountability</h4>
+                <p className="text-sm text-gray-500">Expert management at local levels across India.</p>
               </div>
               <div>
-                <h4 className="font-bold">Expertise</h4>
-                <p className="text-sm text-gray-500">
-                  Quality assurance at every level of the document lifecycle.
-                </p>
+                <h4 className="font-bold text-[#1a1a1a]">Expertise</h4>
+                <p className="text-sm text-gray-500">Quality assurance at every stage of the document lifecycle.</p>
               </div>
             </div>
           </motion.div>

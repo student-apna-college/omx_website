@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 export default function EmployeeForm({ job }) {
@@ -20,10 +19,10 @@ export default function EmployeeForm({ job }) {
     try {
       const res = await fetch("/api/apply", { method: "POST", body: data });
       const result = await res.json();
-      alert("Application Submitted ");
+      alert("Application Submitted Successfully");
     } catch (err) {
       console.error(err);
-      alert("Submission Failed ");
+      alert("Submission Failed");
     }
   };
 
@@ -31,27 +30,22 @@ export default function EmployeeForm({ job }) {
     <div className="bg-white p-10 rounded-2xl border shadow space-y-6">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Apply for {job.role}</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
-
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">Full Name</label>
-          <input type="text" name="name" onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">Email Address</label>
-          <input type="email" name="email" onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">Experience</label>
-          <select name="experience" onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none">
-            <option value="">Select</option>
-            <option>0-1 Years</option>
-            <option>1-3 Years</option>
-            <option>3-5 Years</option>
-            <option>5+ Years</option>
-          </select>
-        </div>
+        {["name", "email", "experience"].map((field) => (
+          <div key={field}>
+            <label className="block text-gray-700 font-medium mb-1">{field === "name" ? "Full Name" : field === "email" ? "Email Address" : "Experience"}</label>
+            {field === "experience" ? (
+              <select name={field} onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#006853] outline-none">
+                <option value="">Select</option>
+                <option>0-1 Years</option>
+                <option>1-3 Years</option>
+                <option>3-5 Years</option>
+                <option>5+ Years</option>
+              </select>
+            ) : (
+              <input type={field === "email" ? "email" : "text"} name={field} onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#006853] outline-none" />
+            )}
+          </div>
+        ))}
 
         <div>
           <label className="block text-gray-700 font-medium mb-1">Upload Resume (PDF/DOC)</label>
@@ -60,10 +54,10 @@ export default function EmployeeForm({ job }) {
 
         <div>
           <label className="block text-gray-700 font-medium mb-1">Why should we hire you?</label>
-          <textarea name="message" onChange={handleChange} rows={5} className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none" />
+          <textarea name="message" onChange={handleChange} rows={5} className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#006853] outline-none" />
         </div>
 
-        <button type="submit" className="w-full bg-green-600 text-white py-3 rounded-full font-semibold hover:bg-green-700 transition">
+        <button type="submit" className="w-full bg-[#006853] text-white py-3 rounded-full font-semibold hover:bg-green-700 transition">
           Submit Application
         </button>
       </form>

@@ -11,7 +11,7 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] text-white border-t border-white/5 pt-32 pb-12">
+    <footer className="bg-[rgb(0,104,83)] text-white border-t border-white/5 pt-32 pb-12">
       <div className="max-w-[1440px] mx-auto px-8 md:px-12">
         
         {/* Main Footer Grid */}
@@ -28,7 +28,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-gray-500 text-lg font-light leading-relaxed max-w-md">
+            <p className="text-white text-lg font-light leading-relaxed max-w-md">
               An <span className="text-white font-medium">ISO 9001:2015 Certified</span> entity within the 3000Cr OM Group network. We architect the secure lifecycle of India's most critical information assets.
             </p>
             
@@ -43,7 +43,7 @@ export default function Footer() {
                 <Link 
                   key={i} 
                   href={social.href} 
-                  className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[tomato] hover:border-[tomato] transition-all duration-500"
+                  className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:text-[tomato] hover:border-[tomato] transition-all duration-500"
                 >
                   {social.icon}
                 </Link>
@@ -53,13 +53,13 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div className="lg:col-span-2 space-y-8">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">Navigation</h4>
+            <h4 className="text-[15px] font-black uppercase tracking-[0.4em] text-white">Navigation</h4>
             <ul className="space-y-4">
               {['Our Story', 'Services', 'Careers', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link 
                     href={`/${item.toLowerCase().replace(' ', '-')}`} 
-                    className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-sm font-bold uppercase tracking-widest text-white hover:text-black transition-colors flex items-center gap-2 group"
                   >
                     {item} <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-all text-[tomato]" />
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Services Quick Access */}
 <div className="lg:col-span-2 space-y-8">
-  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">
+  <h4 className="text-[15px] font-black uppercase tracking-[0.4em] text-white">
     Solutions
   </h4>
 
@@ -79,7 +79,7 @@ export default function Footer() {
       <li key={item.name}>
         <Link
           href={item.href}
-          className="text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
+          className="text-sm font-bold uppercase tracking-widest text-white hover:text-black transition-colors"
         >
           {item.name}
         </Link>
@@ -90,9 +90,9 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="lg:col-span-3 space-y-8">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">HQ Interface</h4>
+            <h4 className="text-[15px] font-black uppercase tracking-[0.4em] text-white">HQ Interface</h4>
             <div className="space-y-6">
-              <p className="text-sm text-gray-500 font-bold uppercase tracking-widest leading-loose">
+              <p className="text-sm text-white font-bold uppercase tracking-widest leading-loose">
                 130 Transport Centre,<br />
                 Punjabi Bagh, New Delhi<br />
                 PIN: 110035, INDIA
@@ -112,12 +112,12 @@ export default function Footer() {
             <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
               © 2026 OMX INFO MANAGEMENT LTD. ALL RIGHTS RESERVED.
             </p>
-            <p className="text-[10px] font-mono text-[tomato] uppercase tracking-[0.2em] italic">
+            <p className="text-[20px] font-mono text-[tomato] uppercase tracking-[0.2em] italic">
               Part of the 3000Cr OM Group Alliance
             </p>
           </div>
           
-          <div className="flex gap-10 text-[10px] text-gray-500 font-black uppercase tracking-[0.3em]">
+          <div className="flex gap-10 text-[15px] text-white font-black uppercase tracking-[0.3em]">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="#" className="hover:text-white transition-colors">Cookie Audit</Link>
