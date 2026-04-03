@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Shield, Zap, Database, Trash2, HardDrive, Settings, ArrowRight } from "lucide-react";
+import ClientCarousel from "@/components/About/ClientCarousel";
 
 const services = [
   { 
@@ -26,12 +27,12 @@ const services = [
     icon: <HardDrive size={24} strokeWidth={1.5} />, 
     desc: "Climate-controlled storage for tapes, files, and critical assets."
   },
-  { 
-    slug: "in-house-solutions", 
-    title: "In-House Solutions", 
-    icon: <Settings size={24} strokeWidth={1.5} />, 
-    desc: "Custom on-site record management infrastructure setup."
-  },
+  // { 
+  //   slug: "in-house-solutions", 
+  //   title: "In-House Solutions", 
+  //   icon: <Settings size={24} strokeWidth={1.5} />, 
+  //   desc: "Custom on-site record management infrastructure setup."
+  // },
   { 
     slug: "data-security", 
     title: "DMS & Cloud", 
@@ -72,6 +73,76 @@ export default function ServicesListing() {
           </div>
 
         </div>
+
+
+
+{/* SUCCESS STORY */}
+<section className="py-20 md:py-32 bg-white">
+  <div className="max-w-[1100px] mx-auto px-6">
+
+    <h2 className="text-3xl md:text-5xl font-bold text-center mb-10">
+      Large Scale <span className="text-[rgb(0,104,83)]">Digitization Success</span>
+    </h2>
+
+    <div className="bg-blue-50 rounded-2xl p-6 md:p-10 shadow-lg space-y-6 text-gray-700">
+
+      <p className="text-lg">
+        OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise.
+      </p>
+
+      {/* SERVICES */}
+      <div>
+        <h3 className="font-semibold text-xl mb-3 text-[#1a1a1a]">Core Services Delivered</h3>
+        <ul className="grid md:grid-cols-2 gap-2 list-disc pl-5">
+          <li>Document Digitization</li>
+          <li>Secure Records Management</li>
+          <li>DMS Implementation</li>
+        </ul>
+      </div>
+
+      {/* APPROACH */}
+      <div>
+        <h3 className="font-semibold text-xl mb-3 text-[#1a1a1a]">Execution Strategy</h3>
+
+        <ul className="space-y-3 list-disc pl-5">
+          <li>
+            <strong>Multi-City Deployment:</strong> OMX's diversified operational strategy involved deploying specialized teams across key cities, including Faridabad in Delhi NCR apart from Noida & Jamalpur, Hyderabad, Pune, Indore, and Cochin. This approach enabled:
+          </li>
+          <p>On-site analysis and customized execution plans</p>
+          <p>Minimal disruption to operations</p>
+          <p>Efficient handling of location-specific challenges</p>
+          <li>
+            <strong>End-to-End Workflow:</strong> A structured workflow ensured seamless digitization
+          </li>
+           <p>Collection and categorization of physical files</p>
+          <p>High-resolution scanning with quality checks</p>
+          <p>Indexing and metadata tagging</p>
+          <li>
+            <strong>Centralized System:</strong> The digitized records were integrated into a unified platform, enabling
+          </li>
+
+          <p>Unified access across locations</p>
+          <p>Real-time data retrieval</p>
+          <p>Reduced physical storage and manual processes</p>
+        </ul>
+      </div>
+
+      {/* RESULT */}
+      <div className="bg-white p-5 rounded-xl border">
+        <p className="font-semibold text-[#1a1a1a]">
+          Result:
+        </p>
+        <p>
+          The transformation enabled clients to move from manual processes to a connected digital environment, significantly improving efficiency, accessibility, and data security.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
 
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,8 +205,9 @@ export default function ServicesListing() {
           </div>
 
         </div>
-
       </div>
+      
     </div>
+    
   );
 }

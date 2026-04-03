@@ -6,7 +6,7 @@ const services = [
   { name: "Records Management", href: "/services/records-management" },
   { name: "Digitization", href: "/services/scanning-digitization" },
   { name: "Secure Shredding", href: "/services/secure-shredding" },
-  { name: "Cloud DMS", href: "services/data-security" },
+  { name: "Cloud DMS", href: "/services/data-security" },
 ];
 
 export default function Footer() {
@@ -98,7 +98,7 @@ export default function Footer() {
                 PIN: 110035, INDIA
               </p>
               <div className="pt-4 border-t border-white/5">
-                <p className="text-[tomato] font-mono text-xs tracking-tighter italic">Primary Registry:</p>
+                <p className="text-[white] font-mono text-xs tracking-tighter italic">Primary Registry:</p>
                 <p className="text-xl font-bold text-white mt-1">omxinfo@omx.in</p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function Footer() {
             <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
               © 2026 OMX INFO MANAGEMENT LTD. ALL RIGHTS RESERVED.
             </p>
-            <p className="text-[20px] font-mono text-[tomato] uppercase tracking-[0.2em] italic">
+            <p className="text-[20px] font-mono text-[white] uppercase tracking-[0.2em] italic">
               Part of the 3000Cr OM Group Alliance
             </p>
           </div>

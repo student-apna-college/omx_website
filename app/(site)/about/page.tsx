@@ -29,6 +29,9 @@ export default function AboutPage() {
     { name: "Fortis Hospital", logo: "/logo/client14.jpg" },
     { name: "IBS Hospital", logo: "/logo/client16.jpg" },
     { name: "FARO", logo: "/logo/client17.png" },
+    { name: "MotherHood", logo: "/logo/motherhood.png" },
+    { name: "Motherland", logo: "/logo/motherland.png" },
+    { name: "pristyncare", logo: "/logo/pristyn care.png" },
   ];
 
   return (
@@ -58,7 +61,7 @@ export default function AboutPage() {
                 </h1>
 
                 <p className="text-sm sm:text-lg md:text-xl text-gray-300">
-                  Secure, scalable document management solutions designed to simplify storage,
+                 Reliable, scalable document management solutions designed to simplify storage,
                   improve access, and protect critical data.
                 </p>
 
@@ -131,8 +134,8 @@ export default function AboutPage() {
           </h2>
 
           <div className="bg-white rounded-2xl p-6 md:p-10 shadow-xl text-gray-600 space-y-4">
-            <p>Established in 2004, OMX Info Management Ltd is a leader in document storage.</p>
-            <p>We provide secure scanning, storage, and DMS solutions.</p>
+            
+            <p>We provide safest and Reliable scanning, storage, and DMS solutions.</p>
             <p> Established in 2004, OMX Info Management Ltd is one of the leading record management and document storage service providers in India. The company was founded with a clear vision to redefine document security, record storage, and digital document management by providing safe, reliable, and technology-driven solutions for businesses across different industries. </p> <p> OMX Info Management Ltd is an <strong>ISO 9001:2015 certified</strong> company and operates with the strong infrastructure support of the OM Group, a trusted business group with a turnover of more than <strong>3000 Crore</strong>. </p>
           <p> We specialize in secure document storage, warehouse record management, document scanning, secure shredding services, and advanced DMS (Document Management System) software. </p> <p> Our storage facilities are designed with high-level security systems, fire protection, controlled environment, and proper tracking methods to ensure complete safety of important records. </p> <p> Our company manages highly confidential records for industries such as banking, finance, pharmaceutical, corporate, and institutional sectors where accuracy and safety are critical. </p>
           <p> With our advanced DMS software, clients can access records digitally while physical files remain stored safely inside secure <strong>Tier-4 level storage vaults</strong>. </p> <p className="font-semibold text-[#1a1a1a]"> At OMX Info Management Ltd, our mission is to provide modern, secure, and efficient document management solutions that help organizations protect their data and move towards a smart digital record system with confidence. </p>
@@ -145,7 +148,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 mb-12">
           <h2 className="text-3xl md:text-4xl">
-            Trusted by <span className="text-[rgb(0,104,83)] font-semibold">Global Institutions</span>
+            Global Trust <span className="text-[rgb(0,104,83)] font-semibold">Proven Reliability</span>
           </h2>
         </div>
 

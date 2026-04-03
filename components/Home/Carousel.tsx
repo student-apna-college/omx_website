@@ -35,7 +35,7 @@ export default function Carousel({
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="absolute inset-0 bg-black/10 z-10 " />
+          <div className="absolute inset-0 bg-black/50 z-10 " />
           <Image 
             src={slide.img}
             alt={slide.title}
@@ -48,7 +48,7 @@ export default function Carousel({
             <div className="max-w-4xl space-y-6">
               <div className="flex items-center gap-3">
                 <span className="h-[1px] w-12 text-[#006853]"></span>
-                <span className="text-[#006853] text-1xl font-bold uppercase tracking-[0.4em]">
+                <span className="text-[rgb(0,104,83)] text-xs font-bold uppercase tracking-[0.3em]">
                   {slide.accent}
                 </span>
               </div>

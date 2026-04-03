@@ -82,11 +82,11 @@ export default function TechnicalSection() {
             className="space-y-8"
           >
             <h2 className="text-xl md:text-2xl font-black text-[#006853] uppercase tracking-widest">
-              Safer Record Storage Facility
+              Reliable Record Storage Facility
             </h2>
 
             <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-snug tracking-tight text-[#1a1a1a]">
-              We provide secure and well-managed storage facilities for important business files. Our warehouses feature strong security, fire safety systems, and organized storage arrangements.
+              We provide Confidential and well-managed storage facilities for important business files. Our warehouses feature strong security, fire safety systems, and organized storage arrangements.
               <span className="block mt-2 font-light">
                 Each file is labeled and tracked to ensure it can be located quickly whenever required.
               </span>

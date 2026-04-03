@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function LeftContent() {
   return (
-    <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center relative bg-[var(--color-tomato)]/20 backdrop-blur-sm overflow-hidden">
+    <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center relative rgb(0,104,83) backdrop-blur-sm overflow-hidden">
 
       {/* Floating gradient circles */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--color-tomato)]/30 blur-3xl animate-blob"></div>
-      <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-[var(--color-tomato)]/20 blur-3xl animate-blob animation-delay-2000"></div>
+      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full rgb(0,104,83) blur-3xl animate-blob"></div>
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full rgb(0,104,83) blur-3xl animate-blob animation-delay-2000"></div>
 
       <div className="relative z-10 max-w-lg space-y-6 flex flex-col items-center text-center">
         {/* Company Logo */}

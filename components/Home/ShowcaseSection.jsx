@@ -17,8 +17,8 @@ export default function ShowcaseSection() {
             Best Warehouse Solutions
           </h2>
           <p className="text-xl text-gray-100 max-w-xl leading-relaxed">
-            We specialize in secure document storage, warehouse record
-            management, document scanning, and secure shredding services.
+            We specialize in Reliable document storage, warehouse record
+            management, document scanning, and Confidential Document shredding services.
             Our solutions ensure safety, efficiency, and reliability for your business.
           </p>
         </div>

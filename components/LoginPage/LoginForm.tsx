@@ -26,7 +26,7 @@ export default function LoginForm() {
         {/* SLIDER */}
         <div className="relative flex bg-gray-300 rounded-full p-1 mb-6">
           <div
-            className={`absolute top-1 bottom-1 w-1/2 bg-[var(--color-tomato)] rounded-full transition-all duration-300 ${
+            className={`absolute top-1 bottom-1 w-1/2 bg-[rgb(0,104,83)] rounded-full transition-all duration-300 ${
               mode === "admin" ? "left-1/2" : "left-0"
             }`}
           />
@@ -58,7 +58,7 @@ export default function LoginForm() {
               type="text"
               placeholder="Client ID"
               required
-              className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--color-tomato)] outline-none transition shadow-sm"
+              className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--color-green)] outline-none transition shadow-sm"
               onChange={(e) =>
                 setForm({ ...form, clientId: e.target.value })
               }
@@ -68,7 +68,7 @@ export default function LoginForm() {
               type="text"
               placeholder="User ID"
               required
-              className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--color-tomato)] outline-none transition shadow-sm"
+              className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--color-green)] outline-none transition shadow-sm"
               onChange={(e) =>
                 setForm({ ...form, userId: e.target.value })
               }
@@ -79,7 +79,7 @@ export default function LoginForm() {
             type="password"
             placeholder="Password"
             required
-            className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--color-tomato)] outline-none transition shadow-sm"
+            className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--color-green)] outline-none transition shadow-sm"
             onChange={(e) =>
               setForm({ ...form, password: e.target.value })
             }
@@ -87,7 +87,7 @@ export default function LoginForm() {
 
           <button
             type="submit"
-            className="w-full bg-[var(--color-tomato)] text-white py-3 rounded-xl font-bold hover:opacity-90 active:scale-95 transition shadow-lg"
+            className="w-full bg-[rgb(0,104,83)] text-white py-3 rounded-xl font-bold hover:opacity-90 active:scale-95 transition shadow-lg"
           >
             {mode === "client" ? "Login as Client" : "Login as Admin"}
           </button>

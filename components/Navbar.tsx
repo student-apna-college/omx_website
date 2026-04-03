@@ -9,7 +9,7 @@ const serviceLinks = [
   { slug: "scanning-digitization", title: "Scanning & Digitization", icon: <Zap size={16} /> },
   { slug: "secure-shredding", title: "Secure Shredding", icon: <Trash2 size={16} /> },
   { slug: "media-storage", title: "Media Storage", icon: <HardDrive size={16} /> },
-  { slug: "in-house-solutions", title: "In-House Solutions", icon: <Settings size={16} /> },
+  // { slug: "in-house-solutions", title: "In-House Solutions", icon: <Settings size={16} /> },
   { slug: "data-security", title: "Data Security", icon: <Shield size={16} /> },
 ];
 

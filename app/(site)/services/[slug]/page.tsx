@@ -13,7 +13,7 @@ export async function generateStaticParams() {
     'scanning-digitization',
     'secure-shredding',
     'media-storage',
-    'in-house-solutions',
+    // 'in-house-solutions',
     'data-security'
   ];
 
@@ -46,7 +46,7 @@ const serviceContent: any = {
     metaDesc: "Secure off-site document storage and physical records management with Tier 4 security and RSSQL tracking."
   },
 
-  // 🔥 SAME DATA (NO CHANGE)
+  // AME DATA (NO CHANGE)
   'scanning-digitization': {
     title: "Digitization & Transformation",
     id: "SRV-002",
@@ -99,34 +99,29 @@ const serviceContent: any = {
     tagline: "Climate-engineered environments for irreplaceable assets.",
     icon: <HardDrive size={32} strokeWidth={1.5} />,
     features: [
-      "HDD Protection",
-      "Fire-Rated Secure Vault",
+      "Hardisk Protection Backup",
       "Dust-Free Controlled Environment",
       "Humidity & Temperature Control",
-      "Climate Controlled Storage",
       "24/7 CCTV Monitoring",
       "Barcode Based Media Tracking",
-      "Disaster Recovery Safe Storage",
       "Restricted Biometric Access",
-      "Shock-Proof Storage Racks",
       "Offsite Backup Protection",
-      "High Security Vault Facility"
     ],
     imageSrc: "/banner/placeholder_04.png",
     metaTitle: "Climate Controlled Media Storage | OMX Info Management",
     metaDesc: "Specialized vaulting for magnetic tapes, hard drives, and sensitive media assets with fire-rated protection."
   },
 
-  'in-house-solutions': {
-    title: "Turn-key In-House Solutions",
-    id: "SRV-005",
-    tagline: "Bespoke on-site infrastructure and process management.",
-    icon: <Settings size={32} strokeWidth={1.5} />,
-    features: ["On-site Facility Setup", "Manpower Outsourcing", "Process Standardization", "Technology Implementation"],
-    imageSrc: "/banner/placeholder_05.png",
-    metaTitle: "In-House Records Management Solutions | OMX Info Management",
-    metaDesc: "Custom on-site records management consultancy and manpower solutions for large-scale enterprises."
-  },
+  // 'in-house-solutions': {
+  //   title: "Turn-key In-House Solutions",
+  //   id: "SRV-005",
+  //   tagline: "Bespoke on-site infrastructure and process management.",
+  //   icon: <Settings size={32} strokeWidth={1.5} />,
+  //   features: ["On-site Facility Setup", "Manpower Outsourcing", "Process Standardization", "Technology Implementation"],
+  //   imageSrc: "/banner/placeholder_05.png",
+  //   metaTitle: "In-House Records Management Solutions | OMX Info Management",
+  //   metaDesc: "Custom on-site records management consultancy and manpower solutions for large-scale enterprises."
+  // },
 
   'data-security': {
     title: "DMS & Cloud Infrastructure",
@@ -136,15 +131,12 @@ const serviceContent: any = {
     features: [
       "End-to-End Encryption",
       "Multi-Factor Authentication",
-      "Automated Cloud Backups",
       "Disaster Recovery Planning",
       "Secure Data Access Control",
       "Role-Based Permissions",
       "Real-Time Data Sync",
       "Encrypted File Transfer",
       "Audit Log Monitoring",
-      "High Availability Servers",
-      "Data Loss Prevention",
       "24/7 System Monitoring"
     ],
     imageSrc: "/banner/placeholder_06.png",
