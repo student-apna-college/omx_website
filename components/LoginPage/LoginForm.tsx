@@ -26,7 +26,7 @@ export default function LoginForm() {
         {/* SLIDER */}
         <div className="relative flex bg-gray-300 rounded-full p-1 mb-6">
           <div
-            className={`absolute top-1 bottom-1 w-1/2 bg-[rgb(0,104,83)] rounded-full transition-all duration-300 ${
+            className={`absolute top-1 bottom-1 w-1/2 bg-[#000033] rounded-full transition-all duration-300 ${
               mode === "admin" ? "left-1/2" : "left-0"
             }`}
           />
@@ -87,7 +87,7 @@ export default function LoginForm() {
 
           <button
             type="submit"
-            className="w-full bg-[rgb(0,104,83)] text-white py-3 rounded-xl font-bold hover:opacity-90 active:scale-95 transition shadow-lg"
+            className="w-full bg-[#000033] text-white py-3 rounded-xl font-bold hover:opacity-90 active:scale-95 transition shadow-lg"
           >
             {mode === "client" ? "Login as Client" : "Login as Admin"}
           </button>

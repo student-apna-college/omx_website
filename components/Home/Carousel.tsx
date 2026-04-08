@@ -48,18 +48,18 @@ export default function Carousel({
             <div className="max-w-4xl space-y-6">
               <div className="flex items-center gap-3">
                 <span className="h-[1px] w-12 text-[#006853]"></span>
-                <span className="text-[rgb(0,104,83)] text-xs font-bold uppercase tracking-[0.3em]">
+                <span className="text-[#000033] text-xs font-bold">
                   {slide.accent}
                 </span>
               </div>
-              <h1 className="text-2xl md:text-8xl font-bold text-white leading-none tracking-tighter">
+              <p className="text-5xl md:text-7xl text-white font-light leading-tight">
                 {slide.title.split(" ").map((word, i) => (
                   <span key={i} className={i === 1 ? "font-medium" : ""}>
                     {word}{" "}
                   </span>
                 ))}
-              </h1>
-              <p className="text-xl text-gray-100 max-w-xl leading-relaxed">
+              </p>
+              <p className="text-small text-gray-100 max-w-xl leading-relaxed">
                 {slide.sub}
               </p>
               <div className="pt-8 flex gap-4">
@@ -84,13 +84,13 @@ export default function Carousel({
       <div className="absolute bottom-12 right-12 z-30 flex gap-4">
         <button
           onClick={prevSlide}
-          className="p-4 border border-white/20 text-white hover:bg-[tomato] transition-all"
+          className="p-4 border border-white/20 text-white hover:bg-[#000033] transition-all"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={nextSlide}
-          className="p-4 border border-white/20 text-white hover:bg-[tomato] transition-all"
+          className="p-4 border border-white/20 text-white hover:bg-[#000033] transition-all"
         >
           <ChevronRight size={24} />
         </button>

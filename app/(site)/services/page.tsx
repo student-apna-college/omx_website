@@ -7,25 +7,25 @@ const services = [
     slug: "records-management", 
     title: "Physical Records Management", 
     icon: <Database size={24} strokeWidth={1.5} />, 
-    desc: "End-to-end lifecycle management of physical documents with secure tracking and vaulting."
+    desc: "End-to-end lifecycle management of physical documents with secure tracking and vaulting"
   },
   { 
     slug: "scanning-digitization", 
     title: "Digital Transformation & Scanning", 
     icon: <Zap size={24} strokeWidth={1.5} />, 
-    desc: "High-speed digitization with automated indexing and accuracy control."
+    desc: "High-speed digitization with automated indexing and accuracy control"
   },
   { 
     slug: "secure-shredding", 
     title: "Secure Data Destruction", 
     icon: <Trash2 size={24} strokeWidth={1.5} />, 
-    desc: "Compliance-driven shredding services with certified destruction."
+    desc: "Compliance-driven shredding services with certified destruction"
   },
   { 
     slug: "media-storage", 
     title: "Media Vaulting", 
     icon: <HardDrive size={24} strokeWidth={1.5} />, 
-    desc: "Climate-controlled storage for tapes, files, and critical assets."
+    desc: "Climate-controlled storage for tapes, files, and critical assets"
   },
   // { 
   //   slug: "in-house-solutions", 
@@ -37,7 +37,7 @@ const services = [
     slug: "data-security", 
     title: "DMS & Cloud", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Secure cloud-based document access with advanced DMS system."
+    desc: "Secure cloud-based document access with advanced DMS system"
   },
 ];
 
@@ -49,8 +49,8 @@ export default function ServicesListing() {
 
         {/* TOP LABEL */}
         <div className="flex items-center gap-4 mb-10">
-          <div className="h-[2px] w-12 bg-[rgb(0,104,83)]"></div>
-          <span className="text-[rgb(0,104,83)] text-xs font-bold uppercase tracking-[0.3em]">
+          <div className="h-[2px] w-12 bg-[#000033]"></div>
+          <span className="text-[#000033] text-xs font-bold uppercase tracking-[0.3em]">
             Enterprise Solutions
           </span>
         </div>
@@ -61,14 +61,14 @@ export default function ServicesListing() {
           <div className="lg:col-span-8">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-light leading-tight">
               Core <span className="font-semibold">Services</span><br/>
-              & <span className="text-[rgb(0,104,83)] font-semibold">Infrastructure</span>
+              & <span className="text-[#000033] font-semibold">Infrastructure</span>
             </h1>
           </div>
 
           <div className="lg:col-span-4">
-            <p className="text-gray-600 border-l-4 border-[rgb(0,104,83)] pl-6 leading-relaxed text-sm md:text-base">
+            <p className="text-gray-600 border-l-4 border-[#000033] pl-6 leading-relaxed text-sm md:text-base">
               We provide secure storage, scanning, and document lifecycle solutions 
-              designed for modern enterprises across industries.
+              designed for modern enterprises across industries
             </p>
           </div>
 
@@ -81,13 +81,13 @@ export default function ServicesListing() {
   <div className="max-w-[1100px] mx-auto px-6">
 
     <h2 className="text-3xl md:text-5xl font-bold text-center mb-10">
-      Large Scale <span className="text-[rgb(0,104,83)]">Digitization Success</span>
+      Large Scale <span className="text-[#000033]">Digitization Success</span>
     </h2>
 
     <div className="bg-blue-50 rounded-2xl p-6 md:p-10 shadow-lg space-y-6 text-gray-700">
 
       <p className="text-lg">
-        OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise.
+        OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise
       </p>
 
       {/* SERVICES */}
@@ -133,7 +133,7 @@ export default function ServicesListing() {
           Result:
         </p>
         <p>
-          The transformation enabled clients to move from manual processes to a connected digital environment, significantly improving efficiency, accessibility, and data security.
+          The transformation enabled clients to move from manual processes to a connected digital environment, significantly improving efficiency, accessibility, and data security
         </p>
       </div>
 
@@ -156,7 +156,7 @@ export default function ServicesListing() {
             >
 
               {/* ICON */}
-              <div className="mb-6 text-gray-400 group-hover:text-[rgb(0,104,83)] transition">
+              <div className="mb-6 text-gray-400 group-hover:text-[#000033] transition">
                 {s.icon}
               </div>
 
@@ -170,7 +170,7 @@ export default function ServicesListing() {
               </p>
 
               {/* CTA */}
-              <div className="flex items-center gap-2 text-sm font-semibold text-[rgb(0,104,83)] opacity-0 group-hover:opacity-100 transition-all">
+              <div className="flex items-center gap-2 text-sm font-semibold text-[#000033] opacity-0 group-hover:opacity-100 transition-all">
                 <span>Explore</span>
                 <ArrowRight size={16} />
               </div>
@@ -180,7 +180,7 @@ export default function ServicesListing() {
           ))}
 
           {/* CTA CARD */}
-          <div className="rounded-2xl p-6 md:p-8 bg-[rgb(0,104,83)] text-white flex flex-col justify-between shadow-lg">
+          <div className="rounded-2xl p-6 md:p-8 bg-[#000033] text-white flex flex-col justify-between shadow-lg">
 
             <h3 className="text-2xl md:text-3xl font-light leading-snug">
               Need Custom <br/> Solution?
@@ -189,12 +189,12 @@ export default function ServicesListing() {
             <div className="mt-10">
 
               <p className="text-sm text-white/80 mb-5">
-                Contact us for enterprise-level document management solutions.
+                Contact us for enterprise-level document management solutions
               </p>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border border-white/40 px-5 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[rgb(0,104,83)] transition"
+                className="inline-flex items-center gap-2 border border-white/40 px-5 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#000033] transition"
               >
                 Contact Us
                 <ArrowRight size={14} />

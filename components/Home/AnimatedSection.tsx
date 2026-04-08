@@ -19,19 +19,19 @@ export default function TechnicalSection() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-xl md:text-2xl font-black text-[#006853] uppercase tracking-widest">
+            <h2 className="text-xl md:text-2xl font-black text-[#000033]  tracking-widest">
               Document Scanning Services
             </h2>
 
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-snug tracking-tight">
-              OMX Info Management Ltd provides reliable document scanning services to convert physical records into digital format.
-              <span className="block mt-2 font-light text-[#1a1a1a]">
-                Digital records save office space, improve work speed, and protect files from damage.
+            <h3 className="sm:text-2xl md:text-xl  leading-snug tracking-tight">
+              OMX Info Management Ltd provides reliable document scanning services to convert physical records into digital format
+              <span className="block mt-2  text-[#1a1a1a]">
+                Digital records save office space, improve work speed, and protect files from damage
               </span>
             </h3>
 
             <p className="text-base md:text-lg text-gray-500 leading-relaxed border-l-4  pl-6">
-              Our trained team carefully handles all documents to maintain privacy and accuracy. From old files to legal papers, we manage every document with care.
+              Our trained team carefully handles all documents to maintain privacy and accuracy. From old files to legal papers, we manage every document with care
             </p>
           </motion.div>
 
@@ -65,7 +65,7 @@ export default function TechnicalSection() {
             className="relative aspect-[4/3] bg-gray-100 border border-gray-200 shadow-xl overflow-hidden rounded-xl"
           >
             <Image
-              src="/images/wharehouse.png"
+              src="/images/wharehouse.jpeg"
               alt="Safer Record Storage Facility"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -81,30 +81,30 @@ export default function TechnicalSection() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-xl md:text-2xl font-black text-[#006853] uppercase tracking-widest">
+            <h2 className="text-xl md:text-2xl font-black text-[#000033] tracking-widest">
               Reliable Record Storage Facility
             </h2>
 
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-light leading-snug tracking-tight text-[#1a1a1a]">
-              We provide Confidential and well-managed storage facilities for important business files. Our warehouses feature strong security, fire safety systems, and organized storage arrangements.
-              <span className="block mt-2 font-light">
+            <h3 className="text-xl sm:text-2xl md:text-xl leading-snug tracking-tight text-[#1a1a1a]">
+              We provide Confidential and well-managed storage facilities for important business files. Our warehouses feature strong security, fire safety systems, and organized storage arrangements
+              <span className="block mt-2">
                 Each file is labeled and tracked to ensure it can be located quickly whenever required.
               </span>
             </h3>
 
             <p className="text-base md:text-lg text-gray-500 leading-relaxed border-l-4  pl-6">
-              Our storage services help companies free up office space while keeping documents safe and organized. Clients get reliable solutions with full safety, confidentiality, and professional support.
+              Our storage services help companies free up office space while keeping documents safe and organized. Clients get reliable solutions with full safety, confidentiality, and professional support
             </p>
 
             {/* Highlights */}
             <div className="grid grid-cols-2 gap-6">
               <div>
                 <h4 className="font-bold text-[#1a1a1a]">Accountability</h4>
-                <p className="text-sm text-gray-500">Expert management at local levels across India.</p>
+                <p className="text-sm text-gray-500">Expert management at local levels across India</p>
               </div>
               <div>
                 <h4 className="font-bold text-[#1a1a1a]">Expertise</h4>
-                <p className="text-sm text-gray-500">Quality assurance at every stage of the document lifecycle.</p>
+                <p className="text-sm text-gray-500">Quality assurance at every stage of the document lifecycle</p>
               </div>
             </div>
           </motion.div>

@@ -34,7 +34,7 @@ export default function EmployeeForm({ job }) {
           <div key={field}>
             <label className="block text-gray-700 font-medium mb-1">{field === "name" ? "Full Name" : field === "email" ? "Email Address" : "Experience"}</label>
             {field === "experience" ? (
-              <select name={field} onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#006853] outline-none">
+              <select name={field} onChange={handleChange} required className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#000033] outline-none">
                 <option value="">Select</option>
                 <option>0-1 Years</option>
                 <option>1-3 Years</option>
@@ -54,10 +54,10 @@ export default function EmployeeForm({ job }) {
 
         <div>
           <label className="block text-gray-700 font-medium mb-1">Why should we hire you?</label>
-          <textarea name="message" onChange={handleChange} rows={5} className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#006853] outline-none" />
+          <textarea name="message" onChange={handleChange} rows={5} className="w-full border p-3 rounded-xl focus:ring-2 focus:ring-[#000033] outline-none" />
         </div>
 
-        <button type="submit" className="w-full bg-[#006853] text-white py-3 rounded-full font-semibold hover:bg-green-700 transition">
+        <button type="submit" className="w-full bg-[#000033] text-white py-3 rounded-full font-semibold hover: transition">
           Submit Application
         </button>
       </form>

@@ -59,9 +59,9 @@ export default function ContactPage() {
     <div className="bg-[#f0fcf8] text-[#1a1a1a] selection:bg-green-600 selection:text-white">
 
       {/* HERO BANNER */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <section className="relative w-full h-[60vh] md:h-[90vh] overflow-hidden">
         <Image 
-          src="/images/contactus.jpg" 
+          src="/images/contact.jpg" 
           alt="OMX Contact Infrastructure" 
           fill 
           className="object-cover scale-105 transition-transform duration-[2500ms]"
@@ -71,10 +71,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
           <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg">
             CONNECT TO <br/>
-            INTERFACE.
+            INTERFACE
           </h1>
           <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
-            Access our nationwide network of high-security record centers and digitization hubs.
+            Access our nationwide network of high-security record centers and digitization hubs
           </p>
         </div>
       </section>

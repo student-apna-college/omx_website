@@ -16,7 +16,7 @@ export default function JobList({ jobPostings }) {
             key={job.id}
             onClick={() => { setSelectedJob(job); setShowForm(false); }}
             className={`bg-white p-6 rounded-2xl border cursor-pointer transition shadow hover:shadow-xl transform hover:-translate-y-1 ${
-              selectedJob?.id === job.id ? "border-[#006853] ring-1 ring-green-300" : "border-gray-200"
+              selectedJob?.id === job.id ? "border-[#000033] ring-1 ring-green-300" : "border-gray-200"
             }`}
           >
             <h3 className="font-semibold text-lg text-gray-900">{job.role}</h3>
@@ -57,7 +57,7 @@ export default function JobList({ jobPostings }) {
 
             <button
               onClick={() => setShowForm(true)}
-              className="mt-4 bg-[#006853] text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition"
+              className="mt-4 bg-[#000033] text-white px-8 py-3 rounded-full font-semibold cursor-pointer"
             >
               Apply Now
             </button>

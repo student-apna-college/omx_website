@@ -30,10 +30,10 @@ export default function BranchesPage() {
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
           <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight drop-shadow-lg">
             NATIONAL <br/>
-            <span className="text-green-600 italic font-medium">FOOTPRINT.</span>
+            <span className="text-green-600  font-medium">FOOTPRINT</span>
           </h1>
           <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
-            Access our nationwide network of strategic record centers, digitization hubs, and logistics nodes.
+            Access our nationwide network of strategic record centers, digitization hubs, and logistics nodes
           </p>
         </div>
       </section>
@@ -58,12 +58,12 @@ export default function BranchesPage() {
         <div className="grid lg:grid-cols-12 gap-16 mb-20 items-end">
           <div className="lg:col-span-8">
             <h2 className="text-5xl md:text-6xl font-light tracking-tight">
-              Strategic <span className="text-green-600 italic font-medium">Locations.</span>
+              Strategic <span className="text-green-600  font-medium">Locations</span>
             </h2>
           </div>
           <div className="lg:col-span-4 border-l border-gray-200 pl-8">
             <p className="text-gray-500 text-sm leading-relaxed">
-              Each OMX facility is engineered for secure record preservation, climate control, and rapid retrieval logistics.
+              Each OMX facility is engineered for secure record preservation, climate control, and rapid retrieval logistics
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function BranchesPage() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl md:text-3xl font-bold group-hover:text-green-700 transition-colors">{branch.city}</h3>
-                  <p className="text-sm text-gray-500 group-hover:text-gray-700 leading-relaxed italic">{branch.address}</p>
+                  <p className="text-sm text-gray-500 group-hover:text-gray-700 leading-relaxed ">{branch.address}</p>
                 </div>
                 <div className="pt-4 border-t border-gray-100 group-hover:border-green-200 flex flex-col gap-2">
                   <div className="flex items-center gap-2 text-[10px] font-mono text-gray-500 group-hover:text-gray-700">
@@ -100,7 +100,7 @@ export default function BranchesPage() {
         <div className="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-6">
             <Globe className="text-green-600" size={32} />
-            <p className="text-xl font-light text-gray-500 italic">Centralized Control, Localized Execution.</p>
+            <p className="text-xl font-light text-gray-500 ">Centralized Control, Localized Execution</p>
           </div>
           <p className="text-[10px] font-mono text-gray-400 uppercase tracking-[0.5em]">Part of the 3000Cr OM Group Network</p>
         </div>

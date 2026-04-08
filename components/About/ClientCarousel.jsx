@@ -1,32 +1,112 @@
+"use client";
+
 import Image from "next/image";
 
 export default function ClientCarousel({ clientData }) {
+
+  // ✅ Clean data (remove undefined)
+  const cleanData = (clientData || []).filter(
+    (item) => item && item.logo
+  );
+
+  // ✅ Split into 2 rows
+  const mid = Math.ceil(cleanData.length / 2);
+  const topClients = cleanData.slice(0, mid);
+  const bottomClients = cleanData.slice(mid);
+
   return (
-    <div className="relative flex overflow-hidden group">
-      
-      <div className="flex animate-marquee whitespace-nowrap py-12 group-hover:[animation-play-state:paused]">
+    <div className="w-full bg-blue-100 py-10 overflow-hidden">
 
-        {[...clientData, ...clientData].map((client, index) => (
-          <div
-            key={`${client.name}-${index}`}
-            className="mx-4 flex items-center justify-center min-w-[180px]"
-          >
-            <div className="relative w-40 h-32">
-              <Image
-                src={client.logo}
-                alt={`${client.name} logo`}
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        ))}
+      {/* 🔝 TOP ROW */}
+      <div className="overflow-hidden">
+        <div className="flex w-max animate-left pause-on-hover">
 
+          {/* ORIGINAL */}
+          {topClients.map((client, index) => (
+            <Logo key={`top-1-${index}`} client={client} />
+          ))}
+
+          {/* CLONE */}
+          {topClients.map((client, index) => (
+            <Logo key={`top-2-${index}`} client={client} />
+          ))}
+
+        </div>
       </div>
 
-      {/* Gradient fade */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+      {/* 🔽 BOTTOM ROW */}
+      <div className="overflow-hidden mt-6">
+        <div className="flex w-max animate-right pause-on-hover">
+
+          {/* ORIGINAL */}
+          {bottomClients.map((client, index) => (
+            <Logo key={`bottom-1-${index}`} client={client} />
+          ))}
+
+          {/* CLONE */}
+          {bottomClients.map((client, index) => (
+            <Logo key={`bottom-2-${index}`} client={client} />
+          ))}
+
+        </div>
+      </div>
+
+      {/* 🎬 CSS */}
+      <style jsx>{`
+        @keyframes leftScroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        @keyframes rightScroll {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        .animate-left {
+          animation: leftScroll 25s linear infinite;
+        }
+
+        .animate-right {
+          animation: rightScroll 25s linear infinite;
+        }
+
+        /* 🔥 Hover Pause */
+        .pause-on-hover:hover {
+          animation-play-state: paused;
+        }
+
+        @media (max-width: 768px) {
+          .animate-left,
+          .animate-right {
+            animation-duration: 35s;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/* 🔥 Logo Component */
+function Logo({ client }) {
+  return (
+    <div className="mx-6 flex items-center justify-center min-w-[180px]">
+      <div className="relative w-36 h-24">
+        <Image
+          src={client.logo}
+          alt={client.name || "client"}
+          fill
+          className="object-contain transition-transform duration-300 hover:scale-105"
+        />
+      </div>
     </div>
   );
 }

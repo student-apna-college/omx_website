@@ -29,8 +29,6 @@ const serviceContent: any = {
     tagline: "Industrial-grade vaulting for high-frequency corporate assets.",
     icon: <Database size={32} strokeWidth={1.5} />,
     features: [
-      "24-Hour Retrieval Guarantee",
-      "RSSQL Tracking System",
       "Biometric Access Control",
       "Pest & Moisture Control",
       "Fire Safety Protection",
@@ -41,16 +39,16 @@ const serviceContent: any = {
       "Fast File Indexing System",
       "Pickup & Delivery Service"
     ],
-    imageSrc: "/banner/placeholder_01.png",
+    imageSrc: "/banner/image10.jpg",
     metaTitle: "Physical Records Management | OMX Info Management",
-    metaDesc: "Secure off-site document storage and physical records management with Tier 4 security and RSSQL tracking."
+    metaDesc: "Secure off-site document storage and physical records management with Tier 4 security and RSSQL tracking"
   },
 
   // AME DATA (NO CHANGE)
   'scanning-digitization': {
     title: "Digitization & Transformation",
     id: "SRV-002",
-    tagline: "High-throughput data conversion for institutional memory.",
+    tagline: "High-throughput data conversion for institutional memory",
     icon: <Zap size={32} strokeWidth={1.5} />,
     features: [
       "Industrial Batch Scanning",
@@ -64,15 +62,15 @@ const serviceContent: any = {
       "Quality Checked Scanning",
       "Document Version Control"
     ],
-    imageSrc: "/banner/placeholder_02.png",
+    imageSrc: "/banner/image6.jpg",
     metaTitle: "Scanning & Digitization Services | OMX Info Management",
-    metaDesc: "Transform physical documents into searchable digital assets with industrial-grade OCR scanning services."
+    metaDesc: "Transform physical documents into searchable digital assets with industrial-grade OCR scanning services"
   },
 
   'secure-shredding': {
     title: "Certified Secure Destruction",
     id: "SRV-003",
-    tagline: "Compliance-driven purging of semi-active and inactive records.",
+    tagline: "Compliance-driven purging of semi-active and inactive records",
     icon: <Trash2 size={32} strokeWidth={1.5} />,
     features: [
       "Certified Document Destruction",
@@ -88,15 +86,15 @@ const serviceContent: any = {
       "Certificate of Destruction Provided",
       "Client Approved Destruction",
     ],
-    imageSrc: "/banner/placeholder_03.png",
+    imageSrc: "/banner/image2.jpg",
     metaTitle: "Secure Data Destruction & Shredding | OMX Info Management",
-    metaDesc: "Certified document destruction services ensuring complete data privacy and legal compliance."
+    metaDesc: "Certified document destruction services ensuring complete data privacy and legal compliance"
   },
 
   'media-storage': {
     title: "Specialized Media Vaulting",
     id: "SRV-004",
-    tagline: "Climate-engineered environments for irreplaceable assets.",
+    tagline: "Climate-engineered environments for irreplaceable assets",
     icon: <HardDrive size={32} strokeWidth={1.5} />,
     features: [
       "Hardisk Protection Backup",
@@ -107,9 +105,9 @@ const serviceContent: any = {
       "Restricted Biometric Access",
       "Offsite Backup Protection",
     ],
-    imageSrc: "/banner/placeholder_04.png",
+    imageSrc: "/banner/image3.jpg",
     metaTitle: "Climate Controlled Media Storage | OMX Info Management",
-    metaDesc: "Specialized vaulting for magnetic tapes, hard drives, and sensitive media assets with fire-rated protection."
+    metaDesc: "Specialized vaulting for magnetic tapes, hard drives, and sensitive media assets with fire-rated protection"
   },
 
   // 'in-house-solutions': {
@@ -126,7 +124,7 @@ const serviceContent: any = {
   'data-security': {
     title: "DMS & Cloud Infrastructure",
     id: "SRV-006",
-    tagline: "Advanced cybersecurity frameworks for digital asset protection.",
+    tagline: "Advanced cybersecurity frameworks for digital asset protection",
     icon: <Shield size={32} strokeWidth={1.5} />,
     features: [
       "End-to-End Encryption",
@@ -139,9 +137,9 @@ const serviceContent: any = {
       "Audit Log Monitoring",
       "24/7 System Monitoring"
     ],
-    imageSrc: "/banner/placeholder_06.png",
+    imageSrc: "/banner/data.jpg",
     metaTitle: "Cloud DMS & Data Security | OMX Info Management",
-    metaDesc: "Secure cloud-based document management systems with military-grade encryption and automated backups."
+    metaDesc: "Secure cloud-based document management systems with military-grade encryption and automated backups"
   }
 };
 
@@ -165,7 +163,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <div className="bg-gradient-to-b from-[#f8fbff] to-white text-[#1a1a1a]">
 
       {/* HERO */}
-      <section className="relative w-full h-[65vh] min-h-[500px] overflow-hidden">
+      <section className="relative w-full h-[60vh] md:h-[65vh] min-h-[400px] md:min-h-[700px] overflow-hidden">
         <Image src={service.imageSrc} alt={service.title} fill className="object-cover scale-105"/>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
 
@@ -187,7 +185,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
           {service.features.map((f: string, i: number) => (
             <div key={i} className="flex items-center gap-4 bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
-              <CheckCircle2 className="text-[rgb(0,104,83)]"/>
+              <CheckCircle2 className="text-[#000033]"/>
               <span className="font-semibold text-gray-700">{f}</span>
             </div>
           ))}
@@ -200,7 +198,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-4 gap-6 px-6">
           {[ShieldCheck, Clock, Truck, BadgeCheck].map((Icon, i) => (
             <div key={i} className="bg-[#f8fbff] p-8 rounded-xl text-center hover:shadow-lg transition">
-              <Icon className="mx-auto mb-4 text-[rgb(0,104,83)]" size={32}/>
+              <Icon className="mx-auto mb-4 text-[#000033]" size={32}/>
               <p className="font-bold text-xl">Enterprise Grade</p>
             </div>
           ))}
@@ -209,7 +207,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       {/* CTA */}
       <section className="py-20 text-center">
-        <Link href="/services" className="text-[rgb(0,104,83)] font-bold uppercase tracking-widest hover:underline">
+        <Link href="/services" className="text-[#000033] font-bold uppercase tracking-widest hover:underline">
           View All Services →
         </Link>
       </section>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function LeftContent() {
   return (
-    <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center relative rgb(0,104,83) backdrop-blur-sm overflow-hidden">
+    <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center relative rgb(#000033) backdrop-blur-sm overflow-hidden">
 
       {/* Floating gradient circles */}
       <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full rgb(0,104,83) blur-3xl animate-blob"></div>
@@ -23,9 +23,9 @@ export default function LeftContent() {
         </h1>
 
         <p className="text-sm md:text-base leading-relaxed text-[var(--color-ink)]/90 drop-shadow-md max-h-72 overflow-y-auto">
-          Welcome to OMX Info Management (OM Group Company) offering Records & Information Management Services. We can help you manage and secure your company's greatest asset - your business information. We at OMX believe that your business data is only valuable if it is readily accessible when needed.
+          Welcome to OMX Info Management (OM Group Company) offering Records & Information Management Services. We can help you manage and secure your company's greatest asset - your business information. We at OMX believe that your business data is only valuable if it is readily accessible when needed
           <br /><br />
-          Safety, compliance, quality, and innovation are at the heart of everything we do. By customizing our processes to your protocols, we make collaboration effortless.
+          Safety, compliance, quality, and innovation are at the heart of everything we do. By customizing our processes to your protocols, we make collaboration effortless
         </p>
       </div>
     </div>

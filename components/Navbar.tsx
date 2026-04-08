@@ -1,7 +1,19 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Database, Zap, Trash2, HardDrive, Settings, Shield, Menu, X, ArrowRight, ContactRound, MapPin } from 'lucide-react';
+import {
+  ChevronDown,
+  Database,
+  Zap,
+  Trash2,
+  HardDrive,
+  Shield,
+  Menu,
+  X,
+  ArrowRight,
+  ContactRound,
+  MapPin
+} from 'lucide-react';
 import Image from 'next/image';
 
 const serviceLinks = [
@@ -9,7 +21,6 @@ const serviceLinks = [
   { slug: "scanning-digitization", title: "Scanning & Digitization", icon: <Zap size={16} /> },
   { slug: "secure-shredding", title: "Secure Shredding", icon: <Trash2 size={16} /> },
   { slug: "media-storage", title: "Media Storage", icon: <HardDrive size={16} /> },
-  // { slug: "in-house-solutions", title: "In-House Solutions", icon: <Settings size={16} /> },
   { slug: "data-security", title: "Data Security", icon: <Shield size={16} /> },
 ];
 
@@ -18,146 +29,161 @@ const contactUsLinks = [
   { slug: "branch-locations", title: "Branch Locations", icon: <MapPin size={16} /> }
 ];
 
+// ⭐ INDUSTRY SOLUTIONS (same structure, just typo fixed)
+const industrySolutions = [
+  { slug: "finance-banking", title: "Finance & Banking", icon: <ContactRound size={16} /> },
+  { slug: "insurance", title: "Insurence", icon: <MapPin size={16} /> },
+  { slug: "healthcare-pharmaceuticals-medical-records", title: "HealthCare & Pharmaceuticals-Medical Records", icon: <ContactRound size={16} /> },
+  { slug: "legal-laws-confidential-records", title: "Legal Laws Confidential Records", icon: <MapPin size={16} /> },
+  { slug: "auto-industries-automobiles", title: "Auto Industries Automobiles", icon: <ContactRound size={16} /> },
+  { slug: "energy-sector-oil-gas-solar", title: "Energy Sector Oil Gas Solar", icon: <MapPin size={16} /> },
+  { slug: "media-entertainment", title: "Media Entertainment", icon: <ContactRound size={16} /> },
+  { slug: "audit-ca-firms", title: "Audit CA Firms", icon: <MapPin size={16} /> },
+  { slug: "education-training", title: "Education Training", icon: <ContactRound size={16} /> },
+  { slug: "telecom", title: "Telecom", icon: <MapPin size={16} /> },
+  { slug: "fmcg-industrial-records", title: "FMCG Industrial Records", icon: <ContactRound size={16} /> }, // ⭐ FIX
+  { slug: "public-sector-ngo", title: "Public Sector NGO", icon: <MapPin size={16} /> },
+  { slug: "small-medium-enterprises", title: "Small Medium Enterprises", icon: <ContactRound size={16} /> },
+  { slug: "research-records", title: "Research Records", icon: <MapPin size={16} /> },
+  { slug: "logistics-airway-bills", title: "Logistics Airway Bills", icon: <ContactRound size={16} /> },
+  { slug: "real-estate-infrastructure", title: "Real Estate Infrastructure", icon: <MapPin size={16} /> },
+  { slug: "airlines", title: "Airlines", icon: <ContactRound size={16} /> },
+];
 
 export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Common typography class for brand consistency
-  const navType = "text-sm font-bold uppercase tracking-[0.2em]";
-
   return (
-    <nav className="w-full px-0 py-0">
-      {/* MAIN DESKTOP BAR */}
-      <div className="w-full flex justify-between items-center bg-[rgb(0,104,83)] border-b border-gray-100 px-6 md:px-12 py-3 md:py-5 shadow-md relative z-[60]">
-        
-        <Link href="/" className="relative h-13 w-44 md:h-18 md:w-60 transition-all duration-300 bg-white">
-          <Image
-            src="/images/omx info.png"
-            alt="OMX Logo"
-            fill
-            className="object-contain object-left"
-            priority
-          />
+    <nav className="w-full relative z-[9999]">
+
+      {/* HEADER */}
+      <div className="flex justify-between items-center bg-white px-4 md:px-12 py-3 md:py-4 shadow-md">
+
+        {/* LOGO */}
+        <Link href="/" className="relative h-10 w-32 sm:h-12 sm:w-40 md:h-24 md:w-72">
+          <Image src="/images/omx info.png" alt="logo" fill className="object-contain" />
         </Link>
 
-        {/* MOBILE TOGGLE */}
-        <button 
-          className="md:hidden p-2 text-[#1a1a1a]"
+        {/* MOBILE BUTTON */}
+        <button
+          className="md:hidden text-[#000033]"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* DESKTOP LINKS */}
-        <div className={`hidden md:flex gap-14 items-center ${navType} text-white`}>
-          <Link href="/" className="hover:text-[#404040] transition-colors">Home</Link>
-          <Link href="/about" className="hover:text-[#404040] transition-colors">About Us</Link>   
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
-            <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isDropdownOpen ? 'text-[#404040]' : 'hover:text-[#404040]'}`}>
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex gap-10 items-center text-[#000033] text-sm">
+
+          <Link href="/">Home</Link>
+
+          {/* ABOUT */}
+          <div className="relative group">
+            <div className="flex items-center gap-1 py-4 cursor-pointer">
+              <Link href="/about">About</Link>
+              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
+            </div>
+
+            <div className="absolute top-full left-0 mt-2 w-[200px] bg-white rounded-lg shadow-lg p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all">
+              <Link href="/about/core-team" className="block px-4 py-2 text-gray-600 hover:bg-gray-100">
+                Core Team
+              </Link>
+            </div>
+          </div>
+
+          {/* SERVICES */}
+          <div className="relative group">
+            <div className="flex items-center gap-1 py-4 cursor-pointer">
               <Link href="/services">Services</Link>
-              <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
             </div>
 
-            {isDropdownOpen && <div className="absolute top-full left-0 w-full h-10" />}
-
-            <div className={`absolute top-full -right-10 mt-2 w-[340px] bg-white border border-gray-100 shadow-2xl rounded-xl p-5 transition-all duration-300 transform ${isDropdownOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'}`}>
-              <div className="grid grid-cols-1 gap-2">
-                {/* <p className="px-4 py-2 text-[10px] text-gray-400 font-mono tracking-[0.3em] border-b border-gray-50 mb-2 italic uppercase">// Core Infrastructure</p> */}
-                {serviceLinks.map((s) => (
-                  <Link key={s.slug} href={`/services/${s.slug}`} className="flex items-center gap-5 px-4 py-3 rounded-lg hover:bg-gray-50 group transition-all" onClick={() => setIsDropdownOpen(false)}>
-                    <div className="text-gray-400 group-hover:text-[#404040] transition-colors">{s.icon}</div>
-                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#404040] transition-colors">{s.title}</span>
-                  </Link>
-                ))}
-              </div>
+            <div className="absolute top-full right-0 mt-2 w-[300px] bg-white rounded-lg shadow-lg p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all">
+              {serviceLinks.map((s) => (
+                <Link key={s.slug} href={`/services/${s.slug}`} className="flex gap-3 p-2 hover:bg-gray-100 text-gray-700">
+                  {s.icon} {s.title}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <Link href="/careers" className="hover:text-[#404040] transition-colors">Careers</Link>
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsContactDropdownOpen(true)}
-            onMouseLeave={() => setIsContactDropdownOpen(false)}
-          >
-            <div className={`flex items-center gap-1 py-4 transition-colors cursor-pointer ${isContactDropdownOpen ? 'text-[#404040]' : 'hover:text-[#404040]'}`}>
-              <p>Contact Us</p>
-              <ChevronDown size={14} className={`transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`} />
+          {/* ⭐ NEW: INDUSTRY SOLUTIONS */}
+          <div className="relative group">
+            <div className="flex items-center gap-1 py-4 cursor-pointer">
+              <span>Industry We Serve</span>
+              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
             </div>
 
-            {isContactDropdownOpen && <div className="absolute top-full left-0 w-full h-10" />}
-
-            <div className={`absolute top-full -right-10 mt-2 w-[340px] bg-white border border-gray-100 shadow-2xl rounded-xl p-5 transition-all duration-300 transform ${isContactDropdownOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'}`}>
-              <div className="grid grid-cols-1 gap-2">
-                {/* <p className="px-4 py-2 text-[10px] text-gray-400 font-mono tracking-[0.3em] border-b border-gray-50 mb-2 italic uppercase">// Core Infrastructure</p> */}
-                {contactUsLinks.map((s) => (
-                  <Link key={s.slug} href={`/${s.slug}`} className="flex items-center gap-5 px-4 py-3 rounded-lg hover:bg-gray-50 group transition-all" onClick={() => setIsContactDropdownOpen(false)}>
-                    <div className="text-gray-400 group-hover:text-[#404040] transition-colors">{s.icon}</div>
-                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#404040] transition-colors">{s.title}</span>
-                  </Link>
-                ))}
-              </div>
+            <div className="absolute top-full right-0 mt-2 w-[320px] max-h-[400px] overflow-y-auto bg-white rounded-lg shadow-lg p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all">
+              {industrySolutions.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/industry/${item.slug}`}
+                  className="flex gap-3 p-2 hover:bg-gray-100 text-gray-700 text-sm"
+                >
+                  {item.icon} {item.title}
+                </Link>
+              ))}
             </div>
           </div>
-          {/* <Link href="/contact" className="bg-[tomato] text-white px-10 py-5 rounded-full text-xs font-black hover:bg-[#1a1a1a] transition-all ml-4">
-            Contact Us
-          </Link> */}
+
+          <Link href="/careers">Careers</Link>
+
+          {/* CONTACT */}
+          <div className="relative group">
+            <div className="flex items-center gap-1 py-4 cursor-pointer">
+              <span>Contact</span>
+              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
+            </div>
+
+            <div className="absolute top-full right-0 mt-2 w-[300px] bg-white rounded-lg shadow-lg p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all">
+              {contactUsLinks.map((s) => (
+                <Link key={s.slug} href={`/${s.slug}`} className="flex gap-3 p-2 hover:bg-gray-100 text-gray-700">
+                  {s.icon} {s.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* MOBILE FULL-SCREEN MENU */}
-      <div 
-        className={`fixed inset-0 h-screen w-full bg-white z-[60] transition-transform duration-500 ease-in-out md:hidden ${
-          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
-        }`}
-      >
-        <div className={`flex flex-col min-h-screen pt-24 px-6 gap-8 ${navType} text-[#1a1a1a] overflow-y-auto`}>
-          <Link 
-            href="/about" 
-            className="border-b border-gray-100 pb-6 flex justify-between items-center group"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Our Story <ArrowRight size={18} className="text-gray-300" />
-          </Link>
-          
-          <Link 
-            href="/services" 
-            className="border-b border-gray-100 pb-6 flex justify-between items-center group"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Services <ArrowRight size={18} className="text-gray-300" />
-          </Link>
-          
-          <Link 
-            href="/careers" 
-            className="border-b border-gray-100 pb-6 flex justify-between items-center group"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Careers <ArrowRight size={18} className="text-gray-300" />
-          </Link>
-          
-          <Link 
-            href="/contact" 
-            className="text-[#404040] pt-4 flex items-center gap-4"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact Us<div className="h-[2px] w-12 bg-[#404040]"></div>
-          </Link>
+      {/* MOBILE MENU */}
+      <div className={`fixed top-0 left-0 w-full h-screen bg-white z-[9999] md:hidden transition-transform duration-500 ${
+        isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+      }`}>
 
-          {/* Institutional Note at Bottom */}
-          <div className="mt-auto pb-12">
-            {/* <p className="text-[10px] font-mono text-gray-300 italic tracking-tighter">
-              // OMX Info Management Limited <br/>
-              // Institutional Grade Data Logistics
-            </p> */}
+        <div className="flex flex-col h-full pt-20 px-5 gap-5 overflow-y-auto">
+
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+
+          {/* SERVICES */}
+          <div className="border-b pb-4">
+            <p className="text-gray-400 text-xs mb-2 ">Services</p>
+            {serviceLinks.map((s) => (
+              <Link key={s.slug} href={`/services/${s.slug}`} onClick={() => setIsMobileMenuOpen(false)}>
+                {s.title}
+              </Link>
+            ))}
           </div>
+
+          {/* ⭐ NEW: INDUSTRY MOBILE */}
+          <div className="border-b pb-4">
+            <p className="text-gray-400 text-xs mb-2">Industry We Serve</p>
+            {industrySolutions.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/industry/${item.slug}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
+
         </div>
       </div>
+
     </nav>
   );
 }

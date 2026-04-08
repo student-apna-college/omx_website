@@ -11,7 +11,7 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[rgb(0,104,83)] text-white border-t border-white/5 pt-32 pb-12">
+    <footer className="bg-[#000033] text-white border-t border-white/5 pt-32 pb-12">
       <div className="max-w-[1440px] mx-auto px-8 md:px-12">
         
         {/* Main Footer Grid */}
@@ -29,7 +29,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white text-lg font-light leading-relaxed max-w-md">
-              An <span className="text-white font-medium">ISO 9001:2015 Certified</span> entity within the 3000Cr OM Group network. We architect the secure lifecycle of India's most critical information assets.
+              An <span className="text-white font-medium">ISO 9001:2015 Certified</span> entity within the 3000Cr OM Group network. We architect the secure lifecycle of India's most critical information assets
             </p>
             
             {/* Social Links */}
@@ -99,7 +99,12 @@ export default function Footer() {
               </p>
               <div className="pt-4 border-t border-white/5">
                 <p className="text-[white] font-mono text-xs tracking-tighter italic">Primary Registry:</p>
-                <p className="text-xl font-bold text-white mt-1">omxinfo@omx.in</p>
+                <a
+  href="mailto:omxinfo@omx.in"
+  className="text-xl font-bold text-white mt-1 hover:underline"
+>
+  omxinfo@omx.in
+</a>
               </div>
             </div>
           </div>
@@ -109,19 +114,20 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-              © 2026 OMX INFO MANAGEMENT LTD. ALL RIGHTS RESERVED.
-            </p>
-            <p className="text-[20px] font-mono text-[white] uppercase tracking-[0.2em] italic">
+            <p className="text-[10px] font-mono text-white-600 uppercase tracking-widest">
+              © 2026 OMX INFO MANAGEMENT LTD. ALL RIGHTS RESERVED
+            </p>.
+            
+            <p className="text-[20px] font-mono text-[white] uppercase tracking-[0.2em]">
               Part of the 3000Cr OM Group Alliance
             </p>
           </div>
           
-          <div className="flex gap-10 text-[15px] text-white font-black uppercase tracking-[0.3em]">
+          {/* <div className="flex gap-10 text-[15px] text-white font-black uppercase tracking-[0.3em]">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="#" className="hover:text-white transition-colors">Cookie Audit</Link>
-          </div>
+          </div> */}
         </div>
 
       </div>

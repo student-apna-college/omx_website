@@ -9,17 +9,17 @@ export default function FAQAccordion() {
     {
       question: "What services does OMX Info Management provide?",
       answer:
-        "OMX Info Management offers Records Management, Digitization, Secure Shredding, and Cloud DMS solutions for businesses nationwide.",
+        "OMX Info Management offers Records Management, Digitization, Secure Shredding, and Cloud DMS solutions for businesses nationwide",
     },
     {
       question: "How can I submit a service request?",
       answer:
-        "You can submit a service request using our Institutional Inquiry Portal available on the Contact page. Fill in the form with your details and requirements.",
+        "You can submit a service request using our Institutional Inquiry Portal available on the Contact page. Fill in the form with your details and requirements",
     },
     {
       question: "Are your storage facilities secure?",
       answer:
-        "Yes, all our facilities comply with ISO 9001:2015, GDPR regulations, and have Tier 4 Physical Security to ensure the safety of your documents.",
+        "Yes, all our facilities comply with ISO 9001:2015, GDPR regulations, and have Tier 4 Physical Security to ensure the safety of your documents",
     },
   ];
 

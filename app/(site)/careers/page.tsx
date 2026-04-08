@@ -32,7 +32,7 @@ export default function CareersPage() {
         <div className="max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 space-y-8">
             <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-[1.05]">
-              Build Your <span className="font-medium italic text-[#006853]">Career</span> With Us
+              Build Your <span className="font-medium  text-[#000033]">Career</span> With Us
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">Join a company that values innovation, professional growth, and collaboration. Employees are empowered to contribute to impactful projects and grow alongside a supportive leadership team.</p>
             <p className="text-lg text-gray-600 leading-relaxed">We offer structured career paths, mentorship programs, skill development, and exposure to real-world challenges. Whether entry-level or experienced, our culture encourages learning and excellence.</p>
@@ -45,9 +45,9 @@ export default function CareersPage() {
             </div>
             <div className="relative z-10 space-y-6">
               <h3 className="text-3xl font-light italic">
-                Request <br /> <span className="text-[#006853]">Career</span> Consultation
+                Request <br /> <span className="text-[white]">Career</span> Consultation
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">Our HR team provides personalized guidance and career advice for candidates interested in high-impact roles.</p>
+              <p className="text-gray-400 text-sm leading-relaxed">Our HR team provides personalized guidance and career advice for candidates interested in high-impact roles</p>
               <Link href="/contact" className="inline-block w-full border border-gray-700 px-6 py-3 text-xs font-bold uppercase tracking-widest hover:border-[#006853] hover:text-[#006853] transition-colors">
                 Schedule Meeting
               </Link>
