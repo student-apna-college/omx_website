@@ -10,20 +10,20 @@ export default function Home() {
 
   const slides = [
     {
-      title: "Trusted Document Management Solutions",
-      sub: "OMX Info Management Ltd.provides professional document management services including scanning, storage, shredding, and digital record management",
-      img: "/images/shradding.png",
+      title: "Eco Friendly Shredding Services",
+      sub: "OMX Info Management Ltd.provides Eco-friendly shredding solutions ensuring secure document destruction, protecting sensitive information, supporting compliance standards, and promoting sustainable recycling practices for businesses.",
+      img: "/industry/fmcg1.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
-      title: "Warehouse & Record Storage Facility",
-      sub: "We offer Trusted warehouse and record storage services designed for companies that need safe space for important documents",
-      img: "/images/placeholder6.jpeg",
+      title: "Next-Gen Document Storage Facility",
+      sub: "We offer Next-generation document storage facility offering secure, scalable solutions for efficient record management, quick access, data protection, and seamless integration with modern business operations.",
+      img: "/images/wharehouse4.jpeg",
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
-      title: "Scanning, Shredding & DMS Software",
-      sub: "High-quality document scanning,Confidential Document Storage shredding, and advanced DMS software to help organizations manage records digitally",
+      title: "Document Management System & Smart Scanning Solutions ",
+      sub: "Advanced document scanning and DMS solutions enabling Safest storage, quick retrieval, improved accuracy, workflow automation, and seamless digital transformation for businesses.",
       img: "/images/wharhouse2.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
@@ -70,44 +70,38 @@ export default function Home() {
 
 
   return (
-    <div className="bg-gradient-to-b from-white via-blue-50 to-white text-[#0f172a] selection:bg-[blue] selection:text-white">
+  <div className="bg-gradient-to-b from-white via-blue-50 to-white text-[#0f172a]">
 
-      {/* HERO */}
-      <HeroSection slides={slides} />
+    {/* HERO */}
+    <HeroSection slides={slides} />
 
-      {/* TECH SECTION */}
-      <section className="py-16 md:py-24 bg-white">
-        <TechnicalSection />
-      </section>
+    {/* TECH */}
+    <TechnicalSection />
 
-      {/* SHOWCASE */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
-        <ShowcaseSection />
-      </section>
+    {/* SHOWCASE */}
+    <ShowcaseSection />
 
-      {/* INDUSTRY TICKER */}
-      <section className="py-12 md:py-16 bg-white">
-        <IndustryTicker industries={industries} />
-      </section>
+   
 
-      {/* ACCORDION (FAQ) */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
-        <Accordian />
-      </section>
-      
+    {/* FAQ */}
+    
+      <Accordian />
 
-      {/* CLIENTS */}
-            <section className="py-20 md:py-32 bg-white">
-              <div className="max-w-[1400px] mx-auto px-6 mb-12">
-                <h2 className="text-3xl md:text-4xl">
-                  Global Trust <span className="text-[000033] font-semibold">Proven Reliability</span>
-                </h2>
-              </div>
-      
-              <ClientCarousel clientData={clientData} />
-            </section>
+    
 
-            {/* <RotatingWheel></RotatingWheel> */}
-    </div>
-  );
-}
+    {/* CLIENTS */}
+    <section className="py-12 md:py-16 bg-white">
+
+  <div className="max-w-[1400px] mx-auto px-6 mb-6">
+    <h2 className="text-3xl md:text-4xl">
+      Global Trust <span className="text-[#000033] font-semibold">Proven Reliability</span>
+    </h2>
+  </div>
+
+  <ClientCarousel clientData={clientData} />
+     {/* INDUSTRY */}
+    <IndustryTicker industries={industries} />
+
+</section>
+  </div>
+);}

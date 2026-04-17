@@ -1,28 +1,38 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  Database, Zap, Trash2, HardDrive, Settings, 
-  Shield, CheckCircle2, ArrowRight, Info 
+import {
+  Database, Zap, Trash2, Shield,
+  CheckCircle2
 } from 'lucide-react';
 import { ShieldCheck, Clock, Truck, BadgeCheck } from "lucide-react";
 
+type ServiceType = {
+  title: string;
+  id: string;
+  tagline: string;
+  icon: React.ReactNode;
+  features: string[];
+  imageSrc: string;
+  metaTitle: string;
+  metaDesc: string;
+};
+
+// STATIC PARAMS (same logic)
 export async function generateStaticParams() {
   const slugs = [
     'records-management',
     'scanning-digitization',
     'secure-shredding',
     'media-storage',
-    // 'in-house-solutions',
     'data-security'
   ];
 
-  return slugs.map((slug) => ({
-    slug: slug,
-  }));
+  return slugs.map((slug) => ({ slug }));
 }
 
-const serviceContent: any = {
+// REMOVE "any"
+const serviceContent: Record<string, ServiceType> = {
   'records-management': {
     title: "Physical Records Management",
     id: "SRV-001",
@@ -44,7 +54,6 @@ const serviceContent: any = {
     metaDesc: "Secure off-site document storage and physical records management with Tier 4 security and RSSQL tracking"
   },
 
-  // AME DATA (NO CHANGE)
   'scanning-digitization': {
     title: "Digitization & Transformation",
     id: "SRV-002",
@@ -91,36 +100,6 @@ const serviceContent: any = {
     metaDesc: "Certified document destruction services ensuring complete data privacy and legal compliance"
   },
 
-  'media-storage': {
-    title: "Specialized Media Vaulting",
-    id: "SRV-004",
-    tagline: "Climate-engineered environments for irreplaceable assets",
-    icon: <HardDrive size={32} strokeWidth={1.5} />,
-    features: [
-      "Hardisk Protection Backup",
-      "Dust-Free Controlled Environment",
-      "Humidity & Temperature Control",
-      "24/7 CCTV Monitoring",
-      "Barcode Based Media Tracking",
-      "Restricted Biometric Access",
-      "Offsite Backup Protection",
-    ],
-    imageSrc: "/banner/image3.jpg",
-    metaTitle: "Climate Controlled Media Storage | OMX Info Management",
-    metaDesc: "Specialized vaulting for magnetic tapes, hard drives, and sensitive media assets with fire-rated protection"
-  },
-
-  // 'in-house-solutions': {
-  //   title: "Turn-key In-House Solutions",
-  //   id: "SRV-005",
-  //   tagline: "Bespoke on-site infrastructure and process management.",
-  //   icon: <Settings size={32} strokeWidth={1.5} />,
-  //   features: ["On-site Facility Setup", "Manpower Outsourcing", "Process Standardization", "Technology Implementation"],
-  //   imageSrc: "/banner/placeholder_05.png",
-  //   metaTitle: "In-House Records Management Solutions | OMX Info Management",
-  //   metaDesc: "Custom on-site records management consultancy and manpower solutions for large-scale enterprises."
-  // },
-
   'data-security': {
     title: "DMS & Cloud Infrastructure",
     id: "SRV-006",
@@ -143,63 +122,106 @@ const serviceContent: any = {
   }
 };
 
-export async function generateMetadata({ params }: { params: any }) {
-  const { slug } = await params;
+// FIXED METADATA (no await)
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const service = serviceContent[slug];
-  
+
   return {
     title: service?.metaTitle || "Service | OMX Info Management",
     description: service?.metaDesc || "OMX Info Management technical services.",
   };
 }
 
-export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+// FIXED PARAM TYPE
+export default async function ServicePage({ params }: { params: { slug: string } }) {
+
+  const { slug } = params;
   const service = serviceContent[slug];
 
   if (!service) notFound();
 
   return (
-    <div className="bg-gradient-to-b from-[#f8fbff] to-white text-[#1a1a1a]">
+    <div className="bg-gradient-to-b from-[#f8fbff] via-white to-[#f4f8ff] text-[#1a1a1a]">
 
       {/* HERO */}
-      <section className="relative w-full h-[60vh] md:h-[65vh] min-h-[400px] md:min-h-[700px] overflow-hidden">
-        <Image src={service.imageSrc} alt={service.title} fill className="object-cover scale-105"/>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+      <section className="relative w-full bg-black">
+
+        <div className="relative w-full h-[55vh] md:h-[75vh] min-h-[400px] overflow-hidden flex items-center justify-center bg-black">
+
+          <Image
+            src={service.imageSrc}
+            alt={service.title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center scale-100 md:scale-105"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80" />
+        </div>
 
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-[1400px] mx-auto px-6 w-full">
-            <h1 className="text-5xl md:text-8xl text-white font-light leading-tight">
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-light leading-tight max-w-[700px]">
               {service.title}
             </h1>
-            <p className="text-gray-300 mt-6 max-w-xl text-lg">
+
+            <p className="text-gray-300 mt-4 max-w-xl text-sm md:text-lg">
               {service.tagline}
             </p>
+
           </div>
         </div>
+
       </section>
 
       {/* FEATURES */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-6">
+      <section className="py-20 md:py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
 
-          {service.features.map((f: string, i: number) => (
-            <div key={i} className="flex items-center gap-4 bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
-              <CheckCircle2 className="text-[#000033]"/>
-              <span className="font-semibold text-gray-700">{f}</span>
-            </div>
-          ))}
+          <h2 className="text-2xl md:text-4xl font-semibold text-center mb-12 text-[#0f172a]">
+            Key Features
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {service.features.map((f, i) => (
+              <div key={i} className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
+                <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-[#1e3a8a] mt-1 group-hover:scale-110 transition" />
+                    <span className="font-medium text-gray-700 text-sm md:text-base">
+                      {f}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </div>
 
         </div>
       </section>
 
       {/* STATS */}
-      <section className="py-20 bg-white border-y">
-        <div className="max-w-[1200px] mx-auto grid md:grid-cols-4 gap-6 px-6">
-          {[ShieldCheck, Clock, Truck, BadgeCheck].map((Icon, i) => (
-            <div key={i} className="bg-[#f8fbff] p-8 rounded-xl text-center hover:shadow-lg transition">
-              <Icon className="mx-auto mb-4 text-[#000033]" size={32}/>
-              <p className="font-bold text-xl">Enterprise Grade</p>
+      <section className="py-20 bg-gradient-to-r from-[#f8fbff] via-white to-[#f3f7ff] border-y">
+        <div className="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+
+          {[ 
+            { icon: ShieldCheck, title: "Safer and Fastest Infrastructure", color: "from-blue-200/50 to-blue-500" },
+            { icon: Clock, title: "Fast Processing", color: "from-purple-200/50 to-purple-500" },
+            { icon: Truck, title: "Quick Delivery", color: "from-green-200/50 to-green-500" },
+            { icon: BadgeCheck, title: "Certified Quality", color: "from-orange-200/50 to-orange-500" },
+          ].map((item, i) => (
+            <div key={i} className={`relative p-[1px] rounded-2xl bg-gradient-to-br ${item.color} group`}>
+              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition duration-300">
+                <item.icon className="mx-auto mb-4 text-[#0f172a] group-hover:scale-110 transition duration-300" size={36} />
+                <p className="font-semibold text-gray-700 group-hover:text-[#0f172a] transition">
+                  {item.title}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -207,7 +229,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       {/* CTA */}
       <section className="py-20 text-center">
-        <Link href="/services" className="text-[#000033] font-bold uppercase tracking-widest hover:underline">
+        <Link
+          href="/services"
+          className="inline-block px-6 py-3 rounded-full bg-[#0f172a] text-white font-semibold hover:bg-[#1e3a8a] transition"
+        >
           View All Services →
         </Link>
       </section>

@@ -6,23 +6,29 @@
   --color-ghost: #F8F9FA;
 }
 
-/* bg-[rgb(0,104,83)] */
-
 :root {
   --foreground-rgb: 17, 17, 17;
   --background-rgb: 255, 255, 255;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
-  color: var(--foreground-rgb);
-  /* background: rgb(255, 255, 255); */
-  background: #dbd9e4;
+  color: rgb(var(--foreground-rgb));
+  background: #ffffff; /* clean background */
   scroll-behavior: smooth;
 }
 
+/* ================= COMPONENTS ================= */
+
 @layer components {
   .btn-main {
-    @apply  text-white px-10 py-4 rounded-xl font-bold 
+    @apply text-white px-10 py-4 rounded-xl font-bold 
     transition-all duration-300 hover:shadow-[0_10px_30px_rgba(255,99,71,0.3)]
     hover:-translate-y-1 active:scale-95 cursor-pointer;
   }
@@ -37,43 +43,12 @@ body {
   }
 }
 
-@layer utilities {
-  .spotlight-line-item {
-    /* Default: Inactive Grey */
-    color: #e5e7eb; /* gray-200 */
-    display: inline-block;
-    animation: spotlight-horizontal 9s infinite; /* Total items (9) * delay (1s) */
-    transition: all 0.5s ease;
-  }
-
-  @keyframes spotlight-horizontal {
-    0%, 5% {
-      color: #1a1a1a; /* Active: Dark Black */
-      transform: translateY(-2px);
-      text-decoration: underline;
-      text-decoration-color: [tomato];
-      text-underline-offset: 8px;
-    }
-    11.1%, 100% {
-      color: #e5e7eb; /* Back to Grey */
-      transform: translateY(0);
-      text-decoration: none;
-    }
-  }
-
-  /* Manual Hover override */
-  .spotlight-line-item:hover {
-    color: [tomato] !important;
-    animation-play-state: paused;
-  }
-}
-
+/* ================= UTILITIES ================= */
 
 @layer utilities {
   .animate-marquee {
     display: flex;
     width: max-content;
-    /* Adjust '40s' to '60s' if you want it to move slower */
     animation: marquee-infinite 40s linear infinite;
   }
 

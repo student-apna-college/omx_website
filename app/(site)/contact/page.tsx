@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { MapPin, Globe, ArrowRight, Send, ShieldCheck, CheckCircle2 } from "lucide-react";
-import ContactAccordion from "@/components/ContactAccordion";
+import { ShieldCheck, CheckCircle2 } from "lucide-react";
+
 
 export default function ContactPage() {
   const [focused, setFocused] = useState<string | null>(null);
@@ -55,159 +55,191 @@ export default function ContactPage() {
     }
   };
 
-  return (
-    <div className="bg-[#f0fcf8] text-[#1a1a1a] selection:bg-green-600 selection:text-white">
 
-      {/* HERO BANNER */}
-      <section className="relative w-full h-[60vh] md:h-[90vh] overflow-hidden">
-        <Image 
-          src="/images/contact.jpg" 
-          alt="OMX Contact Infrastructure" 
-          fill 
-          className="object-cover scale-105 transition-transform duration-[2500ms]"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg">
-            CONNECT TO <br/>
-            INTERFACE
-          </h1>
-          <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
-            Access our nationwide network of high-security record centers and digitization hubs
+   return (
+  <div className="bg-gradient-to-b from-[#f5fffb] via-white to-[#f7faff] text-[#1a1a1a]">
+
+    {/* HERO */}
+    <section className="relative w-full h-[55vh] md:h-[80vh] overflow-hidden">
+
+      <Image
+        src="/images/contact.jpg"
+        alt="OMX Contact Infrastructure"
+        fill
+        priority
+        className="object-cover scale-105"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+
+      <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
+
+        <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          CONNECT TO <br /> INTERFACE
+        </h1>
+
+        <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
+          Access our nationwide network of high-security record centers and digitization hubs
+        </p>
+
+      </div>
+    </section>
+
+    {/* CONTACT + FORM */}
+    <section className="max-w-[1300px] mx-auto py-16 md:py-24 px-6 grid lg:grid-cols-12 gap-10">
+
+      {/* LEFT SIDE */}
+      <div className="lg:col-span-4 space-y-10">
+
+        <div className="space-y-4">
+
+          <p className="text-2xl md:text-3xl font-bold text-[#0f172a] hover:text-green-600 transition">
+            omxinfo@omx.in
           </p>
+
+          <p className="text-xl md:text-2xl font-bold">
+            +91 83768 07367
+          </p>
+
+          <p className="text-xl md:text-2xl font-bold text-gray-500">
+            +91 88263 32236
+          </p>
+
         </div>
-      </section>
 
-      {/* CONTACT + FORM */}
-      <section className="max-w-[1400px] mx-auto py-16 md:py-32 px-6 md:px-12 grid lg:grid-cols-12 gap-12 md:gap-24">
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-100/50 via-purple-100/50 to-pink-100/50 border">
 
-        {/* LEFT CONTACT & COMPLIANCE */}
-        <div className="lg:col-span-4 space-y-12 md:space-y-16">
-          <div className="space-y-6">
-            <p className="text-3xl font-bold hover:text-green-600 transition-all cursor-pointer">omxinfo@omx.in</p>
-            <div className="space-y-1">
-              <p className="text-2xl font-bold">+91 83768 07367</p>
-              <p className="text-2xl font-bold text-gray-400 hover:text-gray-600 transition-colors underline decoration-green-600 underline-offset-4">
-                +91 88263 32236
-              </p>
-            </div>
+          <div className="flex items-center gap-2 mb-4">
+            <ShieldCheck className="text-green-600" size={18} />
+            <h4 className="text-xs font-bold uppercase tracking-widest">
+              Compliance Standards
+            </h4>
           </div>
 
-          <div className="pt-8 md:pt-16 border-t border-gray-100 space-y-4">
-            <div className="flex items-center gap-3 mb-4 md:mb-6">
-              <ShieldCheck className="text-green-600" size={20} />
-              <h4 className="text-xs font-black uppercase tracking-widest">Compliance Standards</h4>
+          <ul className="space-y-2">
+            {["ISO 9001:2015 Certified", "GDPR Compliance Rules", "Tier 4 Physical Security"].map(item => (
+              <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
+                <CheckCircle2 size={14} className="text-green-500" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+      </div>
+
+      {/* FORM */}
+      <div className="lg:col-span-8">
+
+        <div className="bg-white rounded-2xl shadow-lg border p-8 md:p-10">
+
+          <h3 className="text-2xl md:text-3xl font-bold mb-8">
+            Institutional Inquiry Portal
+          </h3>
+
+          <form className="grid md:grid-cols-2 gap-6">
+
+            {[
+              { name: "name", label: "Full Name", type: "text" },
+              { name: "company", label: "Company", type: "text" },
+              { name: "email", label: "Email", type: "email" },
+              { name: "region", label: "Region", type: "text" },
+            ].map((f) => (
+              <input
+                key={f.name}
+                name={f.name}
+                type={f.type}
+                placeholder={f.label}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 outline-none focus:border-green-500"
+              />
+            ))}
+
+            <textarea
+              name="scope"
+              rows={4}
+              placeholder="Describe your requirement..."
+              className="md:col-span-2 w-full border border-gray-200 rounded-xl px-4 py-4 bg-gray-50 outline-none focus:border-green-500"
+            />
+
+            <button
+              type="submit"
+              className="md:col-span-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-full font-bold tracking-widest hover:scale-[1.02] transition"
+            >
+              Send Request
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    {/* MAPS */}
+    <section className=" max-w-[1400px] mx-auto px-6">
+
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        Our Locations
+      </h2>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {maps.map((map) => (
+          <div key={map.name} className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition bg-white">
+
+            <div className="bg-gradient-to-r from-blue-100 to-purple-100 text-center py-2 font-semibold">
+              {map.name}
             </div>
-            <ul className="space-y-2 md:space-y-3">
-              {["ISO 9001:2015 Certified", "GDPR Compliance Rules", "Tier 4 Physical Security"].map(item => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                  <CheckCircle2 size={14} className="text-green-500" /> {item}
-                </li>
-              ))}
-            </ul>
+
+            <iframe
+              src={map.url}
+              className="w-full h-64 border-0"
+              loading="lazy"
+            />
+
           </div>
-        </div>
+        ))}
 
-        {/* RIGHT FORM */}
-        <div className="lg:col-span-8">
-          <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-xl rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl sm:text-4xl font-bold mb-12 tracking-tight">
-              Institutional Inquiry Portal
-            </h3>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-12">
-              {[
-                { label: "Authorized Representative", placeholder: "Full Name", type: "text", name: "name" },
-                { label: "Organization Entity", placeholder: "Company Name", type: "text", name: "company" },
-                { label: "Corporate Email", placeholder: "corporate@domain.com", type: "email", name: "email" },
-                { label: "Operational Region", placeholder: "City / State", type: "text", name: "region" }
-              ].map(field => (
-                <div key={field.label} className="relative group">
-                  <label className={`absolute -top-5 left-0 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${focused === field.label ? 'text-green-600' : 'text-gray-400'}`}>
-                    {field.label}
-                  </label>
-                  <input
-                    type={field.type}
-                    name={field.name}
-                    onFocus={() => setFocused(field.label)}
-                    onBlur={() => setFocused(null)}
-                    placeholder={field.placeholder}
-                    className="w-full border-b-2 border-gray-200 bg-transparent py-3 text-lg font-medium outline-none focus:border-green-600 transition-all"
-                  />
-                </div>
-              ))}
+      </div>
 
-              <div className="md:col-span-2 mt-4 relative">
-                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-2 block">Scope of Technical Audit</label>
-                <textarea
-                  name="scope"
-                  rows={4}
-                  placeholder="Detail your record volume and specific service requirements..."
-                  className="w-full border border-gray-200 p-4 md:p-6 bg-gray-50/50 rounded-xl outline-none focus:border-green-600 transition-all"
-                ></textarea>
-              </div>
+    </section>
 
-              <div className="md:col-span-2 pt-4 md:pt-8">
-                <button type="submit" className="group bg-green-600 text-white px-8 md:px-16 py-4 md:py-6 text-xs md:text-sm font-black uppercase tracking-[0.3em] rounded-full flex items-center gap-4 md:gap-6 hover:bg-green-700 transition-all">
-                  Dispatch Requirements
-                  <Send size={18} className="group-hover:translate-x-2 transition-transform duration-500" />
-                </button>
-              </div>
-            </form>
+    {/* BRANCHES */}
+    <section className="py-20 max-w-[1400px] mx-auto px-6">
+
+      <h2 className="text-3xl md:text-5xl font-light text-center mb-12">
+        National Directory
+      </h2>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {branches.map((b, i) => (
+          <div
+            key={i}
+            className="rounded-2xl p-6 bg-gradient-to-br from-white via-blue-50 to-purple-50 border hover:shadow-xl transition"
+          >
+
+            <p className="text-xs font-bold text-green-600 uppercase tracking-widest">
+              {b.state}
+            </p>
+
+            <h4 className="text-2xl font-bold mt-2">{b.city}</h4>
+
+            <p className="text-sm text-gray-500 mt-3 line-clamp-3">
+              {b.address}
+            </p>
+
           </div>
-        </div>
-      </section>
+        ))}
 
-      {/* MAPS SECTION */}
-      <section className="py-12 md:py-20 px-4 md:px-12 max-w-[1440px] mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">
-          Our Locations
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {maps.map((map) => (
-            <div key={map.name} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-              <p className="text-center font-semibold text-lg md:text-xl py-3 bg-green-50">{map.name}</p>
-              <iframe
-                src={map.url}
-                className="w-full h-64 md:h-72 lg:h-80 border-0"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          ))}
-        </div>
-      </section>
+      </div>
 
-      {/* BRANCH DIRECTORY */}
-      <section className="py-16 md:py-32 max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-20 gap-4 md:gap-8">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight">National Directory</h2>
-          <div className="flex items-center gap-2 md:gap-4 border border-gray-200 px-4 md:px-6 py-2 md:py-3 bg-white rounded-lg">
-            <Globe size={16} className="text-green-600 animate-pulse" />
-            <p className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-widest">Active Hubs Priority Zones</p>
-          </div>
-        </div>
+    </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-gray-200 rounded-2xl overflow-hidden">
-          {branches.map(b => (
-            <div key={b.city} className="group p-6 md:p-12 border-r border-b border-gray-200 bg-white hover:bg-green-50 transition-all rounded-xl">
-              <div className="flex justify-between items-start mb-4 md:mb-10">
-                <span className="text-green-600 font-mono text-[10px] font-black uppercase tracking-widest">{b.state}</span>
-                <MapPin size={20} className="text-gray-400 group-hover:text-green-600 transition-colors" />
-              </div>
-              <h4 className="text-2xl md:text-3xl font-bold mb-2 md:mb-6 group-hover:text-green-700 transition-colors">{b.city}</h4>
-              <p className="text-sm md:text-base text-gray-500 group-hover:text-gray-700 transition-colors leading-relaxed mb-4 md:mb-12 h-16 italic">{b.address}</p>
-              <div className="pt-4 border-t border-gray-100 group-hover:border-green-200 flex justify-between items-center">
-                <ArrowRight size={16} className="text-transparent group-hover:text-green-600 transition-all" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+   
 
-      {/* ACCORDION */}
-      <ContactAccordion />
-    </div>
-  );
+  </div>
+);
 }

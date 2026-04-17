@@ -1,9 +1,8 @@
 "use client";
-
-import Modal from "@/components/ui/Modal";
+import Modal from "@/components/Ui/Modal";
 import { useState } from "react";
 
-export default function EnquiryForm({ setActiveForm }) {
+export default function EnquiryForm({ setActiveForm }: any) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,14 +13,14 @@ export default function EnquiryForm({ setActiveForm }) {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
 
     await fetch("/api/enquiry", {

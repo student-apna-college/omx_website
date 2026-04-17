@@ -4,23 +4,23 @@ import Image from "next/image";
 
 export default function ClientCarousel({ clientData }) {
 
-  // ✅ Clean data (remove undefined)
+  // Clean data (remove undefined)
   const cleanData = (clientData || []).filter(
     (item) => item && item.logo
   );
 
-  // ✅ Split into 2 rows
+  // Split into 2 rows
   const mid = Math.ceil(cleanData.length / 2);
   const topClients = cleanData.slice(0, mid);
   const bottomClients = cleanData.slice(mid);
 
   return (
-    <div className="w-full bg-blue-100 py-10 overflow-hidden">
+    <div className="w-full bg-blue-100 py-10 overflow-hidden  ">
 
-      {/* 🔝 TOP ROW */}
+      {/*  TOP ROW */}
       <div className="overflow-hidden">
         <div className="flex w-max animate-left pause-on-hover">
-
+ 
           {/* ORIGINAL */}
           {topClients.map((client, index) => (
             <Logo key={`top-1-${index}`} client={client} />
@@ -34,7 +34,7 @@ export default function ClientCarousel({ clientData }) {
         </div>
       </div>
 
-      {/* 🔽 BOTTOM ROW */}
+      {/*  BOTTOM ROW */}
       <div className="overflow-hidden mt-6">
         <div className="flex w-max animate-right pause-on-hover">
 
@@ -51,7 +51,7 @@ export default function ClientCarousel({ clientData }) {
         </div>
       </div>
 
-      {/* 🎬 CSS */}
+      {/*  CSS */}
       <style jsx>{`
         @keyframes leftScroll {
           0% {
@@ -79,7 +79,7 @@ export default function ClientCarousel({ clientData }) {
           animation: rightScroll 25s linear infinite;
         }
 
-        /* 🔥 Hover Pause */
+        /*  Hover Pause */
         .pause-on-hover:hover {
           animation-play-state: paused;
         }
@@ -95,7 +95,7 @@ export default function ClientCarousel({ clientData }) {
   );
 }
 
-/* 🔥 Logo Component */
+/*  Logo Component */
 function Logo({ client }) {
   return (
     <div className="mx-6 flex items-center justify-center min-w-[180px]">

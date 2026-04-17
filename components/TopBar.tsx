@@ -28,7 +28,7 @@ export default function TopBar({ setActiveForm }: Props) {
         {/* Buttons */}
         <div className="flex flex-wrap gap-2 justify-center">
           
-          {/* ✅ Enquiry Button */}
+          {/* Enquiry Button */}
           <button
             onClick={() => setActiveForm("enquiry")}
             className="bg-green-500 hover:bg-green-600 text-white text-[12px] animate-pulse font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
@@ -36,7 +36,7 @@ export default function TopBar({ setActiveForm }: Props) {
             Enquire Now
           </button>
 
-          {/* ✅ Meeting Button */}
+          {/*Meeting Button */}
           <button
             onClick={() => setActiveForm("meeting")}
             className="bg-blue-500 hover:bg-blue-600 text-white text-[12px] animate-pulse font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"

@@ -1,9 +1,9 @@
 "use client";
 
-import Modal from "@/components/ui/Modal";
+import Modal from "@/components/Ui/Modal";
 import { useState } from "react";
 
-export default function MeetingForm({ setActiveForm }) {
+export default function MeetingForm({ setActiveForm }:any) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,7 +13,7 @@ export default function MeetingForm({ setActiveForm }) {
     schedule: "", 
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,

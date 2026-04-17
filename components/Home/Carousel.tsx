@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-// Define the shape of a single slide
 interface Slide {
   title: string;
   sub: string;
@@ -12,7 +11,6 @@ interface Slide {
   accent: string;
 }
 
-// Define the props for the Carousel component
 interface CarouselProps {
   slides: Slide[];
   currentSlide: number;
@@ -31,68 +29,76 @@ export default function Carousel({
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="absolute inset-0 bg-black/50 z-10 " />
-          <Image 
+          {/* IMAGE */}
+          <Image
             src={slide.img}
             alt={slide.title}
             fill
-            className="object-cover "
+            className="object-contain md:object-cover object-center md:object-[center_30%]"
             priority={index === 0}
-            
           />
-          <div className="relative z-20 h-full max-w-[1400px] mx-auto px-6 flex flex-col justify-center">
+
+          {/* OVERLAY */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+
+          {/* CONTENT */}
+          <div className="relative z-20 h-full max-w-[1400px] mx-auto px-6 flex items-center">
             <div className="max-w-4xl space-y-6">
+              
               <div className="flex items-center gap-3">
-                <span className="h-[1px] w-12 text-[#006853]"></span>
-                <span className="text-[#000033] text-xs font-bold">
+                <span className="h-[1px] w-12 bg-[white]"></span>
+                <span className="text-[white] text-xs font-bold">
                   {slide.accent}
                 </span>
               </div>
-              <p className="text-5xl md:text-7xl text-white font-light leading-tight">
-                {slide.title.split(" ").map((word, i) => (
-                  <span key={i} className={i === 1 ? "font-medium" : ""}>
-                    {word}{" "}
-                  </span>
-                ))}
-              </p>
-              <p className="text-small text-gray-100 max-w-xl leading-relaxed">
+
+              <h1 className="text-xl sm:text-3xl md:text-5xl font-bold leading-tight text-white">
+                {slide.title}
+              </h1>
+
+              <p className="text-sm md:text-base text-gray-200 max-w-xl">
                 {slide.sub}
               </p>
-              <div className="pt-8 flex gap-4">
+
+              <div className="pt-6 flex gap-4 flex-wrap">
                 <Link
                   href="/services"
-                  className="text-[#006853] text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all rounded-[12px] border p-4"
+                  className="border border-white/40  text-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-black transition"
                 >
                   Our Services
                 </Link>
+
                 <Link
                   href="/contact"
-                  className="border border-white/30 text-white px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all rounded-[12px] border p-4"
+                  className="border border-white/40 text-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-black transition"
                 >
                   Get a Quote
                 </Link>
               </div>
+
             </div>
           </div>
         </div>
       ))}
 
-      <div className="absolute bottom-12 right-12 z-30 flex gap-4">
+      {/* BUTTONS */}
+      <div className="absolute bottom-12 right-14 md:bottom-50 md:right-12 z-30 flex gap-3">
         <button
           onClick={prevSlide}
-          className="p-4 border border-white/20 text-white hover:bg-[#000033] transition-all"
+          className="p-3 border border-white/30 text-white hover:bg-[#000033] rounded-md"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} />
         </button>
+
         <button
           onClick={nextSlide}
-          className="p-4 border border-white/20 text-white hover:bg-[#000033] transition-all"
+          className="p-3 border border-white/30 text-white hover:bg-[#000033] rounded-md"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} />
         </button>
       </div>
     </>

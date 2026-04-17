@@ -9,15 +9,12 @@ interface Slide {
   accent: string;
 }
 
-interface HeroSectionProps {
-  slides: Slide[];
-}
-
-export default function HeroSection({ slides }: HeroSectionProps) {
+export default function HeroSection({ slides }: { slides: Slide[] }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () =>
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+
   const prevSlide = () =>
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
@@ -27,13 +24,13 @@ export default function HeroSection({ slides }: HeroSectionProps) {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[800px] w-full overflow-hidden">
-      <Carousel
-        slides={slides}
-        currentSlide={currentSlide}
-        nextSlide={nextSlide}
-        prevSlide={prevSlide}
-      />
-    </section>
+    <section className=" relative w-full h-screen overflow-hidden md:h-[calc(100vh-140px)] overflow-hidden">
+  <Carousel
+    slides={slides}
+    currentSlide={currentSlide}
+    nextSlide={nextSlide}
+    prevSlide={prevSlide}
+  />
+</section>
   );
 }

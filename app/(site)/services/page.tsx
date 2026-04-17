@@ -27,12 +27,6 @@ const services = [
     icon: <HardDrive size={24} strokeWidth={1.5} />, 
     desc: "Climate-controlled storage for tapes, files, and critical assets"
   },
-  // { 
-  //   slug: "in-house-solutions", 
-  //   title: "In-House Solutions", 
-  //   icon: <Settings size={24} strokeWidth={1.5} />, 
-  //   desc: "Custom on-site record management infrastructure setup."
-  // },
   { 
     slug: "data-security", 
     title: "DMS & Cloud", 
@@ -43,7 +37,7 @@ const services = [
 
 export default function ServicesListing() {
   return (
-    <div className="bg-gradient-to-b from-white via-blue-50 to-white pt-24 md:pt-32 pb-16 md:pb-24">
+    <div className="bg-gradient-to-b from-[#f8fbff] via-[#f1f6ff] to-[#f8fbff] pt-24 md:pt-32 pb-16 md:pb-24">
 
       <div className="max-w-[1400px] mx-auto px-6">
 
@@ -74,17 +68,15 @@ export default function ServicesListing() {
 
         </div>
 
-
-
 {/* SUCCESS STORY */}
-<section className="py-20 md:py-32 bg-white">
+<section className="py-8 md:py-8 bg-white">
   <div className="max-w-[1100px] mx-auto px-6">
 
     <h2 className="text-3xl md:text-5xl font-bold text-center mb-10">
       Large Scale <span className="text-[#000033]">Digitization Success</span>
     </h2>
 
-    <div className="bg-blue-50 rounded-2xl p-6 md:p-10 shadow-lg space-y-6 text-gray-700">
+    <div className="bg-[#eef5ff] rounded-2xl p-6 md:p-10 shadow-lg space-y-6 text-gray-700">
 
       <p className="text-lg">
         OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise
@@ -114,13 +106,12 @@ export default function ServicesListing() {
           <li>
             <strong>End-to-End Workflow:</strong> A structured workflow ensured seamless digitization
           </li>
-           <p>Collection and categorization of physical files</p>
+          <p>Collection and categorization of physical files</p>
           <p>High-resolution scanning with quality checks</p>
           <p>Indexing and metadata tagging</p>
           <li>
             <strong>Centralized System:</strong> The digitized records were integrated into a unified platform, enabling
           </li>
-
           <p>Unified access across locations</p>
           <p>Real-time data retrieval</p>
           <p>Reduced physical storage and manual processes</p>
@@ -142,72 +133,74 @@ export default function ServicesListing() {
   </div>
 </section>
 
+{/* CARDS GRID */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
 
+  {services.map((s, i) => {
+    const styles = [
+      { bg: "bg-[#eaf2ff]", iconBg: "bg-[#cfe0ff] text-blue-600" },
+      { bg: "bg-[#f3ecff]", iconBg: "bg-[#e0d2ff] text-purple-600" },
+      { bg: "bg-[#fff6d8]", iconBg: "bg-[#ffeaa7] text-yellow-600" },
+      { bg: "bg-[#e6f7ee]", iconBg: "bg-[#c8f2da] text-green-600" },
+      { bg: "bg-[#ffecec]", iconBg: "bg-[#ffd6d6] text-red-600" },
+      { bg: "bg-[#e6f9ff]", iconBg: "bg-[#ccefff] text-cyan-600" },
+    ];
 
-        {/* CARDS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    const style = styles[i % styles.length];
 
-          {services.map((s) => (
+    return (
+      <Link
+        key={s.slug}
+        href={`/services/${s.slug}`}
+        className={`${style.bg} group rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col`}
+      >
 
-            <Link
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              className="group bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-
-              {/* ICON */}
-              <div className="mb-6 text-gray-400 group-hover:text-[#000033] transition">
-                {s.icon}
-              </div>
-
-              {/* TEXT */}
-              <h3 className="text-xl md:text-2xl font-semibold mb-3 leading-snug">
-                {s.title}
-              </h3>
-
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                {s.desc}
-              </p>
-
-              {/* CTA */}
-              <div className="flex items-center gap-2 text-sm font-semibold text-[#000033] opacity-0 group-hover:opacity-100 transition-all">
-                <span>Explore</span>
-                <ArrowRight size={16} />
-              </div>
-
-            </Link>
-
-          ))}
-
-          {/* CTA CARD */}
-          <div className="rounded-2xl p-6 md:p-8 bg-[#000033] text-white flex flex-col justify-between shadow-lg">
-
-            <h3 className="text-2xl md:text-3xl font-light leading-snug">
-              Need Custom <br/> Solution?
-            </h3>
-
-            <div className="mt-10">
-
-              <p className="text-sm text-white/80 mb-5">
-                Contact us for enterprise-level document management solutions
-              </p>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 border border-white/40 px-5 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#000033] transition"
-              >
-                Contact Us
-                <ArrowRight size={14} />
-              </Link>
-
-            </div>
-
-          </div>
-
+        <div className={`w-12 h-12 mb-6 flex items-center justify-center rounded-full ${style.iconBg} group-hover:scale-110 transition`}>
+          {s.icon}
         </div>
-      </div>
-      
+
+        <h3 className="text-xl md:text-2xl font-semibold mb-3 text-[#0f172a] max-w-[220px] leading-snug">
+  {s.title}
+</h3>
+        <p className="text-gray-600 text-sm mb-6 flex-grow">
+          {s.desc}
+        </p>
+
+        <div className="flex items-center gap-2 text-sm font-semibold text-[#000033] opacity-0 group-hover:opacity-100 transition-all">
+          <span>Explore</span>
+          <ArrowRight size={16} />
+        </div>
+
+      </Link>
+    );
+  })}
+
+  {/* CTA CARD */}
+  <div className="rounded-2xl p-6 md:p-8 bg-[#000033] text-white flex flex-col justify-between shadow-lg">
+
+    <h3 className="text-2xl md:text-3xl font-light leading-snug">
+      Need Custom <br/> Solution?
+    </h3>
+
+    <div className="mt-10">
+      <p className="text-sm text-white/80 mb-5">
+        Contact us for enterprise-level document management solutions
+      </p>
+
+      <Link
+        href="/contact"
+        className="inline-flex items-center gap-2 border border-white/40 px-5 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#000033] transition"
+      >
+        Contact Us
+        <ArrowRight size={14} />
+      </Link>
     </div>
-    
+
+  </div>
+
+</div>
+
+      </div>
+    </div>
   );
 }
