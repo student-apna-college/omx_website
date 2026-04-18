@@ -13,20 +13,20 @@ type Industry = {
 export const industriesData: Record<string, Industry> = {
   "finance-banking": {
   title: "Finance & Banking",
-  description: "Comprehensive and secure document management solutions tailored for financial institutions to ensure compliance, accessibility, and data protection.",
+  description: "Comprehensive and safer document management solutions tailored for financial institutions to ensure compliance, accessibility, and data protection.",
   
   image: "/industry/fincance.jpg",
   
   heading: "Finance & Banking Solutions",
   
-  heroTitle: "Transform Your Financial Data into Secure & Accessible Assets",
+  heroTitle: "Transform Your Financial Data into Safer and smarter & Accessible Assets",
   
   heroImage: "/industry/finance2.jpg",
 
   content: `
 OMX provides advanced record management solutions for financial institutions, covering a wide range of documents such as loan files, account records, mortgage papers, and confidential financial data.
 
-Our system ensures secure storage, quick retrieval, and full lifecycle management of documents—from creation to safe destruction. We help organizations maintain compliance, improve efficiency, and reduce operational costs.
+Our system ensures safer storage, quick retrieval, and full lifecycle management of documents—from creation to safe destruction. We help organizations maintain compliance, improve efficiency, and reduce operational costs.
 
 With cutting-edge security infrastructure including CCTV surveillance, access control systems, fire and theft alarm systems, fireproof vaults, and multi-level access control, your data remains protected at all times. Our facilities are equipped with round-the-clock security systems and are fully equipped with fire prevention and firefighting equipment.
 
@@ -36,7 +36,7 @@ Partner with OMX to streamline your financial document workflows and enhance doc
 
  "insurance": {
   title: "Insurance",
-  description: "Efficient and secure management of insurance records to ensure compliance, faster claims processing, and improved customer experience.",
+  description: "Efficient and sefest management of insurance records to ensure compliance, faster claims processing, and improved customer experience.",
   
   image: "/industry/insureance.jpeg",
   
@@ -65,7 +65,7 @@ Modern tools and solutions like Docsvault, Laserfiche, Oracle NetSuite, and othe
   title: "Healthcare & Pharmaceuticals",
   description: "Secure patient records and medical data management.",
   
-  image: "/industry/indus2.jpg",
+  image: "/industry/health.jpg",
   
   heading: "Healthcare Solutions",
   
@@ -279,7 +279,7 @@ With a focus on security, scalability, and efficiency, our solutions empower edu
   title: "Telecom",
   description: "Handle telecom data and customer records with efficiency.",
   
-  image: "/industry/telecome.jpg",
+  image: "/industry/telecomee.jpg",
   
   heading: "Telecom Industry Solutions",
   
@@ -502,7 +502,7 @@ Our scalable and secure solutions empower real estate and infrastructure busines
   
   heroTitle: "Optimize Airline Operations",
   
-  heroImage: "/industry/airline1.jpg",
+  heroImage: "/industry/plane.jpg",
 
   content: `
 The airline industry operates in one of the most highly regulated and safety-critical environments, where accurate and efficient record management is essential. From flight operations and maintenance logs to compliance documentation and passenger records, airlines generate vast volumes of critical data that must be managed with precision and reliability.

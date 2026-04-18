@@ -3,7 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   Database, Zap, Trash2, Shield,
-  CheckCircle2
+  CheckCircle2,
+  FileScanIcon,
+  MonitorCloud
 } from 'lucide-react';
 import { ShieldCheck, Clock, Truck, BadgeCheck } from "lucide-react";
 
@@ -31,7 +33,7 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-// REMOVE "any"
+
 const serviceContent: Record<string, ServiceType> = {
   'records-management': {
     title: "Physical Records Management",
@@ -40,7 +42,7 @@ const serviceContent: Record<string, ServiceType> = {
     icon: <Database size={32} strokeWidth={1.5} />,
     features: [
       "Biometric Access Control",
-      "Pest & Moisture Control",
+      "Pest & Humidity Control",
       "Fire Safety Protection",
       "Barcode File Tracking",
       "Secure Document Shredding",
@@ -124,7 +126,7 @@ const serviceContent: Record<string, ServiceType> = {
 
 // FIXED METADATA (no await)
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+  const { slug } = await  params;
   const service = serviceContent[slug];
 
   return {
@@ -133,10 +135,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-// FIXED PARAM TYPE
+//  FIXED PARAM TYPE
 export default async function ServicePage({ params }: { params: { slug: string } }) {
 
-  const { slug } = params;
+  const { slug } = await params;
   const service = serviceContent[slug];
 
   if (!service) notFound();
@@ -207,13 +209,16 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
       {/* STATS */}
       <section className="py-20 bg-gradient-to-r from-[#f8fbff] via-white to-[#f3f7ff] border-y">
-        <div className="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+        <div className="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-6 gap-6 px-6">
 
           {[ 
-            { icon: ShieldCheck, title: "Safer and Fastest Infrastructure", color: "from-blue-200/50 to-blue-500" },
-            { icon: Clock, title: "Fast Processing", color: "from-purple-200/50 to-purple-500" },
-            { icon: Truck, title: "Quick Delivery", color: "from-green-200/50 to-green-500" },
-            { icon: BadgeCheck, title: "Certified Quality", color: "from-orange-200/50 to-orange-500" },
+            { icon: ShieldCheck, title: "Safer and Trusted Storage", color: "from-blue-200/50 to-blue-500" },
+            { icon: Clock, title: "Efficient and Timely Retrieval", color: "from-purple-200/50 to-purple-500" },
+            { icon: Truck, title: "100% TAT Adherence Guaranteed", color: "from-green-200/50 to-green-500" },
+            { icon: BadgeCheck, title: "Eco-Friendly Certified Shradding", color: "from-orange-200/50 to-orange-500" },
+            { icon: MonitorCloud, title: "Robust and Secure DMS Software", color: "from-red-200/50 to-red-500" },
+            { icon: FileScanIcon, title: "High Resolution Scanning", color: "from-yellow-200/50 to-yellow-500" },
+
           ].map((item, i) => (
             <div key={i} className={`relative p-[1px] rounded-2xl bg-gradient-to-br ${item.color} group`}>
               <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition duration-300">

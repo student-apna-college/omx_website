@@ -9,7 +9,7 @@ export default function FAQAccordion() {
     {
       question: "What services does OMX Info Management provide?",
       answer:
-        "OMX Info Management offers Records Management, Digitization, Secure Shredding, and Cloud DMS solutions for businesses nationwide",
+        "OMX Info Management offers Records Management, Digitization, Safer smarter Shredding, and Cloud DMS solutions for businesses nationwide",
     },
     {
       question: "How can I submit a service request?",

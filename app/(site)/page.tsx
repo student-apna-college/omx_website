@@ -11,13 +11,13 @@ export default function Home() {
   const slides = [
     {
       title: "Eco Friendly Shredding Services",
-      sub: "OMX Info Management Ltd.provides Eco-friendly shredding solutions ensuring secure document destruction, protecting sensitive information, supporting compliance standards, and promoting sustainable recycling practices for businesses.",
+      sub: "OMX Info Management Ltd.provides Eco-friendly shredding solutions ensuring safest document destruction, protecting sensitive information, supporting compliance standards, and promoting sustainable recycling practices for businesses.",
       img: "/industry/fmcg1.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
       title: "Next-Gen Document Storage Facility",
-      sub: "We offer Next-generation document storage facility offering secure, scalable solutions for efficient record management, quick access, data protection, and seamless integration with modern business operations.",
+      sub: "We offer Next-generation document storage facility offering smarter, scalable solutions for efficient record management, quick access, data protection, and seamless integration with modern business operations.",
       img: "/images/wharehouse4.jpeg",
       accent: "OMX INFO MANAGEMENT LTD",
     },

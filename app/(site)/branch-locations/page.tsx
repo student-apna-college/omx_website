@@ -81,7 +81,7 @@ export default function BranchesPage() {
         </div>
 
         <div className="lg:col-span-4 text-gray-500 text-sm leading-relaxed">
-          Each OMX facility is engineered for secure record preservation, climate control, and rapid retrieval logistics
+          Each OMX facility is engineered for safer and smarter record preservation, climate control, and rapid retrieval logistics
         </div>
 
       </div>

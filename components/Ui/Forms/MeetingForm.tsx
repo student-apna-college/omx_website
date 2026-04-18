@@ -79,6 +79,16 @@ export default function MeetingForm({ setActiveForm }:any) {
           onChange={handleChange}
         />
 
+
+        {/*  */}
+        <input
+          type="text"
+          name="MeetingAddress"
+          placeholder="Meeting Address"
+          className="border w-full p-2 rounded-md"
+          onChange={handleChange}
+        />
+
         {/* Date */}
         <input
           type="date"
@@ -88,7 +98,7 @@ export default function MeetingForm({ setActiveForm }:any) {
           required
         />
 
-        {/* ✅ Schedule Dropdown */}
+        {/* Schedule Dropdown */}
         <select
           name="schedule"
           className="border w-full p-2 rounded-md"

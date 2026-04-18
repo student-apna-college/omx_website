@@ -86,14 +86,14 @@ export default function ContactPage() {
     </section>
 
     {/* CONTACT + FORM */}
-    <section className="max-w-[1300px] mx-auto py-16 md:py-24 px-6 grid lg:grid-cols-12 gap-10">
+    <section className="max-w-[1300px] mx-auto py-16 md:py-10 px-6 grid lg:grid-cols-12 gap-5">
 
       {/* LEFT SIDE */}
       <div className="lg:col-span-4 space-y-10">
 
         <div className="space-y-4">
 
-          <p className="text-2xl md:text-3xl font-bold text-[#0f172a] hover:text-green-600 transition">
+          <p className="text-2xl md:text-2xl font-bold text-[#0f172a] hover:text-green-600 transition">
             omxinfo@omx.in
           </p>
 

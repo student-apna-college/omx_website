@@ -1,6 +1,7 @@
 import { industriesData } from "@/data/industriesData";
 import IndustryPageUI from "@/components/IndustryPage/IndustryPageUI";
 import { notFound } from "next/navigation";
+
 type Props = {
   params: {
     slug: string;

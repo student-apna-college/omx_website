@@ -72,9 +72,9 @@ export default function Navbar() {
         {/* DESKTOP MENU */}
         <div className="hidden md:flex gap-8 lg:gap-10 items-center text-[#000033] text-sm lg:text-base">
 
-          <Link href="/" className="hover:text-blue-600 transition">Home</Link>
+          <Link href="/">Home</Link>
 
-          <Link href="/about" className="hover:text-blue-600 transition">About</Link>
+          <Link href="/about">About</Link>
 
           {/* SERVICES */}
           <div className="relative group">
@@ -108,7 +108,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/careers" className="hover:text-blue-600 transition">Careers</Link>
+          <Link href="/careers">Careers</Link>
 
           {/* CONTACT */}
           <div className="relative group">
@@ -164,7 +164,7 @@ export default function Navbar() {
           {/* INDUSTRY */}
           <div>
             <div className="flex justify-between items-center">
-              <Link href="/industries" onClick={() => setIsMobileMenuOpen(false)}>Industry We Serve</Link>
+              <Link href="#" onClick={() => setIsMobileMenuOpen(false)}>Industry We Serve</Link>
               <button onClick={() => setOpenDropdown(openDropdown === "industry" ? null : "industry")}>
                 <ChevronDown className={`transition ${openDropdown === "industry" ? "rotate-180" : ""}`} />
               </button>

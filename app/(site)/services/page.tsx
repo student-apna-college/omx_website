@@ -7,7 +7,7 @@ const services = [
     slug: "records-management", 
     title: "Physical Records Management", 
     icon: <Database size={24} strokeWidth={1.5} />, 
-    desc: "End-to-end lifecycle management of physical documents with secure tracking and vaulting"
+    desc: "End-to-end lifecycle management of physical documents with safest tracking and vaulting"
   },
   { 
     slug: "scanning-digitization", 
@@ -31,7 +31,7 @@ const services = [
     slug: "data-security", 
     title: "DMS & Cloud", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Secure cloud-based document access with advanced DMS system"
+    desc: "Safest cloud-based document access with advanced DMS system"
   },
 ];
 
@@ -61,7 +61,7 @@ export default function ServicesListing() {
 
           <div className="lg:col-span-4">
             <p className="text-gray-600 border-l-4 border-[#000033] pl-6 leading-relaxed text-sm md:text-base">
-              We provide secure storage, scanning, and document lifecycle solutions 
+              We provide smarter safer and trusted storage, scanning, and document lifecycle solutions 
               designed for modern enterprises across industries
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function ServicesListing() {
         <h3 className="font-semibold text-xl mb-3 text-[#1a1a1a]">Core Services Delivered</h3>
         <ul className="grid md:grid-cols-2 gap-2 list-disc pl-5">
           <li>Document Digitization</li>
-          <li>Secure Records Management</li>
+          <li>Sefest Records Management</li>
           <li>DMS Implementation</li>
         </ul>
       </div>

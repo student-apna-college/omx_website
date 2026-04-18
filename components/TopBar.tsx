@@ -31,7 +31,7 @@ export default function TopBar({ setActiveForm }: Props) {
           {/* Enquiry Button */}
           <button
             onClick={() => setActiveForm("enquiry")}
-            className="bg-green-500 hover:bg-green-600 text-white text-[12px] animate-pulse font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
+            className="bg-green-200 hover:bg-green-600 text-black text-[12px] font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
           >
             Enquire Now
           </button>
@@ -39,18 +39,18 @@ export default function TopBar({ setActiveForm }: Props) {
           {/*Meeting Button */}
           <button
             onClick={() => setActiveForm("meeting")}
-            className="bg-blue-500 hover:bg-blue-600 text-white text-[12px] animate-pulse font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
+            className="bg-blue-200 hover:bg-blue-600 text-black text-[12px]  font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
           >
             Meeting Request
           </button>
 
           {/* Normal Links (same rahenge) */}
-          <Link href="/employee-login" className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black text-[12px] font-black px-4 py-2 rounded-md shadow-md transition-all">
+          <Link href="/emplogin" className="flex items-center gap-2 bg-yellow-200 hover:bg-yellow-600 text-black text-[12px] font-black px-4 py-2 rounded-md shadow-md transition-all">
             <User size={12} />
             Employee Login
           </Link>
 
-          <Link href="/login" className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white text-[12px] font-black px-4 py-2 rounded-md shadow-md transition-all">
+          <Link href="/login" className="flex items-center gap-2 bg-red-200 hover:bg-red-600 text-black text-[12px] font-black px-4 py-2 rounded-md shadow-md transition-all">
             <ShieldCheck size={12} />
             Client Login
           </Link>

@@ -17,9 +17,9 @@ export default function SiteLayout({
     <>
       {/* HEADER */}
      <header className="fixed top-0 w-full z-50">
-  <TopBar setActiveForm={setActiveForm} />
-  <Navbar />
-</header>
+       <TopBar setActiveForm={setActiveForm} />
+       <Navbar />
+     </header>
 
       {/* FORMS */}
       {activeForm === "enquiry" && (

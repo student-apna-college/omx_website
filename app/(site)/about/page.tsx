@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ShieldCheck, ArrowDownRight, Award, Zap, Globe } from "lucide-react";
+import { ShieldCheck, Award, Zap, Globe } from "lucide-react";
 import ImageSlider from "@/components/About/ImageSlider";
 import ClientCarousel from "@/components/About/ClientCarousel";
 
@@ -89,7 +88,7 @@ export default function AboutPage() {
 
       {[
         { label: "Founded", val: "2004", icon: <Award size={20}/>, bg: "from-blue-100 to-blue-50", iconBg: "bg-blue-200 text-blue-700" },
-        { label: "Offices", val: "750+", icon: <Globe size={20}/>, bg: "from-purple-100 to-purple-50", iconBg: "bg-purple-200 text-purple-700" },
+        { label: "Our-Reach", val: "750+", icon: <Globe size={20}/>, bg: "from-purple-100 to-purple-50", iconBg: "bg-purple-200 text-purple-700" },
         { label: "TAT", val: "3 Min", icon: <Zap size={20}/>, bg: "from-yellow-100 to-yellow-50", iconBg: "bg-yellow-200 text-yellow-700" },
         { label: "Lost Doc", val: "0%", icon: <ShieldCheck size={20}/>, bg: "from-green-100 to-green-50", iconBg: "bg-green-200 text-green-700" },
       ].map((stat, i) => (
@@ -183,7 +182,7 @@ export default function AboutPage() {
         About OMX Info Management Ltd
       </h2>
       <p className="mt-4 text-slate-500 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-        OMX Info Management Limited is a trusted leader in Records & Information Management, delivering secure, scalable, 
+        OMX Info Management Limited is a trusted leader in Records & Information Management, delivering safest, scalable, 
         and technology-driven solutions to businesses across India.
       </p>
     </div>
@@ -213,7 +212,7 @@ export default function AboutPage() {
       <div className="bg-slate-50 p-6 rounded-xl">
         <h3 className="font-semibold text-slate-800 mb-2">Our Approach</h3>
         <p className="text-slate-600 text-sm leading-relaxed">
-          At OMX, we believe that business data is only valuable when it is secure, accessible, and well-managed. 
+          At OMX, we believe that business data is only valuable when it is Safest and faster, accessible, and well-managed. 
           We think beyond traditional storage, enabling organizations to manage records across all formats while 
           meeting compliance and risk management requirements efficiently.
         </p>
@@ -222,7 +221,7 @@ export default function AboutPage() {
       {/* INFRA + FEATURES */}
       <div className="grid md:grid-cols-2 gap-6 pt-2">
         <div className="bg-slate-50 p-5 rounded-xl">
-          <h3 className="font-semibold text-slate-800 mb-2">Secure Infrastructure</h3>
+          <h3 className="font-semibold text-slate-800 mb-2">Safest and Smarter Infrastructure</h3>
           <p className="text-slate-600 text-sm">
             Own RCC buildings across India with protection against fire, flood, cyclone, theft, and other risks.
           </p>
@@ -231,7 +230,7 @@ export default function AboutPage() {
         <div className="bg-slate-50 p-5 rounded-xl">
           <h3 className="font-semibold text-slate-800 mb-2">Advanced DMS Software</h3>
           <p className="text-slate-600 text-sm">
-            Secure document access, inventory tracking, retrieval requests, and cloud/server-based storage systems.
+            Safest document access, inventory tracking, retrieval requests, and cloud/server-based storage systems.
           </p>
         </div>
 
@@ -273,7 +272,7 @@ export default function AboutPage() {
           <p>• Scanning & Digitization Services</p>
           <p>• Digital Document Storage (DMS)</p>
           <p>• Data Security & Compliance Solutions</p>
-          <p>• Secure Shredding & Destruction Services</p>
+          <p>• Safest Shredding & Destruction Services</p>
           <p>• Data Entry & Indexing</p>
           <p>• Filing, Binding & Indexing</p>
           <p>• Mail Room Management</p>
