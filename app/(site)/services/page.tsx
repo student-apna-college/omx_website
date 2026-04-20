@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Shield, Zap, Database, Trash2, HardDrive, Settings, ArrowRight } from "lucide-react";
-import ClientCarousel from "@/components/About/ClientCarousel";
+
 
 const services = [
   { 
@@ -22,10 +22,10 @@ const services = [
     desc: "Compliance-driven shredding services with certified destruction"
   },
   { 
-    slug: "media-storage", 
-    title: "Media Vaulting", 
+    slug: "data-entry", 
+    title: "Data Entry", 
     icon: <HardDrive size={24} strokeWidth={1.5} />, 
-    desc: "Climate-controlled storage for tapes, files, and critical assets"
+    desc: "Any type of metadata entry"
   },
   { 
     slug: "data-security", 

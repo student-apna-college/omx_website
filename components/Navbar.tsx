@@ -109,6 +109,8 @@ export default function Navbar() {
           </div>
 
           <Link href="/careers">Careers</Link>
+        <Link href="about/core-team">Our Team</Link>
+
 
           {/* CONTACT */}
           <div className="relative group">
@@ -137,6 +139,7 @@ export default function Navbar() {
         <div className="flex flex-col px-6 py-4 gap-4 text-base">
 
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
 
           {/* SERVICES */}
           <div>
@@ -202,6 +205,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)}>Careers</Link>
+          <Link href="about/core-team" onClick={() => setIsMobileMenuOpen(false)}>Our Team</Link>
 
         </div>
       </div>

@@ -42,10 +42,8 @@ export default function Footer() {
             {/* SOCIAL */}
             <div className="flex gap-4">
               {[
-                { icon: <Linkedin size={18} />, href: "#" },
-                { icon: <Twitter size={18} />, href: "#" },
-                { icon: <Facebook size={18} />, href: "#" },
-                { icon: <Instagram size={18} />, href: "#" },
+                { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/omx-info-management-ltd---india/" },
+                { icon: <Instagram size={18} />, href: "https://www.instagram.com/omx_info_management_ltd?igsh=ZG5wMnFpNWo5eWl1" },
               ].map((social, i) => (
                 <Link
                   key={i}
@@ -65,7 +63,7 @@ export default function Footer() {
             </h4>
 
             <ul className="space-y-3">
-              {["Our Story", "Services", "Careers", "Contact"].map((item) => (
+              {["Services", "Careers", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
                     href={`/${item.toLowerCase().replace(" ", "-")}`}

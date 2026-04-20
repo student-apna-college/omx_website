@@ -13,6 +13,14 @@ const teamData = [
     image: "/coreteam/Raghav Sir.png",
   
   },
+
+
+  {
+    name: "Himanshu Agarwal",
+    role: "Human Resource Head",
+    image: "/coreteam/HimanshuSir.png",
+  
+  },
 ];
 
 export default function CoreTeamPage() {

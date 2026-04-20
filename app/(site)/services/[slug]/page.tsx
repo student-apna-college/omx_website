@@ -26,7 +26,7 @@ export async function generateStaticParams() {
     'records-management',
     'scanning-digitization',
     'secure-shredding',
-    'media-storage',
+    'data-entry',
     'data-security'
   ];
 
@@ -101,6 +101,30 @@ const serviceContent: Record<string, ServiceType> = {
     metaTitle: "Secure Data Destruction & Shredding | OMX Info Management",
     metaDesc: "Certified document destruction services ensuring complete data privacy and legal compliance"
   },
+
+  'data-entry': {
+  title: "Accurate Data Entry Services",
+  id: "SRV-004",
+  tagline: "Efficient and error-free digitization of business records",
+  icon: <Database size={32} strokeWidth={1.5} />,
+  features: [
+    "High Accuracy Data Entry",
+    "Online & Offline Data Processing",
+    "Bulk Data Digitization",
+    "Document to Digital Conversion",
+    "Data Validation & Quality Check",
+    "Secure Data Handling",
+    "Custom Data Formats (Excel, CSV, ERP)",
+    "Fast Turnaround Time",
+    "Scalable Data Entry Solutions",
+    "Manual & Automated Data Processing",
+    "Confidential Information Protection",
+    "Client-Specific Data Structuring",
+  ],
+  imageSrc: "/banner/image3.jpg",
+  metaTitle: "Professional Data Entry Services | OMX Info Management",
+  metaDesc: "Reliable and secure data entry solutions for accurate digital transformation of your business records"
+},
 
   'data-security': {
     title: "DMS & Cloud Infrastructure",
