@@ -50,15 +50,16 @@ export default function EmployeeForm({ job }) {
   };
 
   return (
-    <div className="bg-white p-5 md:p-4 rounded-2xl shadow-xl border max-w-4xl mx-auto">
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+    <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl border max-w-5xl mx-auto"> 
+      
+      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
         Apply for {job.role}
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6"> 
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6"> 
 
           {/* First Name */}
           <div>
@@ -135,7 +136,7 @@ export default function EmployeeForm({ job }) {
           {/* Relocation */}
           <div>
             <label className="form-label">Relocation *</label>
-            <div className="flex gap-6 mt-2">
+            <div className="flex flex-wrap gap-4 mt-2"> 
               <label className="flex items-center gap-2">
                 <input type="radio" name="relocate" value="Yes" onChange={handleChange} required />
                 Yes
@@ -152,7 +153,7 @@ export default function EmployeeForm({ job }) {
         {/* Resume */}
         <div>
           <label className="form-label">Upload Resume *</label>
-          <input type="file" accept=".pdf,.doc,.docx" required onChange={handleFileChange} className="mt-2" />
+          <input type="file" accept=".pdf,.doc,.docx" required onChange={handleFileChange} className="mt-2 w-full text-sm sm:text-base" /> {/* ✅ UPDATED */}
         </div>
 
         {/* Message */}
@@ -162,7 +163,7 @@ export default function EmployeeForm({ job }) {
         </div>
 
         {/* Submit */}
-        <button className="w-auto p-5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 rounded-xl font-semibold hover:scale-105 transition">
+        <button className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-semibold hover:scale-105 transition"> {/* ✅ UPDATED */}
           Submit Application
         </button>
       </form>
@@ -174,6 +175,7 @@ export default function EmployeeForm({ job }) {
           font-weight: 500;
           margin-bottom: 5px;
           color: #374151;
+          font-size: 14px; /* */
         }
 
         .input {
@@ -183,6 +185,13 @@ export default function EmployeeForm({ job }) {
           border-radius: 10px;
           outline: none;
           transition: 0.2s;
+          font-size: 14px; 
+        }
+
+        @media (min-width: 640px) {
+          .input {
+            font-size: 15px; 
+          }
         }
 
         .input:focus {
