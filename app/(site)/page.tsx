@@ -90,9 +90,9 @@ export default function Home() {
     
 
     {/* CLIENTS */}
-    <section className="py-12 md:py-16 bg-white">
+    <section className="py-12 md:py-4 bg-white">
 
-  <div className="max-w-[1400px] mx-auto px-6 mb-6">
+  <div className="max-w-[1400px] mx-auto px-6 mb-4">
     <h2 className="text-3xl md:text-4xl">
       Global Trust <span className="text-[#000033] font-semibold">Proven Reliability</span>
     </h2>

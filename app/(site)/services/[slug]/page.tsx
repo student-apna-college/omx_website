@@ -36,7 +36,7 @@ export async function generateStaticParams() {
 
 const serviceContent: Record<string, ServiceType> = {
   'records-management': {
-    title: "Physical Records Management",
+    title: "Physical Records Management",    
     id: "SRV-001",
     tagline: "Industrial-grade vaulting for high-frequency corporate assets.",
     icon: <Database size={32} strokeWidth={1.5} />,

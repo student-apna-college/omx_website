@@ -304,7 +304,7 @@ export default function AboutPage() {
 </section>
 
       {/* CLIENTS */}
-      <section className="py-10 md:py-16 bg-transparent">
+      <section className="py-10 md:py-4 bg-transparent">
         <div className="max-w-[1400px] mx-auto px-6 mb-6">
           <h2 className="text-3xl md:text-4xl">
             Global Trust <span className="text-[#000033] font-semibold">Proven Reliability</span>
