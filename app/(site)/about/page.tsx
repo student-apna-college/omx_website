@@ -209,9 +209,9 @@ export default function AboutPage() {
       </p>
 
       {/* PHILOSOPHY */}
-      <div className="bg-slate-50 p-6 rounded-xl">
+      <div className="bg-orange-300 p-6 rounded-xl">
         <h3 className="font-semibold text-slate-800 mb-2">Our Approach</h3>
-        <p className="text-slate-600 text-sm leading-relaxed">
+        <p className="text-black-600 text-sm leading-relaxed">
           At OMX, we believe that business data is only valuable when it is Safest and faster, accessible, and well-managed. 
           We think beyond traditional storage, enabling organizations to manage records across all formats while 
           meeting compliance and risk management requirements efficiently.
@@ -220,30 +220,30 @@ export default function AboutPage() {
 
       {/* INFRA + FEATURES */}
       <div className="grid md:grid-cols-2 gap-6 pt-2">
-        <div className="bg-slate-50 p-5 rounded-xl">
+        <div className="bg-green-300 p-5 rounded-xl">
           <h3 className="font-semibold text-slate-800 mb-2">Safest and Smarter Infrastructure</h3>
-          <p className="text-slate-600 text-sm">
+          <p className="text-black-600 text-sm">
             Own RCC buildings across India with protection against fire, flood, cyclone, theft, and other risks.
           </p>
         </div>
 
-        <div className="bg-slate-50 p-5 rounded-xl">
-          <h3 className="font-semibold text-slate-800 mb-2">Advanced DMS Software</h3>
-          <p className="text-slate-600 text-sm">
+        <div className="bg-blue-300 p-5 rounded-xl">
+          <h3 className="font-semibold text-black-800 mb-2">Advanced DMS Software</h3>
+          <p className="text-black-600 text-sm">
             Safest document access, inventory tracking, retrieval requests, and cloud/server-based storage systems.
           </p>
         </div>
 
-        <div className="bg-slate-50 p-5 rounded-xl">
-          <h3 className="font-semibold text-slate-800 mb-2">Pan India Operations</h3>
-          <p className="text-slate-600 text-sm">
+        <div className="bg-purple-300 p-5 rounded-xl">
+          <h3 className="font-semibold text-black-800 mb-2">Pan India Operations</h3>
+          <p className="text-black-600 text-sm">
             Strong nationwide network supported by OM Logistics infrastructure and dedicated teams.
           </p>
         </div>
 
-        <div className="bg-slate-50 p-5 rounded-xl">
+        <div className="bg-[#6a994e] p-5 rounded-xl">
           <h3 className="font-semibold text-slate-800 mb-2">Data Security & Compliance</h3>
-          <p className="text-slate-600 text-sm">
+          <p className="text-black-600 text-sm">
             Enterprise-grade security systems ensuring confidentiality, compliance, and risk management.
           </p>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, User, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, User, ShieldCheck ,MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 
 type Props = {
@@ -30,30 +30,39 @@ export default function TopBar({ setActiveForm }: Props) {
           
           {/* Enquiry Button */}
           <button
-            onClick={() => setActiveForm("enquiry")}
-            className="bg-green-200 hover:bg-green-600 text-black text-[12px] font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
-          >
-            Enquire Now
-          </button>
+  onClick={() => setActiveForm("enquiry")}
+  className="flex items-center gap-1.5 border border-white/30 text-white px-3 py-1.5 rounded-full text-1xl md:text-sm font-medium 
+  hover:bg-white hover:text-black hover:shadow-md transition-all duration-300 backdrop-blur-md"
+>
+  <MessageCircle size={14} />
+  <span>Enquire Now</span>
+</button>
 
-          {/*Meeting Button */}
           <button
-            onClick={() => setActiveForm("meeting")}
-            className="bg-blue-200 hover:bg-blue-600 text-black text-[12px]  font-black cursor-pointer px-4 py-2 rounded-md shadow-md transition-all"
-          >
-            Meeting Request
-          </button>
+  onClick={() => setActiveForm("meeting")}
+  className="flex items-center gap-1.5 border border-white/30 text-white px-3 py-1.5 rounded-full text-1xl md:text-sm font-medium 
+  hover:bg-white hover:text-black hover:shadow-md transition-all duration-300 backdrop-blur-md"
+>
+  <span>Meeting Request</span>
+</button>
 
-          {/* Normal Links (same rahenge) */}
-          <Link href="/emplogin" className="flex items-center gap-2 bg-yellow-200 hover:bg-yellow-600 text-black text-[12px] font-black px-4 py-2 rounded-md shadow-md transition-all">
-            <User size={12} />
-            Employee Login
-          </Link>
+        <Link
+  href="/emplogin"
+  className="flex items-center gap-1.5 border border-white/30 text-white px-3 py-1.5 rounded-full text-1xl  md:text-sm font-medium 
+  hover:bg-white hover:text-black hover:shadow-md transition-all duration-300 backdrop-blur-md"
+>
+  <User size={14} />
+  <span>Employee Login</span>
+</Link>
 
-          <Link href="/login" className="flex items-center gap-2 bg-red-200 hover:bg-red-600 text-black text-[12px] font-black px-4 py-2 rounded-md shadow-md transition-all">
-            <ShieldCheck size={12} />
-            Client Login
-          </Link>
+         <Link
+  href="/login"
+  className="flex items-center gap-1.5 border border-white/30 text-white px-3 py-1.5 rounded-full text-1xl md:text-sm font-medium 
+  hover:bg-white hover:text-black hover:shadow-md transition-all duration-300 backdrop-blur-md"
+>
+  <ShieldCheck size={14} />
+  <span>Client Login</span>
+</Link>
 
         </div>
 
@@ -61,3 +70,16 @@ export default function TopBar({ setActiveForm }: Props) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

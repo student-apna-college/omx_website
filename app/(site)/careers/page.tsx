@@ -25,71 +25,73 @@ const jobPostings = [
 ];
 
 export default function CareersPage() {
- return (
-  <div className="bg-white text-[#1a1a1a]">
+  return (
+    <div className="bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 text-[#1a1a1a]">
 
-    <Hero />
+      <Hero />
 
-    {/* HERO CONTENT SECTION */}
-    <section className="py-20 md:py-24 px-6 bg-gradient-to-b from-[#f5fffb] via-white to-[#f7faff]">
+      {/* HERO CONTENT SECTION */}
+      <section className="py-16 md:py-20 px-6  lg:ml-[50px]">
 
-      <div className="max-w-[1300px] mx-auto grid lg:grid-cols-12 gap-10 items-start">
+        <div className="max-w-[1300px] mx-auto grid lg:grid-cols-12 gap-10 items-center">
 
-        {/* LEFT CONTENT */}
-        <div className="lg:col-span-8 space-y-6">
+          {/* LEFT CONTENT */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
 
-          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight">
-            Build Your{" "}
-            <span className="font-semibold text-[#0f172a]">Career</span> With Us
-          </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight">
+              Build Your{" "}
+              <span className="font-semibold text-[#0f172a]">Career</span> With Us
+            </h1>
 
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Join a company that values innovation, professional growth, and collaboration.
-            Employees are empowered to contribute to impactful projects and grow alongside a supportive leadership team.
-          </p>
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Join a company that values innovation, professional growth, and collaboration.
+              Employees are empowered to contribute to impactful projects and grow alongside a supportive leadership team.
+            </p>
 
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            We offer structured career paths, mentorship programs, skill development, and exposure to real-world challenges.
-          </p>
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+              We offer structured career paths, mentorship programs, skill development, and exposure to real-world challenges.
+            </p>
 
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Explore our current job openings below and take the next step in your professional journey.
-          </p>
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Explore our current job openings below and take the next step in your professional journey.
+            </p>
 
-        </div>
+          </div>
 
-        {/* RIGHT CTA CARD */}
-        <div className="lg:col-span-4">
+          {/* RIGHT CTA CARD */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end shadow-sm  ">
 
-          <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
+            <div className="w-full max-w-md relative rounded-2xl p-[1px] bg-[#ff9433]">
 
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-xl transition relative overflow-hidden">
+              <div className="rounded-2xl p-6 md:p-8  shadow-sm hover:shadow-xl transition relative overflow-hidden">
 
-              {/* BACK ICON */}
-              <ArrowRight
-                size={180}
-                className="absolute -top-10 -right-10 text-gray-100"
-              />
+                {/* BACK ICON */}
+                <ArrowRight
+                  size={140}
+                  className="absolute -top-8 -right-8 text-gray-100"
+                />
 
-              <div className="relative z-10 space-y-5">
+                <div className="relative z-10 space-y-5 text-center  lg:text-left">
 
-                <h3 className="text-2xl md:text-3xl font-light">
-                  Request <br />
-                  <span className="font-semibold text-[#0f172a]">
-                    Career Consultation
-                  </span>
-                </h3>
+                  <h3 className="text-xl md:text-2xl font-light leading-snug">
+                    Request <br />
+                    <span className="font-semibold text-[#0f172a]">
+                      Career Consultation
+                    </span>
+                  </h3>
 
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  Our HR team provides personalized guidance and career advice for candidates interested in high-impact roles.
-                </p>
+                  <p className="text-sm leading-relaxed">
+                    Our HR team provides personalized guidance and career advice for candidates interested in high-impact roles.
+                  </p>
 
-                <Link
-                  href="/contact"
-                  className="inline-block w-full text-center bg-[#0f172a] text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-[#1e3a8a] transition"
-                >
-                  Schedule Meeting
-                </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-block w-full text-center bg-[#0f172a] text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-[#1e3a8a] transition"
+                  >
+                    Schedule Meeting
+                  </Link>
+
+                </div>
 
               </div>
 
@@ -98,17 +100,15 @@ export default function CareersPage() {
           </div>
 
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* JOB SECTION */}
+      <section className="py-10 md:py-12 bg-[#f7fbff]">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <JobList jobPostings={jobPostings} />
+        </div>
+      </section>
 
-    {/* JOB SECTION */}
-    <section className="py-5 md:py-5 bg-[#f7fbff]">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <JobList jobPostings={jobPostings} />
-      </div>
-    </section>
-
-  </div>
-);
+    </div>
+  );
 }

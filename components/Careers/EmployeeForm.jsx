@@ -50,7 +50,7 @@ export default function EmployeeForm({ job }) {
   };
 
   return (
-    <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl border max-w-5xl mx-auto"> 
+    <div className="p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl border max-w-5xl mx-auto"> 
       
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
         Apply for {job.role}

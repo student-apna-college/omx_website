@@ -4,7 +4,8 @@ import IndustryTicker from "@/components/Home/IndustryTicker";
 import ShowcaseSection from "@/components/Home/ShowcaseSection";
 import Accordian from "@/components/Home/Accordian";
 import ClientCarousel from "@/components/About/ClientCarousel";
-import RotatingWheel from "@/components/Home/RotatingWheel";
+import TestimonialCarousel from "@/components/Testimonial/TestimonialCarousel"
+import CompanyCarousel from "@/components/Home/CompanyCarousel"
 
 export default function Home() {
 
@@ -101,6 +102,9 @@ export default function Home() {
   <ClientCarousel clientData={clientData} />
      {/* INDUSTRY */}
     <IndustryTicker industries={industries} />
+
+    <TestimonialCarousel></TestimonialCarousel>
+    <CompanyCarousel></CompanyCarousel>
 
 </section>
   </div>
