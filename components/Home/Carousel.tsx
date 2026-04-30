@@ -38,7 +38,7 @@ export default function Carousel({
             src={slide.img}
             alt={slide.title}
             fill
-            className="object-cover object-center md:object-[center_30%]"
+            className="object-center object-center md:object-[center_50%]"
             priority={index === 0}
           />
 

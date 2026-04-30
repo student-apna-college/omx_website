@@ -61,10 +61,15 @@ export default function JobList({ jobPostings }) {
               </h2>
 
               <p className="text-gray-500 text-sm mt-1 flex flex-wrap gap-x-2">
-                <span className="break-words">{selectedJob.location}</span>
-                <span>• {selectedJob.type}</span>
+                <span className="break-words">{selectedJob.location}
+                </span>
               </p>
+
+                <h5 className="text-gray-500 text-sm mt-1 flex flex-wrap gap-x-2 mt-4">Job Type: {selectedJob.type}</h5>
             </div>
+            <h3 className="font-semibold text-gray-800 mb-2">
+                  Description
+                </h3>
 
             <p className="text-gray-700 leading-relaxed break-words">
               {selectedJob.description}
