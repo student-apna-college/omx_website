@@ -15,7 +15,7 @@ export default function ContactPage() {
   }, []);
 
   const branches = [
-    { city: "New Delhi", state: "Delhi NCR", category: "Corporate Headquarters", address: "141 Ring Road Transport Centre, Punjabi Bagh, New Delhi-110035", contact: "omxinfo@omx.in" },
+    { city: "New Delhi", state: "Delhi NCR", category: "Corporate Headquarters", address: "130 Transport Centre, Punjabi Bagh, New Delhi - 110035", contact: "omxinfo@omx.in" },
     { city: "Kochin", state: "Kerala", category: "Regional Hub", address: "Srambikkal House, Koduvazhanga, Neericode, 683511", contact: "omxinfo@omx.in" },
     { city: "Hyderabad", state: "Telangana", category: "Technical Center", address: "Survey No.185/186 Yellampet Village, Medchal, 501401", contact: "omxinfo@omx.in" },
     { city: "Jaipur", state: "Rajasthan", category: "Records Vault", address: "651,652,661,663 Village Keshwana Rajpoot, 303108", contact: "omxinfo@omx.in" },

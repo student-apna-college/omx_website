@@ -3,7 +3,7 @@ import Image from "next/image";
 import { MapPin, Globe, Building2, Mail } from "lucide-react";
 
 const branchData = [
-  { city: "New Delhi", state: "Delhi NCR", category: "Corporate HQ", address: "141 Ring Road Transport Centre, Punjabi Bagh, New Delhi-110035", contact: "omxinfo@omx.in" },
+  { city: "New Delhi", state: "Delhi NCR", category: "Corporate HQ", address: "130 Transport Centre, Punjabi Bagh, New Delhi - 110035", contact: "omxinfo@omx.in" },
   { city: "Kochin", state: "Kerala", category: "Regional Hub", address: "Srambikkal House, Koduvazhanga, Neericode, 683511", contact: "omxinfo@omx.in" },
   { city: "Hyderabad", state: "Telangana", category: "Technical Center", address: "Survey No.185/186 Yellampet Village, Medchal, 501401", contact: "omxinfo@omx.in" },
   { city: "Jaipur", state: "Rajasthan", category: "Records Vault", address: "651,652,661,663 Village Keshwana Rajpoot, 303108", contact: "omxinfo@omx.in" },
