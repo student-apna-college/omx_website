@@ -27,7 +27,7 @@ export default function CompanyCarousel() {
       {/* Heading */}
       <div className="text-center mb-12 px-4">
         <h2 className="text-3xl md:text-5xl font-semibold">
-          OUR GROUP OF COMPANIES
+          Our Group of Companies
         </h2>
         {/* <p className="max-w-2xl mx-auto text-gray-600 mt-4">
           With a unified vision, the Om group companies established to streamline

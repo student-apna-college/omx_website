@@ -1,23 +1,31 @@
 import Link from "next/link";
-import { Shield, Zap, Database, Trash2, HardDrive, Settings, ArrowRight } from "lucide-react";
+import { Shield, Zap, Database, Trash2, HardDrive, ArrowRight } from "lucide-react";
 
 
 const services = [
   { 
     slug: "records-management", 
-    title: "Physical Records Management", 
+    title: "Records Management", 
     icon: <Database size={24} strokeWidth={1.5} />, 
     desc: "End-to-end lifecycle management of physical documents with safest tracking and vaulting"
   },
   { 
     slug: "scanning-digitization", 
-    title: "Digital Transformation & Scanning", 
+    title: "Scanning-Digitization", 
     icon: <Zap size={24} strokeWidth={1.5} />, 
     desc: "High-speed digitization with automated indexing and accuracy control"
   },
+
+  { 
+    slug: "digital-document-storage-dms-services", 
+    title: "Digital Document Storage DMS Services", 
+    icon: <Zap size={24} strokeWidth={1.5} />, 
+    desc: "High-speed digitization with automated indexing and accuracy control"
+  },
+
   { 
     slug: "secure-shredding", 
-    title: "Secure Data Destruction", 
+    title: "Secure-Shredding", 
     icon: <Trash2 size={24} strokeWidth={1.5} />, 
     desc: "Compliance-driven shredding services with certified destruction"
   },
@@ -28,16 +36,47 @@ const services = [
     desc: "Any type of metadata entry"
   },
   { 
-    slug: "data-security", 
-    title: "DMS & Cloud", 
+    slug: "data-security-compliance-solutions", 
+    title: "Data Security Compliance solutions", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
     desc: "Safest cloud-based document access with advanced DMS system"
   },
+
+   { 
+    slug: "record-ranagement-infra-solution", 
+    title: "Record Management Infra Solution ", 
+    icon: <Shield size={24} strokeWidth={1.5} />, 
+    desc: "Safest cloud-based document access with advanced DMS system"
+  },
+
+{ 
+    slug: "filling-binding-indexing", 
+    title: "Filling Binding & Indexing", 
+    icon: <Shield size={24} strokeWidth={1.5} />, 
+    desc: "Safest cloud-based document access with advanced DMS system"
+  },
+
+  { 
+    slug: "mail-room-services", 
+    title: "Mail Room Services", 
+    icon: <Shield size={24} strokeWidth={1.5} />, 
+    desc: "Safest cloud-based document access with advanced DMS system"
+  },
+
+  { 
+    slug: "record-information-management", 
+    title: "Record Information Management", 
+    icon: <Shield size={24} strokeWidth={1.5} />, 
+    desc: "Safest cloud-based document access with advanced DMS system"
+  },
+
+  
+
 ];
 
 export default function ServicesListing() {
   return (
-    <div className="bg-gradient-to-b from-[#f8fbff] via-[#f1f6ff] to-[#f8fbff] pt-24 md:pt-32 pb-16 md:pb-24">
+    <div className="bg-gradient-to-b from-[#f8fbff] via-[#f1f6ff] to-[#f8fbff] pt-24 md:pt-25 pb-24 md:pb-24">
 
       <div className="max-w-[1400px] mx-auto px-6">
 
@@ -50,7 +89,7 @@ export default function ServicesListing() {
         </div>
 
         {/* HEADER */}
-        <div className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-24 items-start">
+        <div className="grid lg:grid-cols-12 gap-10 mb-5 md:mb-10 items-start">
 
           <div className="lg:col-span-8">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-light leading-tight">

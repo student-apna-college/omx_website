@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   Database,
@@ -10,15 +11,25 @@ import {
   Menu,
   X,
   ContactRound,
-  MapPin
+  MapPin,
+  HardDrive,
+  Building2,
+  FileText,
+  Mail
 } from "lucide-react";
 import Image from "next/image";
 
 const serviceLinks = [
   { slug: "records-management", title: "Records Management", icon: <Database size={16} /> },
   { slug: "scanning-digitization", title: "Scanning & Digitization", icon: <Zap size={16} /> },
+  { slug: "digital-document-storage-dms-services", title: "Digital Document Storage DMS Services", icon: <Zap size={16} /> },
   { slug: "secure-shredding", title: "Secure Shredding", icon: <Trash2 size={16} /> },
-  { slug: "data-security", title: "Data Security", icon: <Shield size={16} /> },
+  { slug: "data-security-compliance-solutions", title: "Data Security & Compliance Solutions", icon: <Shield size={16} /> },
+  { slug: "record-management-infra-solution", title: "Record Management Infra Solution ", icon: <Building2 size={16} /> },
+  { slug: "filling-binding-indexing", title: "Filling Binding & Indexing", icon: <FileText size={16} /> },
+  { slug: "mail-room-services", title: "Mail Room Services", icon: <Mail size={16} /> },
+  { slug: "record-information-management", title: "Record Information Management", icon: <Database size={16} /> },
+  { slug: "data-entry", title: "Data Entry", icon: <HardDrive size={16} /> },
 ];
 
 const contactUsLinks = [
@@ -48,7 +59,14 @@ const industrySolutions = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+ const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const pathname = usePathname();
+
+  const isActive = (path:any) => {
+    if (path === "/") return pathname === "/";
+    return pathname.startsWith(path);
+  };
 
   return (
     <nav className="w-full relative z-[9999]">
@@ -57,7 +75,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center bg-white/90 backdrop-blur-md px-4 md:px-12 py-3 md:py-4 shadow-md">
 
         {/* LOGO */}
-        <Link href="/" className="relative w-[130px] h-[45px] sm:w-[160px] sm:h-[55px] md:w-[240px] md:h-[80px]">
+        <Link href="/"className="relative w-[130px] h-[45px] sm:w-[160px] sm:h-[55px] md:w-[240px] md:h-[80px]">
           <Image src="/images/omx info.png" alt="logo" fill className="object-contain" priority />
         </Link>
 
@@ -72,20 +90,29 @@ export default function Navbar() {
         {/* DESKTOP MENU */}
         <div className="hidden md:flex gap-8 lg:gap-10 items-center text-[#000033] text-sm lg:text-base">
 
-          <Link href="/">Home</Link>
+          {/* Home */}
+          <div className="relative">
+            <Link href="/" className={isActive("/") ? "text-blue-600" : ""}>Home</Link>
+            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/") ? "w-full" : "w-0"}`}></span>
+          </div>
 
-          <Link href="/about">About</Link>
+          {/* About */}
+          <div className="relative">
+            <Link href="/about" className={isActive("/about") ? "text-blue-600" : ""}>About</Link>
+            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/about") ? "w-full" : "w-0"}`}></span>
+          </div>
 
           {/* SERVICES */}
           <div className="relative group">
-            <div className="flex items-center gap-1 py-4 cursor-pointer">
-              <Link href="/services">Services</Link>
+            <div className="flex items-center gap-1 py-4 cursor-pointer relative">
+              <Link href="/services" className={isActive("/services") ? "text-blue-600" : ""}>Services</Link>
               <ChevronDown size={14} className="group-hover:rotate-180 transition" />
+              <span className={`absolute left-0 bottom-2 h-[2px] bg-blue-600 transition-all ${isActive("/services") ? "w-full" : "w-0"}`}></span>
             </div>
 
-            <div className="absolute top-full right-0 mt-2 w-[260px] bg-white rounded-lg shadow-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
+            <div className="absolute top-full right-0 mt-2 w-[220px] bg-white rounded-md shadow-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               {serviceLinks.map((s) => (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="flex gap-2 p-2 hover:bg-gray-100 text-gray-700">
+                <Link key={s.slug} href={`/services/${s.slug}`} className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 text-gray-700 rounded-md">
                   {s.icon} {s.title}
                 </Link>
               ))}
@@ -108,15 +135,24 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/careers">Careers</Link>
-        <Link href="about/core-team">Our Team</Link>
+          {/* Careers */}
+          <div className="relative">
+            <Link href="/careers" className={isActive("/careers") ? "text-blue-600" : ""}>Careers</Link>
+            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/careers") ? "w-full" : "w-0"}`}></span>
+          </div>
 
+          {/* Our Team */}
+          <div className="relative">
+            <Link href="/about/core-team" className={isActive("/about/core-team") ? "text-blue-600" : ""}>Our Team</Link>
+            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/about/core-team") ? "w-full" : "w-0"}`}></span>
+          </div>
 
           {/* CONTACT */}
           <div className="relative group">
-            <div className="flex items-center gap-1 py-4 cursor-pointer">
-              <Link href="/contact">Contact</Link>
+            <div className="flex items-center gap-1 py-4 cursor-pointer relative">
+              <Link href="/contact" className={isActive("/contact") ? "text-blue-600" : ""}>Contact</Link>
               <ChevronDown size={14} className="group-hover:rotate-180 transition" />
+              <span className={`absolute left-0 bottom-2 h-[2px] bg-blue-600 transition-all ${isActive("/contact") ? "w-full" : "w-0"}`}></span>
             </div>
 
             <div className="absolute top-full right-0 mt-2 w-[240px] bg-white rounded-lg shadow-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
@@ -138,16 +174,13 @@ export default function Navbar() {
 
         <div className="flex flex-col px-6 py-4 gap-4 text-base">
 
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-blue-600" : ""}>Home</Link>
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about") ? "text-blue-600" : ""}>About</Link>
 
           {/* SERVICES */}
           <div>
             <div className="flex justify-between items-center">
-              <div className="flex items-center gap-1 py-4 cursor-pointer">
-  <Link href="/services">Services</Link>
-  <ChevronDown size={14} className="group-hover:rotate-180 transition" />
-</div>
+              <Link href="/services" className={isActive("/services") ? "text-blue-600" : ""}>Services</Link>
               <button onClick={() => setOpenDropdown(openDropdown === "services" ? null : "services")}>
                 <ChevronDown className={`transition ${openDropdown === "services" ? "rotate-180" : ""}`} />
               </button>
@@ -167,7 +200,7 @@ export default function Navbar() {
           {/* INDUSTRY */}
           <div>
             <div className="flex justify-between items-center">
-              <Link href="#" onClick={() => setIsMobileMenuOpen(false)}>Industry We Serve</Link>
+              <Link href="#">Industry We Serve</Link>
               <button onClick={() => setOpenDropdown(openDropdown === "industry" ? null : "industry")}>
                 <ChevronDown className={`transition ${openDropdown === "industry" ? "rotate-180" : ""}`} />
               </button>
@@ -187,7 +220,7 @@ export default function Navbar() {
           {/* CONTACT */}
           <div>
             <div className="flex justify-between items-center">
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+              <Link href="/contact" className={isActive("/contact") ? "text-blue-600" : ""}>Contact</Link>
               <button onClick={() => setOpenDropdown(openDropdown === "contact" ? null : "contact")}>
                 <ChevronDown className={`transition ${openDropdown === "contact" ? "rotate-180" : ""}`} />
               </button>
@@ -204,8 +237,8 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)}>Careers</Link>
-          <Link href="about/core-team" onClick={() => setIsMobileMenuOpen(false)}>Our Team</Link>
+          <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/careers") ? "text-blue-600" : ""}>Careers</Link>
+          <Link href="/about/core-team" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about/core-team") ? "text-blue-600" : ""}>Our Team</Link>
 
         </div>
       </div>

@@ -7,7 +7,7 @@ import {
   FileScanIcon,
   MonitorCloud
 } from 'lucide-react';
-import { ShieldCheck, Clock, Truck, BadgeCheck } from "lucide-react";
+import { ShieldCheck, Clock, Truck, BadgeCheck,Building2, FileText, Mail} from "lucide-react";
 
 type ServiceType = {
   title: string;
@@ -25,9 +25,15 @@ export async function generateStaticParams() {
   const slugs = [
     'records-management',
     'scanning-digitization',
+    'Digital-Document-Storage-DMS-Services',
     'secure-shredding',
     'data-entry',
-    'data-security'
+    'data-security',
+    'Record-Management-Infra-Solution',
+    'Filling-Binding-Indexing',
+    'Mail-Room-Services',
+    'Record-Information-Management',
+    'Mail-Room-Services',
   ];
 
   return slugs.map((slug) => ({ slug }));
@@ -78,6 +84,32 @@ const serviceContent: Record<string, ServiceType> = {
     metaDesc: "Transform physical documents into searchable digital assets with industrial-grade OCR scanning services"
   },
 
+
+
+  'digital-document-storage-dms-services': {
+  title: "Digital Document Storage DMS Services",
+  id: "SRV-002",
+  tagline: "Smart, Secure & Scalable Document Management System",
+  icon: <Zap size={32} strokeWidth={1.5} />,
+  features: [
+    "Centralized Document Repository",
+    "Advanced Search & Retrieval (OCR Enabled)",
+    "Role-Based Access Control",
+    "Secure Cloud / On-Premise Storage",
+    "Document Version Control & History Tracking",
+    "Automated Workflow & Approval System",
+    "Audit Trail & Activity Monitoring",
+    "Data Encryption & Backup Management",
+    "Multi-Device Access (Web & Mobile)",
+    "Customization Service According to Client Requirement"
+  ],
+  imageSrc: "/banner/4.jpeg",
+  metaTitle: "Digital Document Management System (DMS) Services | OMX Info Management",
+  metaDesc: "Streamline, store, and manage your business documents securely with our advanced DMS solutions featuring access control, workflow automation, and cloud integration."
+},
+
+
+
   'secure-shredding': {
     title: "Certified Secure Destruction",
     id: "SRV-003",
@@ -109,43 +141,128 @@ const serviceContent: Record<string, ServiceType> = {
   icon: <Database size={32} strokeWidth={1.5} />,
   features: [
     "High Accuracy Data Entry",
-    "Online & Offline Data Processing",
-    "Bulk Data Digitization",
-    "Document to Digital Conversion",
     "Data Validation & Quality Check",
-    "Secure Data Handling",
-    "Custom Data Formats (Excel, CSV, ERP)",
+    "Custom Data Formats (Excel, CSV)",
     "Fast Turnaround Time",
-    "Scalable Data Entry Solutions",
-    "Manual & Automated Data Processing",
-    "Confidential Information Protection",
-    "Client-Specific Data Structuring",
+    "Client-Specific Data Structuring Data Entry",
   ],
-  imageSrc: "/banner/image3.jpg",
+  imageSrc: "/banner/6.jpg",
   metaTitle: "Professional Data Entry Services | OMX Info Management",
   metaDesc: "Reliable and secure data entry solutions for accurate digital transformation of your business records"
 },
 
-  'data-security': {
-    title: "DMS & Cloud Infrastructure",
-    id: "SRV-006",
-    tagline: "Advanced cybersecurity frameworks for digital asset protection",
-    icon: <Shield size={32} strokeWidth={1.5} />,
-    features: [
-      "End-to-End Encryption",
-      "Multi-Factor Authentication",
-      "Disaster Recovery Planning",
-      "Secure Data Access Control",
-      "Role-Based Permissions",
-      "Real-Time Data Sync",
-      "Encrypted File Transfer",
-      "Audit Log Monitoring",
-      "24/7 System Monitoring"
-    ],
-    imageSrc: "/banner/data.jpg",
-    metaTitle: "Cloud DMS & Data Security | OMX Info Management",
-    metaDesc: "Secure cloud-based document management systems with military-grade encryption and automated backups"
-  }
+'data-security-compliance-solutions': {
+  title: "Data Security & Compliance Solutions",
+  id: "SRV-010",
+  tagline: "Protect your business data with advanced security frameworks and ensure regulatory compliance.",
+  icon: <Shield size={32} strokeWidth={1.5} />,
+  features: [
+    "End-to-End Data Encryption",
+    "Multi-Factor Authentication (MFA)",
+    "Secure Access Control & Identity Management",
+    "Regulatory Compliance (ISO, GDPR, etc.)",
+    "Disaster Recovery & Business Continuity Planning",
+    "Real-Time Threat Monitoring",
+    "Audit Logs & Activity Tracking",
+    "Secure Data Backup & Restoration",
+    "Encrypted File Transfers",
+    "24/7 Security Monitoring & Alerts"
+  ],
+  imageSrc: "/banner/7.jpg",
+  metaTitle: "Data Security & Compliance Services | OMX Info Management",
+  metaDesc: "Ensure complete protection of your business data with advanced cybersecurity solutions, compliance frameworks, and 24/7 monitoring."
+},
+
+
+  'record-management-infra-solution': {
+  title: "Record Management Infrastructure Solution",
+  id: "SRV-006",
+  tagline: "End-to-end setup of secure and scalable record management infrastructure.",
+  icon: <Building2 size={32} strokeWidth={1.5} />,
+  features: [
+    "On-site Record Storage Infrastructure Setup",
+    "Racking & Shelving System Design",
+    "Barcode & File Tracking Implementation",
+    "Document Storage Layout Planning",
+    "Fire Safety & Climate Control Systems",
+    "Secure Access Control Implementation",
+    "Record Lifecycle Management Setup",
+    "Integration with DMS Software",
+    "Compliance & Audit-Ready Infrastructure",
+    "Warehouse Optimization & Space Planning"
+  ],
+  imageSrc: "/banner/data.jpg",
+  metaTitle: "Record Management Infrastructure Setup Services | OMX Info Management",
+  metaDesc: "Design and deploy safer, compliant, and scalable record storage infrastructure with advanced tracking, safety systems, and optimized warehouse planning."
+},
+
+
+
+ 'filling-binding-indexing': {
+  title: "Filing, Binding & Indexing Services",
+  id: "SRV-007",
+  tagline: "Structured document organization for easy storage, retrieval, and long-term preservation.",
+  icon: <FileText size={32} strokeWidth={1.5} />,
+  features: [
+    "Systematic File Arrangement & Categorization",
+    "Professional Document Binding (Hard & Soft)",
+    "Custom File Labeling & Tagging",
+    "Barcode & Indexing System Implementation",
+    "Easy Retrieval & Reference Management",
+    "Bulk File Sorting & Organization",
+    "Document Repair & Restoration",
+    "Standardized Record Structuring",
+    "Department-wise File Segregation",
+    "Physical to Digital Index Mapping"
+  ],
+  imageSrc: "/banner/data.jpg",
+  metaTitle: "Filing, Binding & Indexing Services | OMX Info Management",
+  metaDesc: "Organize, bind, and index your documents efficiently with structured filing systems for quick retrieval and long-term preservation."
+},
+
+
+  'mail-room-services': {
+  title: "Mail Room Management Services",
+  id: "SRV-008",
+  tagline: "Efficient handling, sorting, and distribution of inbound and outbound corporate mail.",
+  icon: <Mail size={32} strokeWidth={1.5} />,
+  features: [
+    "Inbound & Outbound Mail Handling",
+    "Mail Sorting & Department-wise Distribution",
+    "Courier & Dispatch Management",
+    "Digital Mailroom (Scan & Email Documents)",
+    "Tracking & Delivery Confirmation System",
+    "Confidential Mail Handling & Security",
+    "Bulk Mail Processing",
+    "Vendor & Courier Coordination",
+    "Centralized Mailroom Operations",
+    "Record Keeping & Audit Support"
+  ],
+  imageSrc: "/banner/2.jpeg",
+  metaTitle: "Mail Room Management Services | OMX Info Management",
+  metaDesc: "Streamline your business communication with efficient mailroom management services including sorting, dispatch, tracking, and secure handling."
+},
+
+  'record-information-management': {
+  title: "Record & Information Management",
+  id: "SRV-009",
+  tagline: "Comprehensive lifecycle management of physical and digital records for secure storage, access, and compliance.",
+  icon: <Database size={32} strokeWidth={1.5} />,
+  features: [
+    "End-to-End Record Lifecycle Management",
+    "Secure Physical & Digital Record Storage",
+    "Document Classification & Categorization",
+    "Quick Retrieval & Delivery Services",
+    "Barcode & Tracking System Integration",
+    "Compliance & Regulatory Support",
+    "Audit Trail & Record Monitoring",
+    "Digitization & DMS Integration",
+    "Centralized Record Control System"
+  ],
+  imageSrc: "/banner/image10.jpg",
+  metaTitle: "Record & Information Management Services | OMX Info Management",
+  metaDesc: "Manage, store, and control your business records efficiently with our comprehensive record and information management solutions ensuring compliance and quick access."
+}
 };
 
 // FIXED METADATA (no await)

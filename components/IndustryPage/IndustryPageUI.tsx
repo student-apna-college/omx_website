@@ -28,7 +28,7 @@ export default function IndustryPageUI({ data }: any) {
             {data.heroTitle}
           </h1>
 
-          <p className="text-gray-200 max-w-2xl text-sm md:text-lg">
+          <p className="text-gray-200 max-w-2xl text-xl md:text-lg">
             {data.description}
           </p>
 

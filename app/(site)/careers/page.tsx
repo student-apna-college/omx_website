@@ -9,18 +9,36 @@ const jobPostings = [
     role: "Operations Manager",
     location: "New Delhi",
     type: "Full-Time",
-    description: "We are looking for an experienced Operations Manager to oversee daily business activities.",
-    responsibilities: ["Manage daily operations", "Lead cross-functional teams", "Improve process efficiency"],
-    requirements: ["5+ years experience", "Strong leadership skills", "Operations background"],
+    description:
+      "We are looking for an experienced Operations Manager to oversee daily business activities.",
+    responsibilities: [
+      "Manage daily operations",
+      "Lead cross-functional teams",
+      "Improve process efficiency",
+    ],
+    requirements: [
+      "5+ years experience",
+      "Strong leadership skills",
+      "Operations background",
+    ],
   },
   {
     id: "OMX-002",
-    role: "Digitization Specialist",
-    location: "Hyderabad",
+    role: "Scanning & Data Entry Executives",
+    location:
+      "Hyderabad, Kochin, Bengaluru, Pune, Mumbai, Chandigarh, Jaipur, Indore, Faridabad",
     type: "Full-Time",
-    description: "Responsible for handling document digitization and data processing.",
-    responsibilities: ["Digitize physical records", "Ensure data accuracy", "Maintain document workflows"],
-    requirements: ["3+ years experience", "Attention to detail", "Tech familiarity"],
+    description:
+      "Responsible for handling document scanning, digitization, and data processing.",
+    responsibilities: [
+      "Digitize physical records",
+      "Ensure data accuracy",
+      "Maintain document workflows",
+    ],
+    requirements: [
+      "Any Graduate",
+      "1+ year experience in scanning, data entry, record management, MIS",
+    ],
   },
 ];
 

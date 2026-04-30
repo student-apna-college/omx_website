@@ -23,9 +23,9 @@ export default function Home() {
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
-      title: "Document Management System & Smart Scanning Solutions ",
+      title: "Document Management System",
       sub: "Advanced document scanning and DMS solutions enabling Safest storage, quick retrieval, improved accuracy, workflow automation, and seamless digital transformation for businesses.",
-      img: "/images/wharhouse2.png",
+      img: "/images/7566.jpg",
       accent: "OMX INFO MANAGEMENT LTD",
     },
   ];
