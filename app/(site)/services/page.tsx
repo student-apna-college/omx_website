@@ -99,7 +99,7 @@ export default function ServicesListing() {
           </div>
 
           <div className="lg:col-span-4">
-            <p className="text-gray-600 border-l-4 border-[#000033] pl-6 leading-relaxed text-sm md:text-base">
+            <p className="text-gray-600 border-l-4 border-[#000033] pl-6 leading-relaxed text-base md:text-base">
               We provide smarter safer and trusted storage, scanning, and document lifecycle solutions 
               designed for modern enterprises across industries
             </p>
@@ -201,11 +201,11 @@ export default function ServicesListing() {
         <h3 className="text-xl md:text-2xl font-semibold mb-3 text-[#0f172a] max-w-[220px] leading-snug">
   {s.title}
 </h3>
-        <p className="text-gray-600 text-sm mb-6 flex-grow">
+        <p className="text-gray-600 text-base mb-6 flex-grow">
           {s.desc}
         </p>
 
-        <div className="flex items-center gap-2 text-sm font-semibold text-[#000033] opacity-0 group-hover:opacity-100 transition-all">
+        <div className="flex items-center gap-2 text-base font-semibold text-[#000033] opacity-0 group-hover:opacity-100 transition-all">
           <span>Explore</span>
           <ArrowRight size={16} />
         </div>
@@ -222,7 +222,7 @@ export default function ServicesListing() {
     </h3>
 
     <div className="mt-10">
-      <p className="text-sm text-white/80 mb-5">
+      <p className="text-base text-white/80 mb-5">
         Contact us for enterprise-level document management solutions
       </p>
 

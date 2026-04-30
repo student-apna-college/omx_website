@@ -67,7 +67,7 @@ export default function AboutPage() {
                   Transforming Document Storage
                 </h1>
 
-                <p className="text-sm sm:text-lg md:text-xl text-gray-300">
+                <p className="text-base sm:text-lg md:text-base text-gray-300">
                   Smarter document management solutions designed to simplify storage,
                   improve access, and protect critical data
                 </p>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           </p>
 
           {/* Label */}
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-base text-gray-600 mt-1">
             {stat.label}
           </p>
 
@@ -211,7 +211,7 @@ export default function AboutPage() {
       {/* PHILOSOPHY */}
       <div className="bg-orange-300 p-6 rounded-xl">
         <h3 className="font-semibold text-slate-800 mb-2">Our Approach</h3>
-        <p className="text-black-600 text-sm leading-relaxed">
+        <p className="text-black-600 text-base leading-relaxed">
           At OMX, we believe that business data is only valuable when it is Safest and faster, accessible, and well-managed. 
           We think beyond traditional storage, enabling organizations to manage records across all formats while 
           meeting compliance and risk management requirements efficiently.
@@ -222,28 +222,28 @@ export default function AboutPage() {
       <div className="grid md:grid-cols-2 gap-6 pt-2">
         <div className="bg-green-300 p-5 rounded-xl">
           <h3 className="font-semibold text-slate-800 mb-2">Safest and Smarter Infrastructure</h3>
-          <p className="text-black-600 text-sm">
+          <p className="text-black-600 text-base">
             Own RCC buildings across India with protection against fire, flood, cyclone, theft, and other risks.
           </p>
         </div>
 
         <div className="bg-blue-300 p-5 rounded-xl">
           <h3 className="font-semibold text-black-800 mb-2">Advanced DMS Software</h3>
-          <p className="text-black-600 text-sm">
+          <p className="text-black-600 text-base">
             Safest document access, inventory tracking, retrieval requests, and cloud/server-based storage systems.
           </p>
         </div>
 
         <div className="bg-purple-300 p-5 rounded-xl">
           <h3 className="font-semibold text-black-800 mb-2">Pan India Operations</h3>
-          <p className="text-black-600 text-sm">
+          <p className="text-black-600 text-base">
             Strong nationwide network supported by OM Logistics infrastructure and dedicated teams.
           </p>
         </div>
 
         <div className="bg-[#6a994e] p-5 rounded-xl">
           <h3 className="font-semibold text-slate-800 mb-2">Data Security & Compliance</h3>
-          <p className="text-black-600 text-sm">
+          <p className="text-black-600 text-base">
             Enterprise-grade security systems ensuring confidentiality, compliance, and risk management.
           </p>
         </div>
@@ -251,10 +251,10 @@ export default function AboutPage() {
 
       {/* INDUSTRIES */}
       <div className="pt-6">
-        <h3 className="text-xl font-semibold text-slate-900 mb-3">
+        <h3 className="text-base font-semibold text-slate-900 mb-3">
           Industries We Serve
         </h3>
-        <p className="text-slate-600 text-sm leading-relaxed">
+        <p className="text-slate-600 text-base leading-relaxed">
           Banking, Hospitals, Pharmaceuticals, Insurance, Legal & Confidential Records, Automobiles, Energy, Media & Entertainment, 
           Telecom, FMCG, Logistics, Airlines, Real Estate, Educational Institutions, and many more sectors across multiple departments 
           including Finance, HR, Operations, Marketing, and Administration.
@@ -263,11 +263,11 @@ export default function AboutPage() {
 
       {/* SERVICES */}
       <div className="pt-6">
-        <h3 className="text-xl font-semibold text-slate-900 mb-4">
+        <h3 className="text-base font-semibold text-slate-900 mb-4">
           Our Key Services
         </h3>
 
-        <div className="grid md:grid-cols-2 gap-4 text-slate-600 text-sm">
+        <div className="grid md:grid-cols-2 gap-4 text-slate-600 text-base">
           <p>• Record Management</p>
           <p>• Scanning & Digitization Services</p>
           <p>• Digital Document Storage (DMS)</p>
@@ -282,7 +282,7 @@ export default function AboutPage() {
 
       {/* EXTRA VALUE */}
       <div className="pt-6">
-        <p className="text-slate-600 text-sm leading-relaxed">
+        <p className="text-slate-600 text-base leading-relaxed">
           Our scanning and digitization services help businesses convert physical records into accurate, searchable digital formats, 
           improving accessibility, reducing storage costs, and ensuring complete confidentiality. 
           We cater to enterprises of all sizes, delivering customized solutions tailored to their operational needs.
@@ -294,7 +294,7 @@ export default function AboutPage() {
         <p className="text-slate-900 font-medium text-lg">
           “Strongly Focused on TAT & Commitments”
         </p>
-        <p className="text-slate-500 text-sm mt-2">
+        <p className="text-slate-500 text-base mt-2">
           Delivering innovation, reliability, and excellence in information management.
         </p>
       </div>

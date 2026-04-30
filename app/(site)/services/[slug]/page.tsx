@@ -311,7 +311,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
               {service.title}
             </h1>
 
-            <p className="text-gray-300 mt-4 max-w-xl text-sm md:text-lg">
+            <p className="text-gray-300 mt-4 max-w-xl text-base md:text-lg">
               {service.tagline}
             </p>
 
@@ -335,7 +335,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                 <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-[#1e3a8a] mt-1 group-hover:scale-110 transition" />
-                    <span className="font-medium text-gray-700 text-sm md:text-base">
+                    <span className="font-medium text-gray-700 text-base md:text-base">
                       {f}
                     </span>
                   </div>

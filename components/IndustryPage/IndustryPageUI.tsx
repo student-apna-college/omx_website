@@ -18,7 +18,7 @@ export default function IndustryPageUI({ data }: any) {
           alt={data.title}
           fill
           priority
-          className="object-cover"   // ✅ FIX: cover use karo (contain hatao)
+          className="object-cover"  
         />
 
         {/* Overlay */}
@@ -28,7 +28,7 @@ export default function IndustryPageUI({ data }: any) {
             {data.heroTitle}
           </h1>
 
-          <p className="text-gray-200 max-w-2xl text-xl md:text-lg">
+          <p className="text-gray-200 max-w-2xl text-base md:text-lg">
             {data.description}
           </p>
 
