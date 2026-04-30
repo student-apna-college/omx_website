@@ -46,7 +46,7 @@ export default function Home() {
     { name: "Easy Bill", logo: "/logo/client5.jpg" },
     { name: "PNB Housing", logo: "/logo/client6.jpg" },
     { name: "Panasonic", logo: "/logo/client7.jpg" },
-    { name: "Vodafone", logo: "/logo/client8.jpg" },
+    { name: "Vodafone", logo: "/logo/vi.jpeg" },
     { name: "MAX Healthcare", logo: "/logo/client9.jpg" },
     { name: "Altus Group", logo: "/logo/client10.jpg" },
     { name: "Deepali Design and Exhibits", logo: "/logo/client11.jpg" },
