@@ -12,7 +12,7 @@ const services = [
   { name: "Records Management", href: "/services/records-management" },
   { name: "Digitization", href: "/services/scanning-digitization" },
   { name: "Secure Shredding", href: "/services/secure-shredding" },
-  { name: "Cloud DMS", href: "/services/data-security" },
+  { name: "Data Entry", href: "/services/data-entry" },
 ];
 
 export default function Footer() {
