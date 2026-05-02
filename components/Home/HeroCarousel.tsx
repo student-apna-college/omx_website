@@ -24,7 +24,7 @@ export default function HeroSection({ slides }: { slides: Slide[] }) {
   }, []);
 
   return (
-    <section className=" relative w-full h-screen overflow-hidden md:h-[calc(100vh-140px)] overflow-hidden">
+<section className="relative w-full h-[400px] sm:h-[500px] lg:h-[500px] overflow-hidden mt-20 sm:mt-0">
   <Carousel
     slides={slides}
     currentSlide={currentSlide}

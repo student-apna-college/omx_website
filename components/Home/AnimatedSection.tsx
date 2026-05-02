@@ -28,7 +28,7 @@ text-white">
               alt="Safer Record Storage Facility"
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-fit object-center md:object-[center_50%]"
             />
           </motion.div>
 

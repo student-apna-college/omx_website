@@ -15,7 +15,7 @@ export const industriesData: Record<string, Industry> = {
   title: "Finance & Banking",
   description: "Comprehensive and safer document management solutions tailored for financial institutions to ensure compliance, accessibility, and data protection.",
   
-  image: "/industry/fincance.jpg",
+  image: "/industry/finance3.jpg",
   
   heading: "Finance & Banking Solutions",
   
@@ -63,7 +63,7 @@ Modern tools and solutions like Docsvault, Laserfiche, Oracle NetSuite, and othe
 
   "healthcare-pharmaceuticals-medical-records": {
   title: "Healthcare & Pharmaceuticals",
-  description: "Secure patient records and medical data management.",
+  description: "By moving your important financial records and banking data into our offsite physical storage facilities, you can not only be able to maximize your office space but would also minimize your document management cost at a large extent.",
   
   image: "/industry/health.jpg",
   
@@ -94,7 +94,7 @@ Partner with us to modernize your healthcare record management system, streamlin
 
   "legal-laws-confidential-records": {
   title: "Legal Laws Confidential Records",
-  description: "Secure handling and management of sensitive legal documents and confidential records.",
+  description: "Secure handling and management of sensitive legal documents and confidential records.Legal records management is the process used to create, store, and organize legal records. Examples of these legal records include business contracts, case notes, and other legal documents. ",
   
   image: "/industry/legallaw1.jpg",
   
@@ -127,7 +127,7 @@ By adopting a comprehensive legal record management system, organizations can en
 
   "auto-industries-automobiles": {
   title: "Auto Industries Automobiles",
-  description: "Efficient document and workflow management for the automobile industry.",
+  description: "Efficient document and workflow management for the automobile industry The pursuit of exceptional value has always been a key aspiration for every business leader. But what if that opportunity could be discovered within your own organization? While it may seem ambitious, it is entirely achievable with the right approach. Would you like to explore how this can become a reality?",
   
   image: "/industry/autoindus.jpg",
   
@@ -156,7 +156,7 @@ By adopting a structured and secure record management system, automobile busines
 
   "energy-sector-oil-gas-solar": {
   title: "Energy Sector Oil Gas Solar",
-  description: "Streamline records and operations across oil, gas, and solar sectors.",
+  description: "Streamline records and operations across oil, gas, and solar sectors.In the energy sector, even a minor loss of physical data can result in significant financial impact. Our value-added records and document management services are designed to help you secure, manage, and optimize your critical business information with the highest levels of accuracy, control, and protection",
   
   image: "/industry/energypower1.jpg",
   
@@ -185,7 +185,7 @@ By adopting a structured and intelligent records management approach, energy com
 
   "media-entertainment": {
   title: "Media Entertainment",
-  description: "Manage digital assets and media records efficiently.",
+  description: "Manage digital assets and media records efficiently.Records management in the media and entertainment (M&E) industry involves the structured handling, storage, and lifecycle management of a wide range of information assets—from creative content such as films, audio, and images to critical business and legal documentation.",
   
   image: "/industry/media.jpg",
   
@@ -215,7 +215,7 @@ By implementing a structured and intelligent records management system, media an
 
   "audit-ca-firms": {
   title: "Audit CA Firms",
-  description: "Secure document handling for auditing and financial compliance.",
+  description: "Secure document handling for auditing and financial compliance.We are one of India’s most recognized records management companies, offering a comprehensive range of industry-specific document archiving and records storage solutions. Our services are thoughtfully designed to address the evolving needs of efficient and secure records management for CA and audit firms.",
   
   image: "/industry/audit.jpg",
   
@@ -246,7 +246,7 @@ By implementing a structured and intelligent records management system, audit an
 
   "education-training": {
   title: "Education Training",
-  description: "Digitize student records and training materials effectively.",
+  description: "Digitize student records and training materials effectively.Digital Platforms: Student Record Management Systems (SRMS) and Training Record Management Systems (TRMS) enable centralized management of critical data, including admissions, grades, attendance, performance metrics, and compliance records.",
   
   image: "/industry/education.jpg",
   
@@ -277,7 +277,7 @@ With a focus on security, scalability, and efficiency, our solutions empower edu
 
   "telecom": {
   title: "Telecom",
-  description: "Handle telecom data and customer records with efficiency.",
+  description: "As a data-intensive industry, telecommunications requires a robust document management system to efficiently handle large volumes of information. An effective system not only streamlines record management but also enhances operational efficiency and overall productivity..",
   
   image: "/industry/telecomee.jpg",
   
@@ -308,9 +308,9 @@ With a focus on security, speed, and reliability, our record management solution
 
   "fmcg-industrial-records": {
   title: "FMCG Industrial Records",
-  description: "Manage high-volume industrial and FMCG documentation.",
+  description: "Manage high-volume industrial and FMCG documentation.In the fast-paced FMCG industry, where demand is dynamic and timely delivery is critical, we play a key role. Our focus is on efficient logistics and ensuring reliable, on-time delivery of FMCG goods across the nation.",
   
-  image: "/industry/finance1.jpg",
+  image: "/industry/1.jpeg",
   
   heading: "FMCG Solutions",
   
@@ -339,7 +339,7 @@ With a focus on scalability, security, and efficiency, our solutions empower FMC
 
   "public-sector-ngo": {
   title: "Public Sector NGO",
-  description: "Efficient record management for public sector and NGOs.",
+  description: "Efficient record management for public sector and NGOs.In the public sector, even a minor data breach can have significant consequences, including reputational and administrative challenges. Public sector organizations, government agencies, and NGOs handle vast volumes of records and documents daily, making robust and secure records management essential.",
   
   image: "/industry/small1.jpg",
   
@@ -401,7 +401,7 @@ With a focus on affordability, flexibility, and security, our solutions empower 
 
   "research-records": {
   title: "Research Records",
-  description: "Secure and organized management of research data.",
+  description: "Secure and organized management of research data.Record management research focuses on the systematic creation, maintenance, and disposal of organizational records to ensure compliance and efficiency It covers key areas like lifecycle management, security, access control, and data retrieval",
   
   image: "/industry/research.png",
   
@@ -494,7 +494,7 @@ Our scalable and secure solutions empower real estate and infrastructure busines
 
   "airlines": {
   title: "Airlines",
-  description: "Efficient document and operations management for airlines.",
+  description: "Aviation Record Management (ARM) in the airline industry focuses on the digital organization of critical data such as maintenance logs, flight records, and compliance documents. By leveraging advanced technologies like AI, cloud computing, and blockchain, ARM enhances data accuracy, supports faster audits, ensures regulatory compliance, and plays a vital role in aircraft health monitoring and asset value management.",
   
   image: "/industry/airline.jpg",
   

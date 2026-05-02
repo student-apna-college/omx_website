@@ -28,7 +28,7 @@ export default function CoreTeamPage() {
         {/* HEADING */}
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
+          <h1 className="text-3xl mt-10 sm:text-4xl md:text-5xl font-light leading-tight">
             Meet Our{" "}
             <span className="font-semibold text-[#000033]">Core Team</span>
           </h1>

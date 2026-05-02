@@ -50,7 +50,7 @@ const industrySolutions = [
   { slug: "telecom", title: "Telecom" },
   { slug: "fmcg-industrial-records", title: "FMCG" },
   { slug: "public-sector-ngo", title: "Public Sector" },
-  { slug: "small-medium-enterprises", title: "SMEs" },
+  { slug: "small-medium-enterprises", title: "SMES" },
   { slug: "research-records", title: "Research" },
   { slug: "logistics-airway-bills", title: "Logistics" },
   { slug: "real-estate-infrastructure", title: "Real Estate" },
@@ -122,7 +122,7 @@ export default function Navbar() {
           {/* INDUSTRY */}
           <div className="relative group">
             <div className="flex items-center gap-1 py-4 cursor-pointer">
-              <p>Industry We serve</p>
+              <Link href="/industries" className={isActive("/industries") ? "text-blue-600" : ""}>Industry we serve</Link>
               <ChevronDown size={14} className="group-hover:rotate-180 transition" />
             </div>
 
@@ -167,81 +167,178 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
-      <div className={`absolute top-full left-0 w-full bg-white shadow-md md:hidden transition-all duration-300 ${
-        isMobileMenuOpen ? "max-h-[600px] opacity-100" : "max-h-0 overflow-hidden opacity-0"
-      }`}>
+     {/* MOBILE MENU */}
+  <div
+    className={`absolute top-full left-0 w-full bg-white shadow-md md:hidden transition-all duration-300 ease-in-out ${
+    isMobileMenuOpen
+      ? "max-h-screen opacity-100"
+      : "max-h-0 opacity-0 overflow-hidden"
+  }`}
+>
+    <div className="flex flex-col px-5 sm:px-6 md:px-8 py-4 gap-4 text-sm sm:text-base">
 
-        <div className="flex flex-col px-6 py-4 gap-4 text-base">
+    {/* HOME */}
+      <Link
+      href="/"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className={`py-2 ${isActive("/") ? "text-blue-600 font-medium" : ""}`}
+      >
+      Home
+     </Link>
 
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-blue-600" : ""}>Home</Link>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about") ? "text-blue-600" : ""}>About</Link>
+    {/* ABOUT */}
+    <Link
+      href="/about"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className={`py-2 ${isActive("/about") ? "text-blue-600 font-medium" : ""}`}
+    >
+      About
+    </Link>
 
-          {/* SERVICES */}
-          <div>
-            <div className="flex justify-between items-center">
-              <Link href="/services" className={isActive("/services") ? "text-blue-600" : ""}>Services</Link>
-              <button onClick={() => setOpenDropdown(openDropdown === "services" ? null : "services")}>
-                <ChevronDown className={`transition ${openDropdown === "services" ? "rotate-180" : ""}`} />
-              </button>
-            </div>
+    {/* SERVICES */}
+    <div className="border-t pt-2">
+      <div className="flex justify-between items-center">
+        <Link
+          href="/services"
+          className={isActive("/services") ? "text-blue-600 font-medium" : ""}
+        >
+          Services
+        </Link>
 
-            {openDropdown === "services" && (
-              <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-600">
-                {serviceLinks.map((s) => (
-                  <Link key={s.slug} href={`/services/${s.slug}`} onClick={() => setIsMobileMenuOpen(false)}>
-                    {s.title}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+        <button
+          onClick={() =>
+            setOpenDropdown(openDropdown === "services" ? null : "services")
+          }
+        >
+          <ChevronDown
+            className={`transition-transform duration-300 ${
+              openDropdown === "services" ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+        </div>
 
-          {/* INDUSTRY */}
-          <div>
-            <div className="flex justify-between items-center">
-              <Link href="#">Industry We Serve</Link>
-              <button onClick={() => setOpenDropdown(openDropdown === "industry" ? null : "industry")}>
-                <ChevronDown className={`transition ${openDropdown === "industry" ? "rotate-180" : ""}`} />
-              </button>
-            </div>
-
-            {openDropdown === "industry" && (
-              <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-600 max-h-[200px] overflow-y-auto">
-                {industrySolutions.map((item) => (
-                  <Link key={item.slug} href={`/industries/${item.slug}`} onClick={() => setIsMobileMenuOpen(false)}>
-                    {item.title}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* CONTACT */}
-          <div>
-            <div className="flex justify-between items-center">
-              <Link href="/contact" className={isActive("/contact") ? "text-blue-600" : ""}>Contact</Link>
-              <button onClick={() => setOpenDropdown(openDropdown === "contact" ? null : "contact")}>
-                <ChevronDown className={`transition ${openDropdown === "contact" ? "rotate-180" : ""}`} />
-              </button>
-            </div>
-
-            {openDropdown === "contact" && (
-              <div className="pl-4 mt-2 flex flex-col gap-2 text-sm text-gray-600">
-                {contactUsLinks.map((s) => (
-                  <Link key={s.slug} href={`/${s.slug}`} onClick={() => setIsMobileMenuOpen(false)}>
-                    {s.title}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/careers") ? "text-blue-600" : ""}>Careers</Link>
-          <Link href="/about/core-team" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about/core-team") ? "text-blue-600" : ""}>Our Team</Link>
-
+        <div
+        className={`transition-all duration-300 overflow-hidden ${
+          openDropdown === "services" ? "max-h-96 mt-2" : "max-h-0"
+        }`}
+        >
+        <div className="pl-4 flex flex-col gap-2 text-gray-600 text-sm">
+          {serviceLinks.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/services/${s.slug}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-1"
+            >
+              {s.title}
+            </Link>
+          ))}
         </div>
       </div>
+    </div>
+
+    {/* INDUSTRY */}
+    <div className="border-t pt-2">
+      <div className="flex justify-between items-center">
+        <Link href="/industries">Industry We Serve</Link>
+
+        <button
+          onClick={() =>
+            setOpenDropdown(openDropdown === "industry" ? null : "industry")
+          }
+        >
+          <ChevronDown
+            className={`transition-transform duration-300 ${
+              openDropdown === "industry" ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      <div
+        className={`transition-all duration-300 overflow-hidden ${
+          openDropdown === "industry" ? "max-h-60 mt-2" : "max-h-0"
+        }`}
+      >
+        <div className="pl-4 flex flex-col gap-2 text-gray-600 text-sm overflow-y-auto max-h-60">
+          {industrySolutions.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/industries/${item.slug}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-1"
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* CONTACT */}
+    <div className="border-t pt-2">
+      <div className="flex justify-between items-center">
+        <Link
+          href="/contact"
+          className={isActive("/contact") ? "text-blue-600 font-medium" : ""}
+        >
+          Contact
+        </Link>
+
+        <button
+          onClick={() =>
+            setOpenDropdown(openDropdown === "contact" ? null : "contact")
+          }
+        >
+          <ChevronDown
+            className={`transition-transform duration-300 ${
+              openDropdown === "contact" ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      <div
+        className={`transition-all duration-300 overflow-hidden ${
+          openDropdown === "contact" ? "max-h-40 mt-2" : "max-h-0"
+        }`}
+      >
+        <div className="pl-4 flex flex-col gap-2 text-gray-600 text-sm">
+          {contactUsLinks.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/${s.slug}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-1"
+            >
+              {s.title}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* EXTRA LINKS */}
+    <Link
+      href="/careers"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className={`py-2 ${isActive("/careers") ? "text-blue-600 font-medium" : ""}`}
+    >
+      Careers
+    </Link>
+
+    <Link
+      href="/about/core-team"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className={`py-2 ${
+        isActive("/about/core-team") ? "text-blue-600 font-medium" : ""
+      }`}
+    >
+      Our Team
+    </Link>
+  </div>
+</div>
 
     </nav>
   );

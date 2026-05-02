@@ -29,7 +29,7 @@ export default function Carousel({
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-2000 ${
+          className={`absolute inset-0 transition-opacity duration-5000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -89,22 +89,42 @@ export default function Carousel({
         </div>
       ))}
 
-      {/* NAV BUTTONS */}
-      <div className="absolute bottom-6 right-1/2 translate-x-1/2 md:bottom-12 md:right-12 md:translate-x-0 z-30 flex gap-3">
-        <button
-          onClick={prevSlide}
-          className="p-3 border border-white/30 text-white hover:bg-white hover:text-black rounded-md transition"
-        >
-          <ChevronLeft size={22} />
-        </button>
+     <div className="
+  absolute 
+  bottom-4 
+  left-1/2 -translate-x-1/2 
+  md:bottom-12 md:right-12 md:left-auto md:translate-x-0
+  z-30 
+  flex gap-2 md:gap-3
+">
+  <button
+    onClick={prevSlide}
+    className="
+      p-2 md:p-3 
+      border border-white/30 
+      text-white 
+      hover:bg-white hover:text-black 
+      rounded-md 
+      transition
+    "
+  >
+    <ChevronLeft size={18} className=" md:w-[22px] md:h-[22px]" />
+  </button>
 
-        <button
-          onClick={nextSlide}
-          className="p-3 border border-white/30 text-white hover:bg-white hover:text-black rounded-md transition"
-        >
-          <ChevronRight size={22} />
-        </button>
-      </div>
+  <button
+    onClick={nextSlide}
+    className="
+      p-2 md:p-3 
+      border border-white/30 
+      text-white 
+      hover:bg-white hover:text-black 
+      rounded-md 
+      transition
+    "
+  >
+    <ChevronRight size={18} className="md:w-[22px] md:h-[22px]" />
+  </button>
+</div>
     </>
   );
 }

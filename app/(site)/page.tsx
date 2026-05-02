@@ -13,7 +13,7 @@ export default function Home() {
     {
       title: "Eco Friendly Shredding Services",
       sub: "OMX Info Management Ltd.provides Eco-friendly shredding solutions ensuring safest document destruction, protecting sensitive information, supporting compliance standards, and promoting sustainable recycling practices for businesses.",
-      img: "/industry/fmcg1.png",
+      img: "/industry/FMCG2.jpeg",
       accent: "OMX INFO MANAGEMENT LTD",
     },
     {
@@ -25,7 +25,7 @@ export default function Home() {
     {
       title: "Document Management System",
       sub: "Advanced document scanning and DMS solutions enabling Safest storage, quick retrieval, improved accuracy, workflow automation, and seamless digital transformation for businesses.",
-      img: "/images/7566.jpg",
+      img: "/images/1111.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
   ];
@@ -82,13 +82,9 @@ export default function Home() {
     {/* SHOWCASE */}
     <ShowcaseSection />
 
-   
-
     {/* FAQ */}
     
       <Accordian />
-
-    
 
     {/* CLIENTS */}
     <section className="py-12 md:py-4 bg-white">

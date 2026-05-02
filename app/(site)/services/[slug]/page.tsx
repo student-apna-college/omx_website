@@ -79,7 +79,7 @@ const serviceContent: Record<string, ServiceType> = {
       "Quality Checked Scanning",
       "Document Version Control"
     ],
-    imageSrc: "/banner/image6.jpg",
+    imageSrc: "/images/1.jpeg",
     metaTitle: "Scanning & Digitization Services | OMX Info Management",
     metaDesc: "Transform physical documents into searchable digital assets with industrial-grade OCR scanning services"
   },
@@ -191,7 +191,7 @@ const serviceContent: Record<string, ServiceType> = {
     "Compliance & Audit-Ready Infrastructure",
     "Warehouse Optimization & Space Planning"
   ],
-  imageSrc: "/banner/data.jpg",
+  imageSrc: "/banner/5.jpg",
   metaTitle: "Record Management Infrastructure Setup Services | OMX Info Management",
   metaDesc: "Design and deploy safer, compliant, and scalable record storage infrastructure with advanced tracking, safety systems, and optimized warehouse planning."
 },
@@ -290,19 +290,30 @@ export default async function ServicePage({ params }: { params: { slug: string }
       {/* HERO */}
       <section className="relative w-full bg-black">
 
-        <div className="relative w-full h-[55vh] md:h-[75vh] min-h-[400px] overflow-hidden flex items-center justify-center bg-black">
+       <div className="relative w-full h-[45vh] sm:h-[55vh] md:h-[75vh] lg:h-[90vh] min-h-[300px] overflow-hidden flex items-center justify-center bg-black">
 
-          <Image
-            src={service.imageSrc}
-            alt={service.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center scale-100 md:scale-105"
-          />
+  <Image
+    src={service.imageSrc}
+    alt={service.title}
+    fill
+    priority
+    sizes="(max-width: 640px) 100vw, 
+           (max-width: 768px) 100vw, 
+           (max-width: 1024px) 100vw, 
+           100vw"
+    className="
+      object-cover 
+      object-[center_top] 
+      sm:object-center 
+      md:object-center 
+      lg:object-center
+      scale-100
+    "
+  />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80" />
-        </div>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80" />
+</div>
 
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-[1400px] mx-auto px-6 w-full">
@@ -350,7 +361,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
       {/* STATS */}
       <section className="py-20 bg-gradient-to-r from-[#f8fbff] via-white to-[#f3f7ff] border-y">
-        <div className="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-6 gap-6 px-6">
+        <div className="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
 
           {[ 
             { icon: ShieldCheck, title: "Safer and Trusted Storage", color: "from-blue-200/50 to-blue-500" },

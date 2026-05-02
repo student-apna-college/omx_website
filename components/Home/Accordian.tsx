@@ -65,7 +65,7 @@ export default function CompanyAccordion() {
     a: "Yes, we offer both on-site and off-site services including scanning, shredding, and record management setup.",
   },
 
-  // 🔥 UPDATED CONTACT FAQ WITH LINK
+  //  UPDATED CONTACT FAQ WITH LINK
   {
     q: "How can I get started with your services?",
     a: (
@@ -97,21 +97,20 @@ export default function CompanyAccordion() {
 ];
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
+    <section className=" py-12 md:py-12 bg-gradient-to-b from-white to-slate-50">
 
       <div className="max-w-[1100px] mx-auto px-6">
 
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 tracking-tight">
+          <h2 className="text-3xl md:text-3xl font-semibold text-slate-900 tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="mt-3 text-slate-500 text-sm md:text-base">
             Everything you need to know before getting started
           </p>
         </div>
-
-        {/* 🔥 GRID START */}
+        {/* GRID START */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
           {data.map((item, i) => (
@@ -127,7 +126,7 @@ export default function CompanyAccordion() {
                 className="flex justify-between items-center p-5 cursor-pointer"
               >
 
-                <h3 className="font-medium text-slate-800 text-base md:text-lg">
+                <h3 className="font-medium text-slate-800 text-base md:text-sm">
                   {item.q}
                 </h3>
 
@@ -145,7 +144,7 @@ export default function CompanyAccordion() {
                   open === i ? "max-h-40 pb-5" : "max-h-0"
                 }`}
               >
-                <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+                <p className="text-slate-600 leading-relaxed text-base md:text-sm">
                   {item.a}
                 </p>
               </div>

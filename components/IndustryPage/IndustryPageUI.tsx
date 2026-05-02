@@ -11,14 +11,14 @@ export default function IndustryPageUI({ data }: any) {
     <div className="bg-gradient-to-r from-blue-50 via-white to-blue-50 min-h-screen">
 
       {/* HERO FULL SCREEN */}
-      <section className="relative h-[calc(100vh-70px)] w-full overflow-hidden">
+      <section className="relative h-[calc(100vh-70px)]  overflow-hidden">
 
         <Image
           src={data.heroImage || data.image}
           alt={data.title}
           fill
           priority
-          className="object-cover"  
+          className="object-fit"  
         />
 
         {/* Overlay */}
