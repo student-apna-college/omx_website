@@ -9,6 +9,7 @@ export default function MeetingForm({ setActiveForm }:any) {
     email: "",
     phone: "",
     purposeofmeeting: "",
+    meetingAddress: "",
     date: "",
     schedule: "", 
   });
@@ -83,7 +84,7 @@ export default function MeetingForm({ setActiveForm }:any) {
         {/*  */}
         <input
           type="text"
-          name="MeetingAddress"
+           name="meetingAddress" 
           placeholder="Meeting Address"
           className="border w-full p-2 rounded-md"
           onChange={handleChange}

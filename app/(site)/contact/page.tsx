@@ -6,10 +6,10 @@ import { ShieldCheck, CheckCircle2 } from "lucide-react";
 export default function ContactPage() {
   const [focused, setFocused] = useState<string | null>(null);
 
-  // ✅ POPUP STATE
+  //  POPUP STATE
   const [isOpen, setIsOpen] = useState(false);
 
-  // ✅ PAGE LOAD PE POPUP OPEN
+  //  PAGE LOAD PE POPUP OPEN
   useEffect(() => {
     setIsOpen(true);
   }, []);
@@ -162,7 +162,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ✅ POPUP FORM */}
+      {/*  POPUP FORM */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
           <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-6 md:p-10 relative">

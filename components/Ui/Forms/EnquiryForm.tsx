@@ -4,10 +4,11 @@ import { useState } from "react";
 
 export default function EnquiryForm({ setActiveForm }: any) {
   const [formData, setFormData] = useState({
-    name: "",
+    empname: "",
     email: "",
     phone: "",
     company: "",
+    department: "",
     companyaddress:"",
     queryType: "",
     message: "",
@@ -45,7 +46,7 @@ export default function EnquiryForm({ setActiveForm }: any) {
         {/* Name */}
         <input
           type="text"
-          name="name"
+          name="empname"
           placeholder="Full Name"
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
@@ -74,7 +75,7 @@ export default function EnquiryForm({ setActiveForm }: any) {
 {/* Company */}
         <input
           type="text"
-          name="company"
+          name="department"
           placeholder="Department"
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
@@ -91,7 +92,7 @@ export default function EnquiryForm({ setActiveForm }: any) {
 
         <input
           type="text"
-          name="Address"
+          name="companyaddress" 
           placeholder="company Address"
           className="border w-full p-2 rounded-md"
           onChange={handleChange}

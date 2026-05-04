@@ -13,190 +13,147 @@ export default function EmployeeForm({ job }) {
     expectedCTC: "",
     experience: "",
     relocate: "",
-    message: ""
+    message: "",
   });
 
   const [resumeFile, setResumeFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleFileChange = (e) => setResumeFile(e.target.files[0]);
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    // ✅ File validation
+    if (file && file.size > 2 * 1024 * 1024) {
+      alert("File size must be less than 2MB");
+      return;
+    }
+
+    setResumeFile(file);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = new FormData();
-    Object.keys(formData).forEach((key) =>
-      data.append(key, formData[key])
-    );
+    if (!job?.id) {
+      alert("Job not found");
+      return;
+    }
 
-    data.append("jobId", job.id);
-    data.append("jobRole", job.role);
-
-    if (resumeFile) data.append("resume", resumeFile);
+    setLoading(true);
 
     try {
-      await fetch("/api/apply", {
+      const data = new FormData();
+
+      // append form fields
+      Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key]);
+      });
+
+      // ✅ only jobId (no jobRole needed)
+      data.append("jobId", job.id);
+
+      if (resumeFile) {
+        data.append("resume", resumeFile);
+      }
+
+      // ✅ Dummy API call
+      const res = await fetch("/api/apply", {
         method: "POST",
         body: data,
       });
 
-      alert("Application Submitted Successfully");
+      const result = await res.json();
+
+      console.log("Response:", result);
+
+      alert("Application Submitted Successfully ✅");
+
     } catch (err) {
       console.error(err);
-      alert("Submission Failed");
+      alert("Submission Failed ❌");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className=" sm:p-6 md:p-8 lg:p-10 rounded-2xl  max-w-5xl mx-auto"> 
-      
-      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
-        Apply for {job.role}
+    <div className="sm:p-6 md:p-8 lg:p-10 rounded-2xl max-w-5xl mx-auto">
+
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+        Apply for {job?.role || "Position"}
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6"> 
+      <form onSubmit={handleSubmit} className="space-y-6">
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6"> 
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-          {/* First Name */}
-          <div>
-            <label className="form-label">First Name *</label>
-            <input type="text" name="firstName" required onChange={handleChange} className="input" />
-          </div>
+          <input name="firstName" placeholder="First Name *" required onChange={handleChange} className="input" />
+          <input name="lastName" placeholder="Last Name" onChange={handleChange} className="input" />
 
-          {/* Last Name */}
-          <div>
-            <label className="form-label">Last Name</label>
-            <input type="text" name="lastName" onChange={handleChange} className="input" />
-          </div>
+          <input name="contact" placeholder="Contact *" required onChange={handleChange} className="input" />
+          <input name="email" placeholder="Email *" required onChange={handleChange} className="input" />
 
-          {/* Contact */}
-          <div>
-            <label className="form-label">Contact *</label>
-            <input type="tel" name="contact" required onChange={handleChange} className="input" />
-          </div>
+          <select name="employeeStatus" required onChange={handleChange} className="input">
+            <option value="">Employee Status</option>
+            <option>Fresher</option>
+            <option>Working</option>
+            <option>Notice Period</option>
+          </select>
 
-          {/* Email */}
-          <div>
-            <label className="form-label">Email *</label>
-            <input type="email" name="email" required onChange={handleChange} className="input" />
-          </div>
+          <select name="position" required onChange={handleChange} className="input">
+            <option value="">Position</option>
+            <option>{job?.role}</option>
+            <option>Frontend Developer</option>
+            <option>Backend Developer</option>
+          </select>
 
-          {/* Employee Status */}
-          <div>
-            <label className="form-label">Current Employee Status *</label>
-            <select name="employeeStatus" required onChange={handleChange} className="input">
-              <option value="">Select</option>
-              <option>Fresher</option>
-              <option>Working</option>
-              <option>Serving Notice Period</option>
-              <option>Immediate Joiner</option>
-            </select>
-          </div>
+          <input name="currentCTC" placeholder="Current CTC" required onChange={handleChange} className="input" />
+          <input name="expectedCTC" placeholder="Expected CTC" required onChange={handleChange} className="input" />
 
-          {/* Position */}
-          <div>
-            <label className="form-label">Position Apply For *</label>
-            <select name="position" required onChange={handleChange} className="input">
-              <option value="">Select</option>
-              <option>{job.role}</option>
-              <option>Frontend Developer</option>
-              <option>Backend Developer</option>
-              <option>Full Stack Developer</option>
-            </select>
-          </div>
+          <select name="experience" required onChange={handleChange} className="input">
+            <option value="">Experience</option>
+            <option>0-1</option>
+            <option>1-3</option>
+            <option>3+</option>
+          </select>
 
-          {/* Current CTC */}
-          <div>
-            <label className="form-label">Current CTC *</label>
-            <input type="text" name="currentCTC" required onChange={handleChange} className="input" />
-          </div>
-
-          {/* Expected CTC */}
-          <div>
-            <label className="form-label">Expected CTC *</label>
-            <input type="text" name="expectedCTC" required onChange={handleChange} className="input" />
-          </div>
-
-          {/* Experience */}
-          <div>
-            <label className="form-label">Total Experience *</label>
-            <select name="experience" required onChange={handleChange} className="input">
-              <option value="">Select</option>
-              <option>0-1 Years</option>
-              <option>1-3 Years</option>
-              <option>3-5 Years</option>
-              <option>5+ Years</option>
-            </select>
-          </div>
-
-          {/* Relocation */}
-          <div>
-            <label className="form-label">Relocation *</label>
-            <div className="flex flex-wrap gap-4 mt-2"> 
-              <label className="flex items-center gap-2">
-                <input type="radio" name="relocate" value="Yes" onChange={handleChange} required />
-                Yes
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="radio" name="relocate" value="No" onChange={handleChange} />
-                No
-              </label>
-            </div>
+          <div className="flex gap-4 items-center">
+            <p>Are you comfortable in relocating?</p>
+            <label>
+              <input type="radio" name="relocate" value="Yes" onChange={handleChange} required /> Yes
+            </label>
+            <label>
+              <input type="radio" name="relocate" value="No" onChange={handleChange} /> No
+            </label>
           </div>
 
         </div>
 
-        {/* Resume */}
-        <div>
-          <label className="form-label">Upload Resume *</label>
-          <input type="file" accept=".pdf,.doc,.docx" required onChange={handleFileChange} className="mt-2 w-full text-sm sm:text-base" /> {/* ✅ UPDATED */}
-        </div>
+        {/* File */}
+        <input type="file" accept=".pdf,.doc,.docx" required onChange={handleFileChange} />
 
         {/* Message */}
-        <div>
-          <label className="form-label">Why should we hire you?</label>
-          <textarea name="message" rows={4} onChange={handleChange} className="input"></textarea>
-        </div>
+        <textarea name="message" placeholder="Why should we hire you?" onChange={handleChange} className="input" />
 
-        {/* Submit */}
-        <button className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-semibold hover:scale-105 transition"> {/* ✅ UPDATED */}
-          Submit Application
+        <button
+          disabled={loading}
+          className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700"
+        >
+          {loading ? "Submitting..." : "Submit Application"}
         </button>
+
       </form>
 
-      {/* Reusable styles */}
+      {/* Styles */}
       <style jsx>{`
-        .form-label {
-          display: block;
-          font-weight: 500;
-          margin-bottom: 5px;
-          color: #374151;
-          font-size: 14px; /* */
-        }
-
         .input {
           width: 100%;
-          border: 1px solid #d1d5db;
-          padding: 10px 12px;
+          border: 1px solid #ccc;
+          padding: 10px;
           border-radius: 10px;
-          outline: none;
-          transition: 0.2s;
-          font-size: 14px; 
-        }
-
-        @media (min-width: 640px) {
-          .input {
-            font-size: 15px; 
-          }
-        }
-
-        .input:focus {
-          border-color: #2563eb;
-          box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
         }
       `}</style>
     </div>
