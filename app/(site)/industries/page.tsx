@@ -41,13 +41,16 @@ export default function IndustriesSection() {
     <div className="w-full">
 
      {/* ================= INDUSTRY BANNER ================= */}
-      <div className="relative w-full h-[400px] sm:h-[280px] md:h-[500px] lg:h-[550px] overflow-hidden mt-20 sm:mt-0 md:mt-15 lg:mt-0">
+      <div className="relative w-full 
+  h-[180px] sm:h-[300px] md:h-[420px] lg:h-[520px] xl:h-[600px] 
+  overflow-hidden 
+  mt-13 sm:mt-10 md:mt-10 lg:mt-4">
 
         <Image
-          src="/industry/industry.jpeg"
+          src="/industry/industry3.jpeg"
           alt="Industry Banner"
           fill
-          className="object-fit object-[center_30%]"
+          className="object-contain object-[center_30%]"
           priority
         />
       </div>
