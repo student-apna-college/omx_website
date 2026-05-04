@@ -44,7 +44,7 @@ export default function IndustriesSection() {
       <div className="relative w-full h-[400px] sm:h-[280px] md:h-[500px] lg:h-[550px] overflow-hidden mt-20 sm:mt-0 md:mt-15 lg:mt-0">
 
         <Image
-          src="/industry/industry.jpg"
+          src="/industry/industry.jpeg"
           alt="Industry Banner"
           fill
           className="object-fit object-[center_30%]"

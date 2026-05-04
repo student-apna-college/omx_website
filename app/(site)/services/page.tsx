@@ -7,71 +7,72 @@ const services = [
     slug: "records-management", 
     title: "Records Management", 
     icon: <Database size={24} strokeWidth={1.5} />, 
-    desc: "End-to-end lifecycle management of physical documents with safest tracking and vaulting"
+    desc: "Secure storage, tracking, and lifecycle management of physical records with full compliance",
+    img: "/banner/image10.jpg",
   },
   { 
     slug: "scanning-digitization", 
-    title: "Scanning-Digitization", 
+    title: "Scanning & Digitization", 
     icon: <Zap size={24} strokeWidth={1.5} />, 
-    desc: "High-speed digitization with automated indexing and accuracy control"
+    desc: "High-speed document scanning with OCR, indexing, and digital archive creation",
+    img: "/images/1.jpeg",
   },
-
   { 
     slug: "digital-document-storage-dms-services", 
-    title: "Digital Document Storage DMS Services", 
+    title: "DMS Solutions", 
     icon: <Zap size={24} strokeWidth={1.5} />, 
-    desc: "High-speed digitization with automated indexing and accuracy control"
+    desc: "Cloud-based document management system with secure access and workflow automation",
+    img: "/banner/4.jpeg",
   },
-
   { 
     slug: "secure-shredding", 
-    title: "Secure-Shredding", 
+    title: "Secure Shredding", 
     icon: <Trash2 size={24} strokeWidth={1.5} />, 
-    desc: "Compliance-driven shredding services with certified destruction"
+    desc: "Certified destruction of confidential documents ensuring compliance and data protection",
+    img: "/banner/image2.jpg",
   },
   { 
     slug: "data-entry", 
     title: "Data Entry", 
     icon: <HardDrive size={24} strokeWidth={1.5} />, 
-    desc: "Any type of metadata entry"
+    desc: "Accurate and scalable data entry services with validation and quality control",
+    img: "/banner/6.jpg",
   },
   { 
     slug: "data-security-compliance-solutions", 
-    title: "Data Security Compliance solutions", 
+    title: "Data Security & Compliance", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Safest cloud-based document access with advanced DMS system"
+    desc: "Advanced data protection, audit compliance, and secure document access systems",
+    img: "/banner/7.jpg",
   },
-
-   { 
+  { 
     slug: "record-ranagement-infra-solution", 
-    title: "Record Management Infra Solution ", 
+    title: "Infra Solutions", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Safest cloud-based document access with advanced DMS system"
+    desc: "End-to-end infrastructure setup for physical and digital record management systems",
+    img: "/banner/5.jpg",
   },
-
-{ 
+  { 
     slug: "filling-binding-indexing", 
-    title: "Filling Binding & Indexing", 
+    title: "Filing & Indexing", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Safest cloud-based document access with advanced DMS system"
+    desc: "Professional file structuring, binding, and indexing for easy retrieval",
+    img: "/banner/data.jpg",
   },
-
   { 
     slug: "mail-room-services", 
     title: "Mail Room Services", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Safest cloud-based document access with advanced DMS system"
+    desc: "Centralized mail handling, scanning, and distribution for enterprises",
+    img: "/banner/2.jpeg",
   },
-
   { 
     slug: "record-information-management", 
-    title: "Record Information Management", 
+    title: "RIM Services", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
-    desc: "Safest cloud-based document access with advanced DMS system"
+    desc: "Comprehensive record and information lifecycle management solutions",
+    img: "/banner/image10.jpg",
   },
-
-  
-
 ];
 
 export default function ServicesListing() {
@@ -189,28 +190,43 @@ export default function ServicesListing() {
 
     return (
       <Link
-        key={s.slug}
-        href={`/services/${s.slug}`}
-        className={`${style.bg} group rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col`}
-      >
+  key={s.slug}
+  href={`/services/${s.slug}`}
+  className="group relative rounded-2xl overflow-hidden h-[280px] flex flex-col justify-end shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+>
 
-        <div className={`w-12 h-12 mb-6 flex items-center justify-center rounded-full ${style.iconBg} group-hover:scale-110 transition`}>
-          {s.icon}
-        </div>
+  {/* BACKGROUND IMAGE */}
+  <div
+    className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-500"
+    style={{ backgroundImage: `url(${s.img})` }}
+  />
 
-        <h3 className="text-xl md:text-2xl font-semibold mb-3 text-[#0f172a] max-w-[220px] leading-snug">
-  {s.title}
-</h3>
-        <p className="text-gray-600 text-base mb-6 flex-grow">
-          {s.desc}
-        </p>
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-        <div className="flex items-center gap-2 text-base font-semibold text-[#000033] opacity-0 group-hover:opacity-100 transition-all">
-          <span>Explore</span>
-          <ArrowRight size={16} />
-        </div>
+  {/* CONTENT */}
+  <div className="relative z-10 p-5 text-white">
 
-      </Link>
+    <div className="mb-3 opacity-90 group-hover:scale-110 transition">
+      {s.icon}
+    </div>
+
+    <h3 className="text-lg md:text-xl font-semibold mb-2 leading-snug">
+      {s.title}
+    </h3>
+
+    <p className="text-sm text-gray-200 line-clamp-2">
+      {s.desc}
+    </p>
+
+    <div className="flex items-center gap-2 text-sm font-semibold mt-3 opacity-0 group-hover:opacity-100 transition">
+      <span>Explore</span>
+      <ArrowRight size={14} />
+    </div>
+
+  </div>
+
+</Link>
     );
   })}
 
