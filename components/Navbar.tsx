@@ -69,15 +69,24 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full relative z-[9999]">
+    <nav className="w-full relative z-50">
 
       {/* HEADER */}
       <div className="flex justify-between items-center bg-white/90 backdrop-blur-md px-4 md:px-12 py-3 md:py-4 shadow-md">
 
         {/* LOGO */}
-        <Link href="/"className="relative w-[130px] h-[45px] sm:w-[160px] sm:h-[55px] md:w-[240px] md:h-[80px]">
-          <Image src="/images/omx info.png" alt="logo" fill className="object-contain" priority />
-        </Link>
+       <Link
+  href="/"
+  className="relative w-[170px] h-[50px] sm:w-[200px] sm:h-[70px] md:w-[240px] md:h-[80px]"
+>
+  <Image
+    src="/images/omx info.png"
+    alt="logo"
+    fill
+    className="object-contain"
+    priority
+  />
+</Link>
 
         {/* MOBILE BUTTON */}
         <button

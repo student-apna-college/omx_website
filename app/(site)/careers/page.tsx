@@ -9,8 +9,6 @@ const jobPostings = [
     role: "Operations Manager",
     location: "New Delhi",
     type: "Full-Time",
-
-    // ✅ ADD KIYA (UI ke liye)
     qualifications: "Graduate / MBA Preferred",
     experience: "5+ Years Experience",
 

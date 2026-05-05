@@ -33,35 +33,48 @@ export default function ContactPage() {
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const payload = {
-      name: formData.get("name"),
-      company: formData.get("company"),
-      email: formData.get("email"),
-      region: formData.get("region"),
-      scope: formData.get("scope"),
-    };
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
-      if (data.success) {
-        alert("Your query has been submitted!");
-        e.currentTarget.reset();
-        setIsOpen(false);
-      } else {
-        alert("Error submitting query. Please try again.");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Error submitting query.");
-    }
+  e.preventDefault();
+
+  const form = e.currentTarget;
+
+  const formData = new FormData(form);
+
+  const payload = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    region: formData.get("region"),
+    scope: formData.get("scope"),
   };
 
+  try {
+    const res = await fetch(
+      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Submitted Successfully");
+
+      form.reset(); // 
+      setIsOpen(false);
+    } else {
+      alert("Submission failed ");
+    }
+
+  } catch (err) {
+    console.error(err);
+    alert("Error submitting form ");
+  }
+};
   return (
     <div className="bg-gradient-to-b from-[#f5fffb] via-white to-[#f7faff] text-[#1a1a1a]">
 
@@ -121,7 +134,8 @@ export default function ContactPage() {
               <input name="company" placeholder="Company" className="border rounded-xl px-4 py-3" />
               <input name="email" type="email" placeholder="Email" className="border rounded-xl px-4 py-3" />
               <input name="region" placeholder="Region" className="border rounded-xl px-4 py-3" />
-
+              <input name="phone"  placeholder="Phone Number" className="border rounded-xl px-4 py-3"/>
+  
               <textarea name="scope" rows={4} placeholder="Describe your requirement..." className="md:col-span-2 border rounded-xl px-4 py-4 bg-gray-50" />
 
               <button type="submit" className="md:col-span-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-full font-bold">
@@ -182,6 +196,11 @@ export default function ContactPage() {
               <input name="company" placeholder="Company" className="border rounded-xl px-4 py-3" />
               <input name="email" placeholder="Email" className="border rounded-xl px-4 py-3" />
               <input name="region" placeholder="Region" className="border rounded-xl px-4 py-3" />
+              <input
+  name="phone"
+  placeholder="Phone Number"
+  className="border rounded-xl px-4 py-3"
+/>
 
               <textarea name="scope" rows={4} placeholder="Describe your requirement..." className="md:col-span-2 border rounded-xl px-4 py-4 bg-gray-50" />
 

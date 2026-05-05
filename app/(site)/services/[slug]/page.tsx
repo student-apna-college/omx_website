@@ -135,7 +135,7 @@ const serviceContent: Record<string, ServiceType> = {
   },
 
   'data-entry': {
-  title: "Accurate Data Entry Services",
+  title: "Data Entry Services",
   id: "SRV-004",
   tagline: "Efficient and error-free digitization of business records",
   icon: <Database size={32} strokeWidth={1.5} />,
@@ -285,7 +285,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
   if (!service) notFound();
 
   return (
-    <div className="bg-gradient-to-b from-[#f8fbff] via-white to-[#f4f8ff] text-[#1a1a1a]">
+    <div className="bg-gradient-to-b from-[#f8fbff] via-white to-[#f4f8ff] text-[#1a1a1a] mt-15 sm:mt-5 md:mt-5 lg:mt-5">
 
       {/* HERO */}
       <section className="relative w-full bg-black">

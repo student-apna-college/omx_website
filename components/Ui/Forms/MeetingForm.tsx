@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function MeetingForm({ setActiveForm }:any) {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
     phone: "",
     purposeofmeeting: "",
@@ -21,19 +21,40 @@ export default function MeetingForm({ setActiveForm }:any) {
     });
   };
 
-  const handleSubmit = async (e:any) => {
-    e.preventDefault();
+  const handleSubmit = async (e: any) => {
+  e.preventDefault();
 
-    await fetch("/api/meeting", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+  try {
+    const res = await fetch(
+      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/meeting",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          purposeofmeeting: formData.purposeofmeeting,
+          meetingAddress: formData.meetingAddress,
+          date: formData.date,
+          schedule: formData.schedule,
+        }),
+      }
+    );
 
+    const data = await res.json();
+    console.log("Response:", data);
+
+    alert("Meeting request sent ");
     setActiveForm(null);
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong ");
+  }
+};
 
   return (
     <Modal onClose={() => setActiveForm(null)}>
@@ -44,7 +65,7 @@ export default function MeetingForm({ setActiveForm }:any) {
         {/* Name */}
         <input
           type="text"
-          name="name"
+          name="fullName"
           placeholder="Name"
           className="border w-full p-2 rounded-md"
           onChange={handleChange}

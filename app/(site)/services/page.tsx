@@ -35,7 +35,7 @@ const services = [
     slug: "data-entry", 
     title: "Data Entry", 
     icon: <HardDrive size={24} strokeWidth={1.5} />, 
-    desc: "Accurate and scalable data entry services with validation and quality control",
+    desc: "Scalable data entry services with validation and quality control",
     img: "/banner/6.jpg",
   },
   { 
@@ -79,7 +79,7 @@ export default function ServicesListing() {
   return (
     <div className="bg-gradient-to-b from-[#f8fbff] via-[#f1f6ff] to-[#f8fbff] pt-24 md:pt-25 pb-24 md:pb-24">
 
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="max-w-full mx-auto px-6">
 
         {/* TOP LABEL */}
         <div className="flex items-center gap-4 mb-10">
@@ -109,67 +109,142 @@ export default function ServicesListing() {
         </div>
 
 {/* SUCCESS STORY */}
-<section className="py-8 md:py-8 bg-white">
-  <div className="max-w-[1100px] mx-auto px-6">
+<section className="w-full py-12 md:py-16 bg-gradient-to-b from-[#f7faff] to-white">
+  
+  <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <h2 className="text-3xl md:text-5xl font-bold text-center mb-10">
-      Large Scale <span className="text-[#000033]">Digitization Success</span>
+    {/* TITLE */}
+    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-10 leading-tight">
+      Large Scale{" "}
+      <span className="text-[#0a2a66] relative">
+        Digitization Success
+        <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-blue-200 rounded-full"></span>
+      </span>
     </h2>
 
-    <div className="bg-[#eef5ff] rounded-2xl p-6 md:p-10 shadow-lg space-y-6 text-gray-700">
+    {/* MAIN WRAPPER */}
+    <div className="w-full bg-white rounded-3xl shadow-xl border border-blue-100 p-5 sm:p-8 md:p-12 space-y-10">
 
-      <p className="text-lg">
-        OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise
+      {/* INTRO (FULL CONTENT - UNCHANGED) */}
+      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise.
       </p>
 
       {/* SERVICES */}
-      <div>
-        <h3 className="font-semibold text-xl mb-3 text-[#1a1a1a]">Core Services Delivered</h3>
-        <ul className="grid md:grid-cols-2 gap-2 list-disc pl-5">
-          <li>Document Digitization</li>
-          <li>Sefest Records Management</li>
-          <li>DMS Implementation</li>
-        </ul>
+      <div className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 p-5 sm:p-6 rounded-2xl border border-blue-100">
+        
+        <h3 className="font-semibold text-xl mb-4 text-[#0a2a66]">
+          Core Services Delivered
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700">
+          <div className="bg-yellow-100 p-3 rounded-lg shadow-sm border">
+            Records Mangement
+          </div>
+          <div className="bg-red-100 p-3 rounded-lg shadow-sm border">
+           Scanning & Digitization
+          </div>
+          <div className="bg-orange-100 p-3 rounded-lg shadow-sm border">
+            DMS Solutions
+          </div>
+          <div className="bg-green-100 p-3 rounded-lg shadow-sm border">
+            Secure Shredding
+          </div>
+
+          <div className="bg-purple-100 p-3 rounded-lg shadow-sm border">
+            Data Entry
+          </div>
+
+          <div className="bg-pink-100 p-3 rounded-lg shadow-sm border">
+            Data Security & Compliance
+          </div>
+
+          <div className="bg-orange-100 p-3 rounded-lg shadow-sm border">
+            Infra Solutions
+          </div>
+
+          <div className="bg-black-100 p-3 rounded-lg shadow-sm border">
+           Filing & Indexing
+          </div>
+
+          <div className="bg-red-100 p-3 rounded-lg shadow-sm border">
+            Mail Room Services
+          </div>
+          <div className="bg-purple-100 p-3 rounded-lg shadow-sm border">
+            Record Information Management (RIM) Services
+          </div>
+        </div>
+
       </div>
 
-      {/* APPROACH */}
-      <div>
-        <h3 className="font-semibold text-xl mb-3 text-[#1a1a1a]">Execution Strategy</h3>
+      {/* EXECUTION STRATEGY (FULL CONTENT PRESERVED) */}
+      <div className="space-y-6">
 
-        <ul className="space-y-3 list-disc pl-5">
-          <li>
-            <strong>Multi-City Deployment:</strong> OMX's diversified operational strategy involved deploying specialized teams across key cities, including Faridabad in Delhi NCR apart from Noida & Jamalpur, Hyderabad, Pune, Indore, and Cochin. This approach enabled:
-          </li>
-          <p>On-site analysis and customized execution plans</p>
-          <p>Minimal disruption to operations</p>
-          <p>Efficient handling of location-specific challenges</p>
-          <li>
-            <strong>End-to-End Workflow:</strong> A structured workflow ensured seamless digitization
-          </li>
-          <p>Collection and categorization of physical files</p>
-          <p>High-resolution scanning with quality checks</p>
-          <p>Indexing and metadata tagging</p>
-          <li>
-            <strong>Centralized System:</strong> The digitized records were integrated into a unified platform, enabling
-          </li>
-          <p>Unified access across locations</p>
-          <p>Real-time data retrieval</p>
-          <p>Reduced physical storage and manual processes</p>
-        </ul>
+        <h3 className="font-semibold text-xl text-[#0a2a66]">
+          Execution Strategy
+        </h3>
+
+        <div className="space-y-6">
+
+          {/* STEP 1 */}
+          <div className="bg-blue-100 border-l-4 border-blue-500 p-5 rounded-xl shadow-sm hover:shadow-md transition w-full">
+            <p className="font-semibold text-gray-800">
+              Multi-City Deployment:
+            </p>
+            <p className="text-gray-600 mt-2">
+              OMX's diversified operational strategy involved deploying specialized teams across key cities, including Faridabad in Delhi NCR apart from Noida & Jamalpur, Hyderabad, Pune, Indore, and Cochin. This approach enabled:
+            </p>
+            <ul className="list-disc pl-5 text-gray-600 mt-2 space-y-1">
+              <li>On-site analysis and customized execution plans</li>
+              <li>Minimal disruption to operations</li>
+              <li>Efficient handling of location-specific challenges</li>
+            </ul>
+          </div>
+
+          {/* STEP 2 */}
+          <div className="bg-green-100 border-l-4 border-green-500 p-5 rounded-xl shadow-sm hover:shadow-md transition w-full">
+            <p className="font-semibold text-gray-800">
+              End-to-End Workflow:
+            </p>
+            <p className="text-gray-600 mt-2">
+              A structured workflow ensured seamless digitization
+            </p>
+            <ul className="list-disc pl-5 text-gray-600 mt-2 space-y-1">
+              <li>Collection and categorization of physical files</li>
+              <li>High-resolution scanning with quality checks</li>
+              <li>Indexing and metadata tagging</li>
+            </ul>
+          </div>
+
+          {/* STEP 3 */}
+          <div className="bg-purple-100 border-l-4 border-purple-500 p-5 rounded-xl shadow-sm hover:shadow-md transition w-full">
+            <p className="font-semibold text-gray-800">
+              Centralized System:
+            </p>
+            <p className="text-gray-600 mt-2">
+              The digitized records were integrated into a unified platform, enabling
+            </p>
+            <ul className="list-disc pl-5 text-gray-600 mt-2 space-y-1">
+              <li>Unified access across locations</li>
+              <li>Real-time data retrieval</li>
+              <li>Reduced physical storage and manual processes</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
 
-      {/* RESULT */}
-      <div className="bg-white p-5 rounded-xl border">
-        <p className="font-semibold text-[#1a1a1a]">
+      {/* RESULT (FULL CONTENT) */}
+      <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 sm:p-6 rounded-2xl border border-green-200 w-full">
+        <p className="font-semibold text-green-800 mb-2">
           Result:
         </p>
-        <p>
-          The transformation enabled clients to move from manual processes to a connected digital environment, significantly improving efficiency, accessibility, and data security
+        <p className="text-gray-700">
+          The transformation enabled clients to move from manual processes to a connected digital environment, significantly improving efficiency, accessibility, and data security.
         </p>
       </div>
 
     </div>
-
   </div>
 </section>
 

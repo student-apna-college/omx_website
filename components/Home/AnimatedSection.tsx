@@ -116,9 +116,6 @@ text-white">
             />
           </motion.div>
         </div>
-
-      
-
       </div>
     </section>
   );

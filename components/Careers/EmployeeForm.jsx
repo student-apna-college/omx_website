@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function EmployeeForm({ job }) {
   const [formData, setFormData] = useState({
-    firstName: "",
+    fullName: "",
     lastName: "",
     contact: "",
     email: "",
@@ -25,7 +25,7 @@ export default function EmployeeForm({ job }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
-    // ✅ File validation
+    //File validation
     if (file && file.size > 2 * 1024 * 1024) {
       alert("File size must be less than 2MB");
       return;
@@ -34,50 +34,55 @@ export default function EmployeeForm({ job }) {
     setResumeFile(file);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!job?.id) {
-      alert("Job not found");
-      return;
+  if (!job?.id) {
+    alert("Job not found");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const data = new FormData();
+
+    //  IMPORTANT: API expects these field names
+    data.append("firstName", formData.fullName);
+    data.append("lastName", formData.lastName);
+    data.append("email", formData.email);
+    data.append("contact", formData.contact);
+    data.append("position", formData.position || job?.role);
+    data.append("experience", formData.experience);
+    data.append("currentCTC", formData.currentCTC);
+    data.append("expectedCTC", formData.expectedCTC);
+    data.append("message", formData.message);
+    data.append("jobId", job.id);
+
+    if (resumeFile) {
+      data.append("resume", resumeFile);
     }
 
-    setLoading(true);
-
-    try {
-      const data = new FormData();
-
-      // append form fields
-      Object.keys(formData).forEach((key) => {
-        data.append(key, formData[key]);
-      });
-
-      // ✅ only jobId (no jobRole needed)
-      data.append("jobId", job.id);
-
-      if (resumeFile) {
-        data.append("resume", resumeFile);
-      }
-
-      // ✅ Dummy API call
-      const res = await fetch("/api/apply", {
+    const res = await fetch(
+      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/omx-apply",
+      {
         method: "POST",
-        body: data,
-      });
+        body: data, //  FormData = no headers needed
+      }
+    );
 
-      const result = await res.json();
+    const result = await res.json();
+    console.log("Response:", result);
 
-      console.log("Response:", result);
-
-      alert("Application Submitted Successfully ✅");
-
-    } catch (err) {
-      console.error(err);
-      alert("Submission Failed ❌");
-    } finally {
-      setLoading(false);
-    }
-  };
+    alert("Application Submitted Successfully ");
+    
+  } catch (err) {
+    console.error(err);
+    alert("Submission Failed ");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="sm:p-6 md:p-8 lg:p-10 rounded-2xl max-w-5xl mx-auto">
@@ -90,7 +95,7 @@ export default function EmployeeForm({ job }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-          <input name="firstName" placeholder="First Name *" required onChange={handleChange} className="input" />
+          <input name="fullName" placeholder="First Name *" required onChange={handleChange} className="input" />
           <input name="lastName" placeholder="Last Name" onChange={handleChange} className="input" />
 
           <input name="contact" placeholder="Contact *" required onChange={handleChange} className="input" />

@@ -69,7 +69,7 @@ export default function Home() {
 ,
   ];
 
-
+ 
   return (
   <div className="bg-gradient-to-b from-white via-blue-50 to-white text-[#0f172a]">
 

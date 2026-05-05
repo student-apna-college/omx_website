@@ -2,9 +2,13 @@
 import Modal from "@/components/Ui/Modal";
 import { useState } from "react";
 
-export default function EnquiryForm({ setActiveForm }: any) {
+type Props = {
+  setActiveForm: (value: string | null) => void;
+};
+
+export default function EnquiryForm({ setActiveForm}:Props) {
   const [formData, setFormData] = useState({
-    empname: "",
+    fullName: "",
     email: "",
     phone: "",
     company: "",
@@ -14,26 +18,49 @@ export default function EnquiryForm({ setActiveForm }: any) {
     message: "",
   });
 
-  const handleChange = (e:any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+ const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
 
-  const handleSubmit = async (e:any) => {
-    e.preventDefault();
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    await fetch("/api/enquiry", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+  try {
+    const res = await fetch(
+      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/enquiry",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          empname: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          department: formData.department,
+          company: formData.company,
+          queryType: formData.queryType,
+          message: formData.message,
+        }),
+      }
+    );
 
+    const data = await res.json();
+    console.log("Response:", data);
+
+    alert("Enquiry submitted successfully");
     setActiveForm(null);
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong");
+  }
+};
 
   return (
     <Modal onClose={() => setActiveForm(null)}>
@@ -46,7 +73,7 @@ export default function EnquiryForm({ setActiveForm }: any) {
         {/* Name */}
         <input
           type="text"
-          name="empname"
+          name="fullName"
           placeholder="Full Name"
           className="border w-full p-2 rounded-md"
           onChange={handleChange}

@@ -107,8 +107,8 @@ export default function TestimonialCarousel() {
           return (
             <div
               key={i}
-              onMouseEnter={() => setPaused(true)}   // 👈 pause
-              onMouseLeave={() => setPaused(false)}  // 👈 resume
+              onMouseEnter={() => setPaused(true)}   
+              onMouseLeave={() => setPaused(false)} 
               className={`transition-all duration-500 rounded-3xl p-[2px]
               ${isCenter ? "scale-110 z-10" : "scale-90 opacity-40"}`}
             >

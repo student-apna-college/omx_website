@@ -2,8 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Linkedin,
-  Twitter,
-  Facebook,
+
   Instagram,
   ArrowUpRight,
 } from "lucide-react";
