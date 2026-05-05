@@ -8,12 +8,12 @@ const testimonials = [
     name: "ICICI ",
     since:"Associated Since Last 20 Years",
     logo: "/logo/client4.jpg",
-    text: "Omx Info has done a stupendous job in closing all audit points related to Risk Management. We appreciate the efforts put in by the team for effectively executing all points and parameters, while maintaining the highest Quality standards OMX INFO has delivered reliable and efficient document management services for ICICI Bank Ltd. Their expertise in document storage, secure & timely shredding, has ensured smooth handling of sensitive records We commend the team’s commitment to confidentiality, compliance, and overall service excellence.",
+    text: "OMX INFO has delivered reliable and efficient document management services for ICICI Bank Ltd. Their expertise in document storage, secure & timely shredding, has ensured smooth handling of sensitive records.We commend the team’s commitment to confidentiality, compliance, and overall service excellence.",
   },
   {
     name: "IBS Hospital",
     logo: "/logo/client16.jpg",
-    text: "Omx Info has demonstrated strong capability in managing Scanning Services & Document Storage for IBS Hospital. The team ensured that all records were systematically organized and digitized with precision, enabling improved accessibility and operational efficiency within TAT.Their disciplined approach towards data handling, along with a clear focus on accuracy and process quality, has been noteworthy.",
+    text: "OMX Info has consistently delivered strong scanning and document storage services for IBS Hospital.Omx Info has demonstrated strong capability in managing Scanning Services & Document Storage for IBS Hospital. The team ensured that all records were systematically organized and digitized with precision, enabling improved accessibility and operational efficiency within TAT.Their disciplined approach towards data handling, along with a clear focus on accuracy and process quality, has been noteworthy.",
   },
   {
     name: "PristynCare Hospital",
