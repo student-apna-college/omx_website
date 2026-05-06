@@ -18,6 +18,8 @@ export default function EmployeeForm({ job }) {
 
   const [resumeFile, setResumeFile] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [responseMsg, setResponseMsg] = useState(""); //  NEW
+  const [isError, setIsError] = useState(false); //  NEW
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,64 +27,103 @@ export default function EmployeeForm({ job }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
-    //File validation
-    if (file && file.size > 2 * 1024 * 1024) {
-      alert("File size must be less than 2MB");
+    if (!file) return;
+
+    //  file size validation
+    if (file.size > 2 * 1024 * 1024) {
+      setResponseMsg("File size must be less than 2MB");
+      setIsError(true);
+      return;
+    }
+
+    //  file type validation
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setResponseMsg("Only PDF/DOC/DOCX allowed");
+      setIsError(true);
       return;
     }
 
     setResumeFile(file);
+    setResponseMsg("");
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!job?.id) {
-    alert("Job not found");
-    return;
-  }
-
-  setLoading(true);
-
-  try {
-    const data = new FormData();
-
-    //  IMPORTANT: API expects these field names
-    data.append("firstName", formData.fullName);
-    data.append("lastName", formData.lastName);
-    data.append("email", formData.email);
-    data.append("contact", formData.contact);
-    data.append("position", formData.position || job?.role);
-    data.append("experience", formData.experience);
-    data.append("currentCTC", formData.currentCTC);
-    data.append("expectedCTC", formData.expectedCTC);
-    data.append("message", formData.message);
-    data.append("jobId", job.id);
-
-    if (resumeFile) {
-      data.append("resume", resumeFile);
+    if (!job?.id) {
+      setResponseMsg("Job not found");
+      setIsError(true);
+      return;
     }
 
-    const res = await fetch(
-      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/omx-apply",
-      {
-        method: "POST",
-        body: data, //  FormData = no headers needed
+    setLoading(true);
+    setResponseMsg("");
+
+    try {
+      const data = new FormData();
+
+      data.append("firstName", formData.fullName);
+      data.append("lastName", formData.lastName);
+      data.append("email", formData.email);
+      data.append("contact", formData.contact);
+      data.append("position", formData.position || job?.role);
+      data.append("experience", formData.experience);
+      data.append("currentCTC", formData.currentCTC);
+      data.append("expectedCTC", formData.expectedCTC);
+      data.append("message", formData.message);
+      data.append("jobId", job.id);
+
+      if (resumeFile) {
+        data.append("resume", resumeFile);
       }
-    );
 
-    const result = await res.json();
-    console.log("Response:", result);
+      const res = await fetch(
+        "https://blogspaneluat.omlogistics.co.in/api/websites/omx/omx-apply",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
-    alert("Application Submitted Successfully ");
-    
-  } catch (err) {
-    console.error(err);
-    alert("Submission Failed ");
-  } finally {
-    setLoading(false);
-  }
-};
+      const result = await res.json();
+
+      if (res.ok) {
+        setResponseMsg("Application Submitted Successfully ");
+        setIsError(false);
+
+        //  reset form
+        setFormData({
+          fullName: "",
+          lastName: "",
+          contact: "",
+          email: "",
+          employeeStatus: "",
+          position: "",
+          currentCTC: "",
+          expectedCTC: "",
+          experience: "",
+          relocate: "",
+          message: "",
+        });
+        setResumeFile(null);
+      } else {
+        setResponseMsg(result?.message || "Submission Failed");
+        setIsError(true);
+      }
+    } catch (err) {
+      console.error(err);
+      setResponseMsg("Something went wrong");
+      setIsError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="sm:p-6 md:p-8 lg:p-10 rounded-2xl max-w-5xl mx-auto">
@@ -95,30 +136,31 @@ const handleSubmit = async (e) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-          <input name="fullName" placeholder="First Name *" required onChange={handleChange} className="input" />
-          <input name="lastName" placeholder="Last Name" onChange={handleChange} className="input" />
+          <input name="fullName" value={formData.fullName} placeholder="First Name *" required onChange={handleChange} className="input" />
+          <input name="lastName" value={formData.lastName} placeholder="Last Name" onChange={handleChange} className="input" />
 
-          <input name="contact" placeholder="Contact *" required onChange={handleChange} className="input" />
-          <input name="email" placeholder="Email *" required onChange={handleChange} className="input" />
+          {/*  type fix */}
+          <input type="tel" name="contact" value={formData.contact} placeholder="Contact *" required onChange={handleChange} className="input" />
 
-          <select name="employeeStatus" required onChange={handleChange} className="input">
+          <input type="email" name="email" value={formData.email} placeholder="Email *" required onChange={handleChange} className="input" />
+
+          <select name="employeeStatus" value={formData.employeeStatus} required onChange={handleChange} className="input">
             <option value="">Employee Status</option>
             <option>Fresher</option>
             <option>Working</option>
             <option>Notice Period</option>
           </select>
 
-          <select name="position" required onChange={handleChange} className="input">
+          <select name="position" value={formData.position} required onChange={handleChange} className="input">
             <option value="">Position</option>
             <option>{job?.role}</option>
-            <option>Frontend Developer</option>
-            <option>Backend Developer</option>
+            <option>Scanning & Data Entry Executives</option>
           </select>
 
-          <input name="currentCTC" placeholder="Current CTC" required onChange={handleChange} className="input" />
-          <input name="expectedCTC" placeholder="Expected CTC" required onChange={handleChange} className="input" />
+          <input name="currentCTC" value={formData.currentCTC} placeholder="Current CTC" required onChange={handleChange} className="input" />
+          <input name="expectedCTC" value={formData.expectedCTC} placeholder="Expected CTC" required onChange={handleChange} className="input" />
 
-          <select name="experience" required onChange={handleChange} className="input">
+          <select name="experience" value={formData.experience} required onChange={handleChange} className="input">
             <option value="">Experience</option>
             <option>0-1</option>
             <option>1-3</option>
@@ -141,7 +183,14 @@ const handleSubmit = async (e) => {
         <input type="file" accept=".pdf,.doc,.docx" required onChange={handleFileChange} />
 
         {/* Message */}
-        <textarea name="message" placeholder="Why should we hire you?" onChange={handleChange} className="input" />
+        <textarea name="message" value={formData.message} placeholder="Why should we hire you?" onChange={handleChange} className="input" />
+
+        {/*  MESSAGE UI */}
+        {responseMsg && (
+          <p className={`text-center font-semibold ${isError ? "text-red-600" : "text-green-600"}`}>
+            {responseMsg}
+          </p>
+        )}
 
         <button
           disabled={loading}
@@ -152,7 +201,6 @@ const handleSubmit = async (e) => {
 
       </form>
 
-      {/* Styles */}
       <style jsx>{`
         .input {
           width: 100%;

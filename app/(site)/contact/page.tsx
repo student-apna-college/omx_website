@@ -4,14 +4,19 @@ import Image from "next/image";
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
-  const [focused, setFocused] = useState<string | null>(null);
+  //  removed unused focused state
 
   //  POPUP STATE
   const [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  //  PAGE LOAD PE POPUP OPEN
+  //  PAGE LOAD PE POPUP OPEN (optional UX fix: delay)
   useEffect(() => {
-    setIsOpen(true);
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 800); //  delay added (better UX)
+    return () => clearTimeout(timer);
   }, []);
 
   const branches = [
@@ -33,187 +38,238 @@ export default function ContactPage() {
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const form = e.currentTarget;
+    setLoading(true);
 
-  const formData = new FormData(form);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-  const payload = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
-    region: formData.get("region"),
-    scope: formData.get("scope"),
-  };
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      region: formData.get("region"),
+      company: formData.get("company"),
+      scope: formData.get("scope"),
+    };
 
-  try {
-    const res = await fetch(
-      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
-
-    const data = await res.json();
-
-    if (res.ok) {
-      alert("Submitted Successfully");
-
-      form.reset(); // 
-      setIsOpen(false);
-    } else {
-      alert("Submission failed ");
+    // BASIC VALIDATION ADDED
+    if (!payload.name || !payload.email) {
+      setMessage("Please fill required fields");
+      setLoading(false);
+      return;
     }
 
-  } catch (err) {
-    console.error(err);
-    alert("Error submitting form ");
-  }
-};
+    try {
+      const res = await fetch(
+        "https://blogspaneluat.omlogistics.co.in/api/websites/omx/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const data = await res.json();
+
+    if (res.ok) {
+  setMessage("Submitted Successfully"); // FIX: backend ignore
+  form.reset();
+  setIsOpen(false);
+} else {
+  setMessage("Submission failed"); //  FIX
+}
+    } catch (err) {
+      console.error(err);
+      setMessage("Error submitting form");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="bg-gradient-to-b from-[#f5fffb] via-white to-[#f7faff] text-[#1a1a1a]">
 
-      {/* HERO */}
-      <section className="relative w-full h-[55vh] md:h-[80vh] overflow-hidden">
-        <Image src="/images/contact.jpg" alt="OMX Contact Infrastructure" fill priority className="object-cover scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
-        <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
-          <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            CONNECT TO <br /> INTERFACE
-          </h1>
-          <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
-            Access our nationwide network of high-security record centers and digitization hubs
-          </p>
+  {/* HERO */}
+  <section className="relative w-full h-[55vh] md:h-[80vh] overflow-hidden">
+    <Image src="/images/contact.jpg" alt="OMX Contact Infrastructure" fill priority className="object-cover scale-105" />
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+    <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
+      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+        CONNECT TO <br /> INTERFACE
+      </h1>
+      <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
+        Access our nationwide network of high-security record centers and digitization hubs
+      </p>
+    </div>
+  </section>
+
+  {/* CONTACT + FORM */}
+  <section className="max-w-[1300px] mx-auto py-16 md:py-10 px-6 grid lg:grid-cols-12 gap-5">
+
+    {/* LEFT */}
+    <div className="lg:col-span-4 space-y-10">
+      <div className="space-y-4">
+        <p className="text-2xl font-bold text-[#0f172a] hover:text-green-600 transition">
+          omxinfo@omx.in
+        </p>
+        <p className="text-xl font-bold">+91 83768 07367</p>
+        <p className="text-xl font-bold text-gray-500">+91 88263 32236</p>
+      </div>
+
+      <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-100/50 via-purple-100/50 to-pink-100/50 border">
+        <div className="flex items-center gap-2 mb-4">
+          <ShieldCheck className="text-green-600" size={18} />
+          <h4 className="text-xs font-bold uppercase tracking-widest">Compliance Standards</h4>
         </div>
-      </section>
+        <ul className="space-y-2">
+          {["ISO 9001:2015 Certified", "GDPR Compliance Rules", "Tier 4 Physical Security"].map(item => (
+            <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
+              <CheckCircle2 size={14} className="text-green-500" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
-      {/* CONTACT + FORM */}
-      <section className="max-w-[1300px] mx-auto py-16 md:py-10 px-6 grid lg:grid-cols-12 gap-5">
+    {/* FORM */}
+    <div className="lg:col-span-8">
+      <div className="bg-white rounded-2xl shadow-lg border p-8 md:p-10">
+        <h3 className="text-2xl md:text-3xl font-bold mb-8">
+          Institutional Inquiry Portal
+        </h3>
 
-        {/* LEFT */}
-        <div className="lg:col-span-4 space-y-10">
-          <div className="space-y-4">
-            <p className="text-2xl font-bold text-[#0f172a] hover:text-green-600 transition">
-              omxinfo@omx.in
+        <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+
+          <input name="name" placeholder="Full Name" className="border rounded-xl px-4 py-3" />
+          <input name="company" placeholder="Company" className="border rounded-xl px-4 py-3" />
+
+          {/*  FIX: type added */}
+          <input name="email" type="email" placeholder="Email" className="border rounded-xl px-4 py-3" />
+
+          <input name="region" placeholder="Region" className="border rounded-xl px-4 py-3" />
+
+          {/*  FIX: type="tel" added */}
+          <input name="phone" type="tel" placeholder="Phone Number" className="border rounded-xl px-4 py-3"/>
+
+          <textarea name="scope" rows={4} placeholder="Describe your requirement..." className="md:col-span-2 border rounded-xl px-4 py-4 bg-gray-50" />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="md:col-span-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2"
+          >
+            {loading ? (
+              <>
+                <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                Sending...
+              </>
+            ) : (
+              "Send Request"
+            )}
+          </button>
+
+          {/* FIX: message show in main form */}
+          {message && (
+            <p className="md:col-span-2 text-green-600 font-semibold text-center">
+              {message}
             </p>
-            <p className="text-xl font-bold">+91 83768 07367</p>
-            <p className="text-xl font-bold text-gray-500">+91 88263 32236</p>
+          )}
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  {/* MAPS */}
+  <section className="max-w-[1400px] mx-auto px-6">
+    <h2 className="text-3xl font-bold text-center mb-10">Our Locations</h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {maps.map((map) => (
+        <div key={map.name} className="rounded-2xl overflow-hidden shadow-md bg-white">
+          <div className="bg-gradient-to-r from-blue-100 to-purple-100 text-center py-2 font-semibold">
+            {map.name}
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-100/50 via-purple-100/50 to-pink-100/50 border">
-            <div className="flex items-center gap-2 mb-4">
-              <ShieldCheck className="text-green-600" size={18} />
-              <h4 className="text-xs font-bold uppercase tracking-widest">Compliance Standards</h4>
-            </div>
-            <ul className="space-y-2">
-              {["ISO 9001:2015 Certified", "GDPR Compliance Rules", "Tier 4 Physical Security"].map(item => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
-                  <CheckCircle2 size={14} className="text-green-500" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/*  FIX: iframe security attributes */}
+          <iframe
+            src={map.url}
+            className="w-full h-64 border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
         </div>
+      ))}
+    </div>
+  </section>
 
-        {/* ORIGINAL FORM SAME */}
-        <div className="lg:col-span-8">
-          <div className="bg-white rounded-2xl shadow-lg border p-8 md:p-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8">
-              Institutional Inquiry Portal
-            </h3>
+  {/* BRANCHES */}
+  <section className="py-20 max-w-[1400px] mx-auto px-6">
+    <h2 className="text-3xl md:text-5xl text-center mb-12">National Directory</h2>
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
-
-              <input name="name" placeholder="Full Name" className="border rounded-xl px-4 py-3" />
-              <input name="company" placeholder="Company" className="border rounded-xl px-4 py-3" />
-              <input name="email" type="email" placeholder="Email" className="border rounded-xl px-4 py-3" />
-              <input name="region" placeholder="Region" className="border rounded-xl px-4 py-3" />
-              <input name="phone"  placeholder="Phone Number" className="border rounded-xl px-4 py-3"/>
-  
-              <textarea name="scope" rows={4} placeholder="Describe your requirement..." className="md:col-span-2 border rounded-xl px-4 py-4 bg-gray-50" />
-
-              <button type="submit" className="md:col-span-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-full font-bold">
-                Send Request
-              </button>
-
-            </form>
-          </div>
+      {/*  OLD: key={i} */}
+      {/* FIX: better key */}
+      {branches.map((b) => (
+        <div key={b.city} className="rounded-2xl p-6 bg-gradient-to-br from-white via-blue-50 to-purple-50 border">
+          <p className="text-xs font-bold text-green-600 uppercase">{b.state}</p>
+          <h4 className="text-2xl font-bold mt-2">{b.city}</h4>
+          <p className="text-sm text-gray-500 mt-3">{b.address}</p>
         </div>
-      </section>
-
-      {/* MAPS */}
-      <section className="max-w-[1400px] mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-10">Our Locations</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {maps.map((map) => (
-            <div key={map.name} className="rounded-2xl overflow-hidden shadow-md bg-white">
-              <div className="bg-gradient-to-r from-blue-100 to-purple-100 text-center py-2 font-semibold">
-                {map.name}
-              </div>
-              <iframe src={map.url} className="w-full h-64 border-0" loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* BRANCHES */}
-      <section className="py-20 max-w-[1400px] mx-auto px-6">
-        <h2 className="text-3xl md:text-5xl text-center mb-12">National Directory</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {branches.map((b, i) => (
-            <div key={i} className="rounded-2xl p-6 bg-gradient-to-br from-white via-blue-50 to-purple-50 border">
-              <p className="text-xs font-bold text-green-600 uppercase">{b.state}</p>
-              <h4 className="text-2xl font-bold mt-2">{b.city}</h4>
-              <p className="text-sm text-gray-500 mt-3">{b.address}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/*  POPUP FORM */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-          <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-6 md:p-10 relative">
-
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-xl"
-            >
-              ✕
-            </button>
-
-            <h3 className="text-2xl font-bold mb-6 text-center">Quick Inquiry</h3>
-
-            <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
-
-              <input name="name" placeholder="Full Name" className="border rounded-xl px-4 py-3" />
-              <input name="company" placeholder="Company" className="border rounded-xl px-4 py-3" />
-              <input name="email" placeholder="Email" className="border rounded-xl px-4 py-3" />
-              <input name="region" placeholder="Region" className="border rounded-xl px-4 py-3" />
-              <input
-  name="phone"
-  placeholder="Phone Number"
-  className="border rounded-xl px-4 py-3"
-/>
-
-              <textarea name="scope" rows={4} placeholder="Describe your requirement..." className="md:col-span-2 border rounded-xl px-4 py-4 bg-gray-50" />
-
-              <button type="submit" className="md:col-span-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-full font-bold">
-                Submit Request
-              </button>
-
-            </form>
-
-          </div>
-        </div>
-      )}
+      ))}
 
     </div>
-  );
-}
+  </section>
+
+  {/* POPUP FORM */}
+  {isOpen && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-6 md:p-10 relative">
+
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 text-xl"
+        >
+          ✕
+        </button>
+
+        <h3 className="text-2xl font-bold mb-6 text-center">Quick Inquiry</h3>
+
+        <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+
+          <input name="name" placeholder="Full Name" className="border rounded-xl px-4 py-3" />
+          <input name="company" placeholder="Company" className="border rounded-xl px-4 py-3" />
+
+          {/* FIX: type="email" added */}
+          <input name="email" type="email" placeholder="Email" className="border rounded-xl px-4 py-3" />
+
+          <input name="region" placeholder="Region" className="border rounded-xl px-4 py-3" />
+
+          {/*FIX: type="tel" */}
+          <input name="phone" type="tel" placeholder="Phone Number" className="border rounded-xl px-4 py-3"/>
+
+          <textarea name="scope" rows={4} placeholder="Describe your requirement..." className="md:col-span-2 border rounded-xl px-4 py-4 bg-gray-50" />
+
+          <button type="submit" className="md:col-span-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-full font-bold">
+            Submit Request
+          </button>
+
+          {/* already correct */}
+          {message && (
+            <p className="md:col-span-2 text-green-600 font-semibold text-center">
+              {message}
+            </p>
+          )}
+
+        </form>
+
+      </div>
+    </div>
+  )}
+
+</div>
+)}

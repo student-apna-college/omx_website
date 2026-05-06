@@ -3,7 +3,7 @@
 import Modal from "@/components/Ui/Modal";
 import { useState } from "react";
 
-export default function MeetingForm({ setActiveForm }:any) {
+export default function MeetingForm({ setActiveForm }: any) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -11,10 +11,13 @@ export default function MeetingForm({ setActiveForm }:any) {
     purposeofmeeting: "",
     meetingAddress: "",
     date: "",
-    schedule: "", 
+    schedule: "",
   });
 
-  const handleChange = (e:any) => {
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false); 
+
+  const handleChange = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -22,43 +25,79 @@ export default function MeetingForm({ setActiveForm }:any) {
   };
 
   const handleSubmit = async (e: any) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const res = await fetch(
-      "https://blogspaneluat.omlogistics.co.in/api/websites/omx/meeting",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          purposeofmeeting: formData.purposeofmeeting,
-          meetingAddress: formData.meetingAddress,
-          date: formData.date,
-          schedule: formData.schedule,
-        }),
-      }
-    );
+    if (loading) return; // prevent double click
+    setLoading(true);
+    setMessage("");
 
-    const data = await res.json();
-    console.log("Response:", data);
+    try {
+      const res = await fetch(
+        "https://blogspaneluat.omlogistics.co.in/api/websites/omx/meeting",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            purposeofmeeting: formData.purposeofmeeting,
+            meetingAddress: formData.meetingAddress,
+            date: formData.date,
+            schedule: formData.schedule,
+          }),
+        }
+      );
 
-    alert("Meeting request sent ");
-    setActiveForm(null);
+      if (!res.ok) throw new Error("Failed");
 
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong ");
-  }
-};
+      //  success message
+      setMessage("Meeting request sent successfully");
+
+      //reset form (same fields)
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        purposeofmeeting: "",
+        meetingAddress: "",
+        date: "",
+        schedule: "",
+      });
+
+      // auto close after delay
+      setTimeout(() => {
+        setActiveForm(null);
+      }, 2000);
+
+    } catch (error) {
+      console.error(error);
+      setMessage("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Modal onClose={() => setActiveForm(null)}>
-      <h2 className="text-lg font-bold mb-4">Meeting Request</h2>
+      <h2 className="text-lg font-bold mb-4 text-center">
+        Meeting Request
+      </h2>
+
+      {/*MESSAGE */}
+      {message && (
+        <p
+          className={`text-center font-medium mb-2 ${
+            message.includes("success")
+              ? "text-green-600"
+              : "text-red-600"
+          }`}
+        >
+          {message}
+        </p>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-3">
 
@@ -67,6 +106,7 @@ export default function MeetingForm({ setActiveForm }:any) {
           type="text"
           name="fullName"
           placeholder="Name"
+          value={formData.fullName}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
           required
@@ -77,6 +117,7 @@ export default function MeetingForm({ setActiveForm }:any) {
           type="email"
           name="email"
           placeholder="Email"
+          value={formData.email}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
           required
@@ -87,6 +128,7 @@ export default function MeetingForm({ setActiveForm }:any) {
           type="tel"
           name="phone"
           placeholder="Phone"
+          value={formData.phone}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
           required
@@ -97,16 +139,17 @@ export default function MeetingForm({ setActiveForm }:any) {
           type="text"
           name="purposeofmeeting"
           placeholder="Purpose of Meeting"
+          value={formData.purposeofmeeting}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
         />
 
-
-        {/*  */}
+        {/* Address */}
         <input
           type="text"
-           name="meetingAddress" 
+          name="meetingAddress"
           placeholder="Meeting Address"
+          value={formData.meetingAddress}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
         />
@@ -115,14 +158,16 @@ export default function MeetingForm({ setActiveForm }:any) {
         <input
           type="date"
           name="date"
+          value={formData.date}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
           required
         />
 
-        {/* Schedule Dropdown */}
+        {/* Schedule */}
         <select
           name="schedule"
+          value={formData.schedule}
           className="border w-full p-2 rounded-md"
           onChange={handleChange}
           required
@@ -133,8 +178,16 @@ export default function MeetingForm({ setActiveForm }:any) {
         </select>
 
         {/* Submit */}
-        <button className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded-md font-semibold">
-          Request Meeting
+        <button
+          type="submit"
+          disabled={loading}
+          className={`w-full py-2 rounded-md font-semibold text-white ${
+            loading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+          }`}
+        >
+          {loading ? "Submitting..." : "Request Meeting"}
         </button>
 
       </form>
