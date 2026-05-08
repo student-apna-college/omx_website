@@ -79,7 +79,7 @@ export default function ServicesListing() {
   return (
     <div className="bg-gradient-to-b from-[#f8fbff] via-[#f1f6ff] to-[#f8fbff] pt-24 md:pt-25 pb-24 md:pb-24">
 
-      <div className="max-w-full mx-auto px-6">
+      <div className="w-full mx-auto px-0 sm:px-4 md:px-6">
 
         {/* TOP LABEL */}
         <div className="flex items-center gap-4 mb-10">
@@ -111,7 +111,7 @@ export default function ServicesListing() {
 {/* SUCCESS STORY */}
 <section className="w-full py-12 md:py-16 bg-gradient-to-b from-[#f7faff] to-white">
   
-  <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* TITLE */}
     <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-10 leading-tight">
@@ -123,7 +123,7 @@ export default function ServicesListing() {
     </h2>
 
     {/* MAIN WRAPPER */}
-    <div className="w-full bg-white rounded-3xl shadow-xl border border-blue-100 p-5 sm:p-8 md:p-12 space-y-10">
+    <div className="w-full bg-white md:rounded-3xl shadow-xl border border-blue-100 p-4 sm:p-6 md:p-12 space-y-10">
 
       {/* INTRO (FULL CONTENT - UNCHANGED) */}
       <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -249,7 +249,7 @@ export default function ServicesListing() {
 </section>
 
 {/* CARDS GRID */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-4">
 
   {services.map((s, i) => {
     const styles = [

@@ -99,7 +99,7 @@ export default function MeetingForm({ setActiveForm }: any) {
         </p>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-3">
+       <form onSubmit={handleSubmit} className="space-y-3">
 
         {/* Name */}
         <input
