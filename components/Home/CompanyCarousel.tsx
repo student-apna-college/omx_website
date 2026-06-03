@@ -1,11 +1,11 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import Image from "next/image";
 
-// swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 const companies = [
   { id: 1, img: "/companies/supply chain logo.png" },
@@ -18,46 +18,50 @@ const companies = [
   { id: 8, img: "/companies/Transife.webp" },
 ];
 
+interface Company {
+  id: number;
+  img: string;
+}
+
 export default function CompanyCarousel() {
   return (
     <section className="w-full py-16 bg-[#eaf3f9]">
-      
-      {/* Heading */}
       <div className="text-center mb-12 px-4">
         <h2 className="text-3xl md:text-5xl font-semibold">
           Our Group of Companies
         </h2>
-        {/* <p className="max-w-2xl mx-auto text-gray-600 mt-4">
-          With a unified vision, the Om group companies established to streamline
-          supply chain operations with one stop solution.
-        </p> */}
       </div>
 
-      {/* Swiper */}
       <div className="max-w-full mx-auto px-4">
         <Swiper
-          modules={[]}
+          modules={[Autoplay, Navigation]}
           spaceBetween={20}
           slidesPerView={2}
           loop={true}
           centeredSlides={true}
+          navigation={true}
           autoplay={{
-            delay: 1000,
+            delay: 2000,
             disableOnInteraction: false,
           }}
-          navigation
           breakpoints={{
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
+            640: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
           }}
         >
-          {companies.map((item) => (
+          {companies.map((item: Company) => (
             <SwiperSlide key={item.id}>
-              <div className="h-[130px] bg-white border rounded-xl flex items-center justify-center shadow-sm transition-all duration-300 hover:shadow-xl">
+              <div className="h-[130px] bg-white border rounded-xl flex items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300">
                 <Image
                   src={item.img}
-                  alt="company"
+                  alt={`Company ${item.id}`}
                   width={140}
                   height={70}
                   className="object-contain"

@@ -20,9 +20,6 @@ export default function Hero() {
       {/* CONTENT CONTAINER (aligned like upper section) */}
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-[1300px] mx-auto w-full px-6 md:px-12">
-
-         
-
         </div>
       </div>
 

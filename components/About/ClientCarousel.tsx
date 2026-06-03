@@ -2,11 +2,20 @@
 
 import Image from "next/image";
 
-export default function ClientCarousel({ clientData }) {
+interface Client {
+  logo: string;
+  name?: string;
+}
 
-  // Clean data (remove undefined)
+interface ClientCarouselProps {
+  clientData: Client[];
+}
+
+export default function ClientCarousel({
+  clientData,
+}: ClientCarouselProps) {
   const cleanData = (clientData || []).filter(
-    (item) => item && item.logo
+    (item: Client) => item && item.logo
   );
 
   // Split into 2 rows
@@ -15,12 +24,10 @@ export default function ClientCarousel({ clientData }) {
   const bottomClients = cleanData.slice(mid);
 
   return (
-    <div className="w-full bg-blue-100 py-10 overflow-hidden  ">
-
-      {/*  TOP ROW */}
+    <div className="w-full bg-blue-100 py-10 overflow-hidden">
+      {/* TOP ROW */}
       <div className="overflow-hidden">
         <div className="flex w-max animate-left pause-on-hover">
- 
           {/* ORIGINAL */}
           {topClients.map((client, index) => (
             <Logo key={`top-1-${index}`} client={client} />
@@ -30,14 +37,12 @@ export default function ClientCarousel({ clientData }) {
           {topClients.map((client, index) => (
             <Logo key={`top-2-${index}`} client={client} />
           ))}
-
         </div>
       </div>
 
-      {/*  BOTTOM ROW */}
+      {/* BOTTOM ROW */}
       <div className="overflow-hidden mt-6">
         <div className="flex w-max animate-right pause-on-hover">
-
           {/* ORIGINAL */}
           {bottomClients.map((client, index) => (
             <Logo key={`bottom-1-${index}`} client={client} />
@@ -47,11 +52,10 @@ export default function ClientCarousel({ clientData }) {
           {bottomClients.map((client, index) => (
             <Logo key={`bottom-2-${index}`} client={client} />
           ))}
-
         </div>
       </div>
 
-      {/*  CSS */}
+      {/* CSS */}
       <style jsx>{`
         @keyframes leftScroll {
           0% {
@@ -79,7 +83,6 @@ export default function ClientCarousel({ clientData }) {
           animation: rightScroll 25s linear infinite;
         }
 
-        /*  Hover Pause */
         .pause-on-hover:hover {
           animation-play-state: paused;
         }
@@ -95,8 +98,12 @@ export default function ClientCarousel({ clientData }) {
   );
 }
 
-/*  Logo Component */
-function Logo({ client }) {
+interface LogoProps {
+  client: Client;
+}
+
+/* Logo Component */
+function Logo({ client }: LogoProps) {
   return (
     <div className="mx-6 flex items-center justify-center min-w-[180px]">
       <div className="relative w-36 h-24">

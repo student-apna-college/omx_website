@@ -43,9 +43,9 @@ const testimonials = [
 ];
 
 export default function TestimonialCarousel() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [expanded, setExpanded] = useState({}); 
+ const [index, setIndex] = useState<number>(0);
+const [paused, setPaused] = useState<boolean>(false);
+const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   // AUTO SLIDE (pause on hover)
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function TestimonialCarousel() {
 
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 3500);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [paused]);
@@ -61,7 +61,7 @@ export default function TestimonialCarousel() {
   const prevIndex = index === 0 ? testimonials.length - 1 : index - 1;
   const nextIndex = index === testimonials.length - 1 ? 0 : index + 1;
 
-  const toggleReadMore = (i) => {
+  const toggleReadMore = (i:number) => {
     setExpanded((prev) => ({
       ...prev,
       [i]: !prev[i],
