@@ -19,7 +19,7 @@ export default function BranchesPage() {
     <div className="bg-gradient-to-b from-[#f5fffb] via-white to-[#f7faff] text-[#1a1a1a]">
 
       {/* HERO */}
-      <section className="relative w-full h-[55vh] md:h-[75vh] overflow-hidden">
+      <section className="relative w-full h-[65vh] md:h-[85vh] overflow-hidden">
         <Image
           src="/images/branch_locationss.jpg"
           alt="OMX National Network"
@@ -28,7 +28,7 @@ export default function BranchesPage() {
           className="object-cover scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#062b57]/25 via-[#08519c]/25" />
 
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
           <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
@@ -36,7 +36,7 @@ export default function BranchesPage() {
             <span className="text-white font-medium">FOOTPRINT</span>
           </h1>
 
-          <p className="mt-4 text-white/80 text-sm md:text-base max-w-lg">
+          <p className="mt-4 text-white text-sm md:text-base max-w-lg">
             Access our nationwide network of strategic record centers, digitization hubs, and logistics nodes
           </p>
         </div>
@@ -50,8 +50,8 @@ export default function BranchesPage() {
           { label: "Presence", val: "Pan India" },
           { label: "Audit Standards", val: "ISO 9001" }
         ].map((stat, idx) => (
-          <div key={idx} className="py-10 md:py-14 flex flex-col items-center justify-center hover:bg-green-50 transition">
-            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mb-2">
+          <div key={idx} className="py-10 md:py-14 flex flex-col items-center justify-center hover:bg-red-100 transition">
+            <p className="text-[12px] font-mono text-gray-900 uppercase tracking-widest mb-2">
               {stat.label}
             </p>
             <p className="text-xl md:text-2xl font-bold text-[#0f172a]">
@@ -66,7 +66,7 @@ export default function BranchesPage() {
         <div className="grid lg:grid-cols-12 gap-10 items-end mb-14">
           <div className="lg:col-span-8">
             <h2 className="text-4xl md:text-6xl font-light tracking-tight">
-              Strategic <span className="text-[#000033] font-medium">Locations</span>
+              Strategic <span className="text-[#1574AD] font-medium">Locations</span>
             </h2>
           </div>
 
@@ -83,7 +83,7 @@ export default function BranchesPage() {
 
               <div className="relative space-y-5">
                 <div className="flex justify-between items-center">
-                  <span className="text-[#000033] font-mono text-[10px] font-bold uppercase tracking-widest">
+                  <span className="text-[#1574AD] font-mono text-[10px] font-bold uppercase tracking-widest">
                     {branch.state}
                   </span>
                   <MapPin size={18} className="text-gray-400 group-hover:text-[#000033]" />
@@ -98,7 +98,7 @@ export default function BranchesPage() {
                 </p>
 
                 <div className="pt-4 border-t flex items-center gap-2 text-xs text-gray-500 group-hover:text-gray-700">
-                  <Mail size={14} className="text-green-600" />
+                  <Mail size={14} className="text-[#1574AD]" />
                   {branch.contact}
                 </div>
               </div>
@@ -107,8 +107,8 @@ export default function BranchesPage() {
         </div>
       </section>
 
-     {/* ✅ Tailwind Marquee */}
-<div className="w-full overflow-hidden bg-[#000033] py-3">
+     {/*  Tailwind Marquee */}
+<div className="w-full overflow-hidden bg-[#1574AD] py-3">
   <div className="whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
     <span className="mx-6 text-white font-semibold tracking-widest text-xl">
       & Many More Locations......

@@ -26,10 +26,10 @@ const services = [
   },
   { 
     slug: "secure-shredding", 
-    title: "Secure Shredding", 
+    title: "Securing Your Data Secrecy", 
     icon: <Trash2 size={24} strokeWidth={1.5} />, 
     desc: "Certified destruction of confidential documents ensuring compliance and data protection",
-    img: "/banner/image2.jpg",
+    img: "/industry/audit5.jpg",
   },
   { 
     slug: "data-entry", 
@@ -68,7 +68,7 @@ const services = [
   },
   { 
     slug: "record-information-management", 
-    title: "RIM Services", 
+    title: "Record Information Management Services", 
     icon: <Shield size={24} strokeWidth={1.5} />, 
     desc: "Comprehensive record and information lifecycle management solutions",
     img: "/banner/image10.jpg",
@@ -79,173 +79,321 @@ export default function ServicesListing() {
   return (
     <div className="bg-gradient-to-b from-[#f8fbff] via-[#f1f6ff] to-[#f8fbff] pt-24 md:pt-25 pb-24 md:pb-24">
 
-      <div className="w-full mx-auto px-0 sm:px-4 md:px-6">
+      <div className="w-full mx-auto px-0 sm:px-4 md:px-6 ">
 
         {/* TOP LABEL */}
-        <div className="flex items-center gap-4 mb-10">
-          <div className="h-[2px] w-12 bg-[#000033]"></div>
-          <span className="text-[#000033] text-xs font-bold uppercase tracking-[0.3em]">
-            Enterprise Solutions
-          </span>
-        </div>
+<div className="flex items-center gap-4 mb-10 md:px-20">
+  <div className="h-[2px] w-14 bg-[#1574AD] rounded-full"></div>
 
-        {/* HEADER */}
-        <div className="grid lg:grid-cols-12 gap-10 mb-5 md:mb-10 items-start">
+  <span className="text-[#1574AD] text-xs font-semibold uppercase tracking-[0.35em]">
+    Enterprise Solutions
+  </span>
+</div>
 
-          <div className="lg:col-span-8">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-light leading-tight">
-              Core <span className="font-semibold">Services</span><br/>
-              & <span className="text-[#000033] font-semibold">Infrastructure</span>
-            </h1>
-          </div>
+{/* HEADER */}
+<div className="grid lg:grid-cols-12 gap-10 mb-8 md:mb-4 items-start md:px-20">
 
-          <div className="lg:col-span-4">
-            <p className="text-gray-600 border-l-4 border-[#000033] pl-6 leading-relaxed text-base md:text-base">
-              We provide smarter safer and trusted storage, scanning, and document lifecycle solutions 
-              designed for modern enterprises across industries
-            </p>
-          </div>
-
-        </div>
-
-{/* SUCCESS STORY */}
-<section className="w-full py-12 md:py-16 bg-gradient-to-b from-[#f7faff] to-white">
-  
-  <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-
-    {/* TITLE */}
-    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-10 leading-tight">
-      Large Scale{" "}
-      <span className="text-[#0a2a66] relative">
-        Digitization Success
-        <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-blue-200 rounded-full"></span>
+  <div className="lg:col-span-8">
+    <h1 className="text-4xl sm:text-5xl md:text-7xl font-light leading-[1.1] tracking-tight text-slate-900">
+      Core <span className="font-semibold">Services</span>
+      <br />
+      &{" "}
+      <span className="text-[#1574AD] font-semibold">
+        Infrastructure
       </span>
-    </h2>
+    </h1>
+  </div>
 
-    {/* MAIN WRAPPER */}
-    <div className="w-full bg-white md:rounded-3xl shadow-xl border border-blue-100 p-4 sm:p-6 md:p-12 space-y-10">
+  <div className="lg:col-span-4">
+    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-white/80 backdrop-blur-md p-6 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
 
-      {/* INTRO (FULL CONTENT - UNCHANGED) */}
-      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-        OMX Info Management Ltd's Multi-City Success Story In today's fast-paced business landscape, adapting to change is crucial for survival. OMX Info Management Ltd has risen to this challenge, expanding its digital transformation services from Delhi NCR to a pan-India scale. What started as a small digitization project has grown into a confident, large-scale operation, leveraging cutting-edge technology and expertise.
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/70 to-transparent"></div>
+
+      <p className="relative z-10 text-slate-600 leading-relaxed text-[15px] md:text-base">
+        We provide smarter, safer, and trusted storage, scanning,
+        digitization, and document lifecycle solutions designed for
+        modern enterprises across industries.
       </p>
-
-      {/* SERVICES */}
-      <div className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 p-5 sm:p-6 rounded-2xl border border-blue-100">
-        
-        <h3 className="font-semibold text-xl mb-4 text-[#0a2a66]">
-          Core Services Delivered
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700">
-          <div className="bg-yellow-100 p-3 rounded-lg shadow-sm border">
-            Records Mangement
-          </div>
-          <div className="bg-red-100 p-3 rounded-lg shadow-sm border">
-           Scanning & Digitization
-          </div>
-          <div className="bg-orange-100 p-3 rounded-lg shadow-sm border">
-            DMS Solutions
-          </div>
-          <div className="bg-green-100 p-3 rounded-lg shadow-sm border">
-            Secure Shredding
-          </div>
-
-          <div className="bg-purple-100 p-3 rounded-lg shadow-sm border">
-            Data Entry
-          </div>
-
-          <div className="bg-pink-100 p-3 rounded-lg shadow-sm border">
-            Data Security & Compliance
-          </div>
-
-          <div className="bg-orange-100 p-3 rounded-lg shadow-sm border">
-            Infra Solutions
-          </div>
-
-          <div className="bg-black-100 p-3 rounded-lg shadow-sm border">
-           Filing & Indexing
-          </div>
-
-          <div className="bg-red-100 p-3 rounded-lg shadow-sm border">
-            Mail Room Services
-          </div>
-          <div className="bg-purple-100 p-3 rounded-lg shadow-sm border">
-            Record Information Management (RIM) Services
-          </div>
-        </div>
-
-      </div>
-
-      {/* EXECUTION STRATEGY (FULL CONTENT PRESERVED) */}
-      <div className="space-y-6">
-
-        <h3 className="font-semibold text-xl text-[#0a2a66]">
-          Execution Strategy
-        </h3>
-
-        <div className="space-y-6">
-
-          {/* STEP 1 */}
-          <div className="bg-blue-100 border-l-4 border-blue-500 p-5 rounded-xl shadow-sm hover:shadow-md transition w-full">
-            <p className="font-semibold text-gray-800">
-              Multi-City Deployment:
-            </p>
-            <p className="text-gray-600 mt-2">
-              OMX's diversified operational strategy involved deploying specialized teams across key cities, including Faridabad in Delhi NCR apart from Noida & Jamalpur, Hyderabad, Pune, Indore, and Cochin. This approach enabled:
-            </p>
-            <ul className="list-disc pl-5 text-gray-600 mt-2 space-y-1">
-              <li>On-site analysis and customized execution plans</li>
-              <li>Minimal disruption to operations</li>
-              <li>Efficient handling of location-specific challenges</li>
-            </ul>
-          </div>
-
-          {/* STEP 2 */}
-          <div className="bg-green-100 border-l-4 border-green-500 p-5 rounded-xl shadow-sm hover:shadow-md transition w-full">
-            <p className="font-semibold text-gray-800">
-              End-to-End Workflow:
-            </p>
-            <p className="text-gray-600 mt-2">
-              A structured workflow ensured seamless digitization
-            </p>
-            <ul className="list-disc pl-5 text-gray-600 mt-2 space-y-1">
-              <li>Collection and categorization of physical files</li>
-              <li>High-resolution scanning with quality checks</li>
-              <li>Indexing and metadata tagging</li>
-            </ul>
-          </div>
-
-          {/* STEP 3 */}
-          <div className="bg-purple-100 border-l-4 border-purple-500 p-5 rounded-xl shadow-sm hover:shadow-md transition w-full">
-            <p className="font-semibold text-gray-800">
-              Centralized System:
-            </p>
-            <p className="text-gray-600 mt-2">
-              The digitized records were integrated into a unified platform, enabling
-            </p>
-            <ul className="list-disc pl-5 text-gray-600 mt-2 space-y-1">
-              <li>Unified access across locations</li>
-              <li>Real-time data retrieval</li>
-              <li>Reduced physical storage and manual processes</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      {/* RESULT (FULL CONTENT) */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 sm:p-6 rounded-2xl border border-green-200 w-full">
-        <p className="font-semibold text-green-800 mb-2">
-          Result:
-        </p>
-        <p className="text-gray-700">
-          The transformation enabled clients to move from manual processes to a connected digital environment, significantly improving efficiency, accessibility, and data security.
-        </p>
-      </div>
 
     </div>
   </div>
+
+</div>
+
+{/* SUCCESS STORY */}
+<section className="w-full py-8 md:py-8 bg-gradient-to-b from-[#f7faff] via-white to-[#f8fbff]">
+
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* TITLE */}
+    <div className="text-center mb-14">
+
+      <p className="text-[#1574AD] uppercase tracking-[0.3em] text-xs font-semibold mb-4">
+        Case Study
+      </p>
+
+      <h2 className="text-3xl sm:text-4xl md:text-6xl font-light leading-tight text-slate-900">
+        Large Scale{" "}
+        <span className="font-semibold text-[#1574AD]">
+          Digitization Success
+        </span>
+      </h2>
+
+      <div className="w-24 h-1 bg-gradient-to-r from-[#1574AD] to-blue-300 mx-auto mt-6 rounded-full"></div>
+
+    </div>
+
+    {/* MAIN CARD */}
+    <div className="relative overflow-hidden rounded-[32px] border border-blue-100 bg-white/90 backdrop-blur-xl p-5 sm:p-8 md:p-14 shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+
+      {/* Glow */}
+      <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 space-y-10">
+
+        {/* INTRO */}
+        <div className="bg-gradient-to-r from-blue-50 via-white to-blue-50 border border-blue-100 rounded-3xl p-6 md:p-8">
+
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+            OMX Info Management Ltd's Multi-City Success Story In today's
+            fast-paced business landscape, adapting to change is crucial
+            for survival. OMX Info Management Ltd has risen to this
+            challenge, expanding its digital transformation services from
+            Delhi NCR to a pan-India scale. What started as a small
+            digitization project has grown into a confident, large-scale
+            operation, leveraging cutting-edge technology and expertise.
+          </p>
+
+        </div>
+
+        {/* SERVICES */}
+        <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-6 md:p-8">
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_40%)]"></div>
+
+          <div className="relative z-10">
+
+            <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-[#1574AD] font-semibold mb-2">
+                  Solutions
+                </p>
+
+                <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">
+                  Core Services Delivered
+                </h3>
+              </div>
+
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+              {[
+                "Records Management",
+                "Scanning & Digitization",
+                "DMS Solutions",
+                "Secure Shredding",
+                "Data Entry",
+                "Data Security & Compliance",
+                "Infra Solutions",
+                "Filing & Indexing",
+                "Mail Room Services",
+                "Record Information Management (RIM)",
+              ].map((item, i) => (
+
+                <div
+                  key={i}
+                  className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-2xl
+                    bg-[#1574AD]
+                    p-5
+                    text-white
+                    shadow-md
+                    hover:shadow-[0_20px_40px_rgba(21,116,173,0.35)]
+                    hover:-translate-y-1
+                    transition-all
+                    duration-500
+                  "
+                >
+
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/20 to-transparent"></div>
+
+                  <div className="relative z-10 flex items-center justify-between">
+
+                    <span className="font-medium text-[15px] leading-relaxed">
+                      {item}
+                    </span>
+
+                    <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center group-hover:rotate-12 transition duration-500">
+                      →
+                    </div>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* EXECUTION STRATEGY */}
+        <div>
+
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.3em] text-[#1574AD] font-semibold mb-3">
+              Workflow
+            </p>
+
+            <h3 className="text-3xl md:text-4xl font-semibold text-slate-900">
+              Execution Strategy
+            </h3>
+          </div>
+
+          <div className="space-y-6">
+
+            {[
+              {
+                title: "Multi-City Deployment",
+                text:
+                  "OMX's diversified operational strategy involved deploying specialized teams across key cities, including Faridabad in Delhi NCR apart from Noida & Jamalpur, Hyderabad, Pune, Indore, and Cochin.",
+                points: [
+                  "On-site analysis and customized execution plans",
+                  "Minimal disruption to operations",
+                  "Efficient handling of location-specific challenges",
+                ],
+              },
+
+              {
+                title: "End-to-End Workflow",
+                text:
+                  "A structured workflow ensured seamless digitization across every project phase.",
+                points: [
+                  "Collection and categorization of physical files",
+                  "High-resolution scanning with quality checks",
+                  "Indexing and metadata tagging",
+                ],
+              },
+
+              {
+                title: "Centralized System",
+                text:
+                  "The digitized records were integrated into a unified platform enabling operational visibility.",
+                points: [
+                  "Unified access across locations",
+                  "Real-time data retrieval",
+                  "Reduced physical storage and manual processes",
+                ],
+              },
+            ].map((step, i) => (
+
+              <div
+                key={i}
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-3xl
+                  border
+                  border-blue-100
+                  bg-white/80
+                  backdrop-blur-md
+                  p-6 md:p-8
+                  shadow-sm
+                  hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]
+                  hover:-translate-y-1
+                  transition-all
+                  duration-500
+                "
+              >
+
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-50 to-transparent"></div>
+
+                <div className="relative z-10">
+
+                  <div className="flex items-center gap-4 mb-5">
+
+                    <div className="w-12 h-12 rounded-2xl bg-[#1574AD] text-white flex items-center justify-center font-semibold shadow-lg">
+                      0{i + 1}
+                    </div>
+
+                    <h4 className="text-xl md:text-2xl font-semibold text-slate-900">
+                      {step.title}
+                    </h4>
+
+                  </div>
+
+                  <p className="text-slate-600 leading-relaxed mb-5">
+                    {step.text}
+                  </p>
+
+                  <ul className="space-y-3">
+
+                    {step.points.map((point, idx) => (
+
+                      <li
+                        key={idx}
+                        className="flex items-start gap-3 text-slate-600"
+                      >
+
+                        <div className="w-2 h-2 rounded-full bg-[#1574AD] mt-2"></div>
+
+                        <span>{point}</span>
+
+                      </li>
+
+                    ))}
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+        {/* RESULT */}
+        <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-r from-[#1574AD] to-[#0d5d91] p-7 md:p-10 text-white shadow-[0_20px_60px_rgba(21,116,173,0.25)]">
+
+          <div className="absolute top-0 right-0 w-52 h-52 bg-white/10 rounded-full blur-3xl"></div>
+
+          <div className="relative z-10">
+
+            <p className="uppercase tracking-[0.3em] text-xs font-semibold mb-3 text-blue-100">
+              Final Outcome
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-semibold mb-4">
+              Transformation Result
+            </h3>
+
+            <p className="text-blue-50 leading-relaxed text-base md:text-lg max-w-4xl">
+              The transformation enabled clients to move from manual
+              processes to a connected digital environment, significantly
+              improving efficiency, accessibility, and data security.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 {/* CARDS GRID */}
@@ -267,8 +415,7 @@ export default function ServicesListing() {
       <Link
   key={s.slug}
   href={`/services/${s.slug}`}
-  className="group relative rounded-2xl overflow-hidden h-[280px] flex flex-col justify-end shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
->
+  className="group relative rounded-2xl overflow-hidden min-h-[320px] h-full flex flex-col justify-end shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 
   {/* BACKGROUND IMAGE */}
   <div
@@ -277,7 +424,7 @@ export default function ServicesListing() {
   />
 
   {/* DARK OVERLAY */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-t from-[#08519c]/80 via-[#08519c]/0 to-transparent" />
 
   {/* CONTENT */}
   <div className="relative z-10 p-5 text-white">
@@ -290,7 +437,7 @@ export default function ServicesListing() {
       {s.title}
     </h3>
 
-    <p className="text-sm text-gray-200 line-clamp-2">
+    <p className="text-sm text-white line-clamp-2">
       {s.desc}
     </p>
 

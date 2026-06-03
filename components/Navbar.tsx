@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -15,32 +15,83 @@ import {
   HardDrive,
   Building2,
   FileText,
-  Mail
+  Mail,
 } from "lucide-react";
 import Image from "next/image";
 
 const serviceLinks = [
-  { slug: "records-management", title: "Records Management", icon: <Database size={16} /> },
-  { slug: "scanning-digitization", title: "Scanning & Digitization", icon: <Zap size={16} /> },
-  { slug: "digital-document-storage-dms-services", title: "Digital Document Storage DMS Services", icon: <Zap size={16} /> },
-  { slug: "secure-shredding", title: "Secure Shredding", icon: <Trash2 size={16} /> },
-  { slug: "data-security-compliance-solutions", title: "Data Security & Compliance Solutions", icon: <Shield size={16} /> },
-  { slug: "record-management-infra-solution", title: "Record Management Infra Solution ", icon: <Building2 size={16} /> },
-  { slug: "filling-binding-indexing", title: "Filling Binding & Indexing", icon: <FileText size={16} /> },
-  { slug: "mail-room-services", title: "Mail Room Services", icon: <Mail size={16} /> },
-  { slug: "record-information-management", title: "Record Information Management", icon: <Database size={16} /> },
-  { slug: "data-entry", title: "Data Entry", icon: <HardDrive size={16} /> },
+  {
+    slug: "records-management",
+    title: "Records Management",
+    icon: <Database size={16} />,
+  },
+  {
+    slug: "scanning-digitization",
+    title: "Scanning & Digitization",
+    icon: <Zap size={16} />,
+  },
+  {
+    slug: "digital-document-storage-dms-services",
+    title: "Digital Document Storage DMS Services",
+    icon: <Zap size={16} />,
+  },
+  {
+    slug: "secure-shredding",
+    title: "Secure Shredding",
+    icon: <Trash2 size={16} />,
+  },
+  {
+    slug: "data-security-compliance-solutions",
+    title: "Data Security & Compliance Solutions",
+    icon: <Shield size={16} />,
+  },
+  {
+    slug: "record-management-infra-solution",
+    title: "Record Management Infra Solution",
+    icon: <Building2 size={16} />,
+  },
+  {
+    slug: "filling-binding-indexing",
+    title: "Filling Binding & Indexing",
+    icon: <FileText size={16} />,
+  },
+  {
+    slug: "mail-room-services",
+    title: "Mail Room Services",
+    icon: <Mail size={16} />,
+  },
+  {
+    slug: "record-information-management",
+    title: "Record Information Management",
+    icon: <Database size={16} />,
+  },
+  {
+    slug: "data-entry",
+    title: "Data Entry",
+    icon: <HardDrive size={16} />,
+  },
 ];
 
 const contactUsLinks = [
-  { slug: "contact", title: "Contact Us", icon: <ContactRound size={16} /> },
-  { slug: "branch-locations", title: "Branch Locations", icon: <MapPin size={16} /> }
+  {
+    slug: "contact",
+    title: "Contact Us",
+    icon: <ContactRound size={16} />,
+  },
+  {
+    slug: "branch-locations",
+    title: "Branch Locations",
+    icon: <MapPin size={16} />,
+  },
 ];
 
 const industrySolutions = [
   { slug: "finance-banking", title: "Finance & Banking" },
   { slug: "insurance", title: "Insurance" },
-  { slug: "healthcare-pharmaceuticals-medical-records", title: "Healthcare & Pharmaceuticals" },
+  {
+    slug: "healthcare-pharmaceuticals-medical-records",
+    title: "Healthcare & Pharmaceuticals",
+  },
   { slug: "legal-laws-confidential-records", title: "Legal Records" },
   { slug: "auto-industries-automobiles", title: "Automobiles" },
   { slug: "energy-sector-oil-gas-solar", title: "Energy Sector" },
@@ -59,296 +110,524 @@ const industrySolutions = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
- const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  // FIX: DESKTOP DROPDOWN STATE
+  const [desktopDropdown, setDesktopDropdown] = useState<string | null>(null);
 
   const pathname = usePathname();
 
-  const isActive = (path:any) => {
+  const isActive = (path: any) => {
     if (path === "/") return pathname === "/";
     return pathname.startsWith(path);
   };
 
-  return (
-    <nav className="w-full relative z-50">
+  // FIX: MOBILE BODY SCROLL
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
 
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMobileMenuOpen]);
+
+  // FIX: TABLET / TOUCH DEVICE SUPPORT
+ const toggleDesktopDropdown = (menu: string) => {
+  if (window.innerWidth < 1280) {
+    setDesktopDropdown(desktopDropdown === menu ? null : menu);
+  }
+};
+
+  return (
+    <nav className="w-full sticky top-0 z-50 bg-white">
       {/* HEADER */}
-      <div className="flex justify-between items-center bg-white/90 backdrop-blur-md px-4 md:px-12 py-3 md:py-4 shadow-md">
+      <div className="relative z-50 flex justify-between items-center bg-white/95 backdrop-blur-md px-4 sm:px-6 md:px-8 lg:px-12 py-3 shadow-md">
 
         {/* LOGO */}
-       <Link
-  href="/"
-  className="relative w-[170px] h-[50px] sm:w-[200px] sm:h-[70px] md:w-[240px] md:h-[80px]"
->
-  <Image
-    src="/images/omx info.png"
-    alt="logo"
-    fill
-    className="object-contain"
-    priority
-  />
-</Link>
+        <Link
+          href="/"
+          className="relative w-[140px] h-[45px] sm:w-[180px] sm:h-[60px] md:w-[210px] md:h-[70px] lg:w-[240px] lg:h-[80px] flex-shrink-0"
+        >
+          <Image
+            src="/images/omx info.png"
+            alt="logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </Link>
 
         {/* MOBILE BUTTON */}
         <button
-          className="md:hidden text-[#000033]"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+  className="lg:hidden fixed top-5 right-4 text-[#000033] p-1 z-[2000]"
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+>
+          {isMobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex gap-8 lg:gap-10 items-center text-[#000033] text-sm lg:text-base">
+        <div className="hidden lg:flex gap-5 lg:gap-7 xl:gap-10 items-center text-[#000033] text-sm lg:text-[15px] font-medium">
 
-          {/* Home */}
+          {/* HOME */}
           <div className="relative">
-            <Link href="/" className={isActive("/") ? "text-blue-600" : ""}>Home</Link>
-            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/") ? "w-full" : "w-0"}`}></span>
+            <Link
+              href="/"
+              className={`hover:text-blue-600 transition ${
+                isActive("/") ? "text-blue-600" : ""
+              }`}
+            >
+              Home
+            </Link>
+
+            <span
+              className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all duration-300 ${
+                isActive("/") ? "w-full" : "w-0"
+              }`}
+            />
           </div>
 
-          {/* About */}
+          {/* ABOUT */}
           <div className="relative">
-            <Link href="/about" className={isActive("/about") ? "text-blue-600" : ""}>About</Link>
-            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/about") ? "w-full" : "w-0"}`}></span>
+            <Link
+              href="/about"
+              className={`hover:text-blue-600 transition ${
+                isActive("/about") ? "text-blue-600" : ""
+              }`}
+            >
+              About
+            </Link>
+
+            <span
+              className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all duration-300 ${
+                isActive("/about") ? "w-full" : "w-0"
+              }`}
+            />
           </div>
 
           {/* SERVICES */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 py-4 cursor-pointer relative">
-              <Link href="/services" className={isActive("/services") ? "text-blue-600" : ""}>Services</Link>
-              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
-              <span className={`absolute left-0 bottom-2 h-[2px] bg-blue-600 transition-all ${isActive("/services") ? "w-full" : "w-0"}`}></span>
+          <div
+            className="relative group"
+            onMouseEnter={() =>
+              window.innerWidth >= 1024 &&
+              setDesktopDropdown("services")
+            }
+            onMouseLeave={() =>
+              window.innerWidth >= 1024 &&
+              setDesktopDropdown(null)
+            }
+          >
+            <div
+              className="flex items-center gap-1 py-4 cursor-pointer relative"
+              onClick={() => toggleDesktopDropdown("services")}
+            >
+              <Link
+                href="/services"
+                className={`hover:text-blue-600 transition ${
+                  isActive("/services") ? "text-blue-600" : ""
+                }`}
+              >
+                Services
+              </Link>
+
+              <ChevronDown
+                size={15}
+                className={`transition duration-300 ${
+                  desktopDropdown === "services" ? "rotate-180" : ""
+                }`}
+              />
+
+              <span
+                className={`absolute left-0 bottom-2 h-[2px] bg-blue-600 transition-all duration-300 ${
+                  isActive("/services") ? "w-full" : "w-0"
+                }`}
+              />
             </div>
 
-            <div className="absolute top-full right-0 mt-2 w-[220px] bg-white rounded-md shadow-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            {/* DROPDOWN */}
+            <div
+              className={`absolute top-full right-0 mt-2 w-[260px] bg-white rounded-xl shadow-2xl py-3 border transition-all duration-300 z-50 ${
+                desktopDropdown === "services"
+                  ? "opacity-100 visible translate-y-0"
+                  : "opacity-0 invisible -translate-y-2"
+              }`}
+            >
               {serviceLinks.map((s) => (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 text-gray-700 rounded-md">
-                  {s.icon} {s.title}
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  className="flex items-center gap-3 px-4 py-1 text-sm hover:bg-blue-50 text-gray-700 transition"
+                >
+                  {s.icon}
+                  {s.title}
                 </Link>
               ))}
             </div>
           </div>
 
           {/* INDUSTRY */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 py-4 cursor-pointer">
-              <Link href="/industries" className={isActive("/industries") ? "text-blue-600" : ""}>Industry we serve</Link>
-              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
+          <div
+            className="relative group"
+            onMouseEnter={() =>
+              window.innerWidth >= 1024 &&
+              setDesktopDropdown("industry")
+            }
+            onMouseLeave={() =>
+              window.innerWidth >= 1024 &&
+              setDesktopDropdown(null)
+            }
+          >
+            <div
+              className="flex items-center gap-1 py-4 cursor-pointer relative"
+              onClick={() => toggleDesktopDropdown("industry")}
+            >
+              <Link
+                href="/industries"
+                 onClick={() => setIsMobileMenuOpen(false)}
+                
+                className={`hover:text-blue-600 transition ${
+                  isActive("/industries") ? "text-blue-600" : ""
+                }`}
+              >
+                Industry we serve
+              </Link>
+
+              <ChevronDown
+                size={15}
+                className={`transition duration-300 ${
+                  desktopDropdown === "industry" ? "rotate-180" : ""
+                }`}
+              />
             </div>
 
-            <div className="absolute top-full right-0 mt-2 w-[280px] max-h-[400px] overflow-y-auto bg-white rounded-lg shadow-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
+            <div
+              className={`absolute top-full right-0 mt-2 w-[300px] max-h-[420px] overflow-y-auto bg-white rounded-xl shadow-2xl p-3 border transition-all duration-300 z-50 ${
+                desktopDropdown === "industry"
+                  ? "opacity-100 visible translate-y-0"
+                  : "opacity-0 invisible -translate-y-2"
+              }`}
+            >
               {industrySolutions.map((item) => (
-                <Link key={item.slug} href={`/industries/${item.slug}`} className="block p-2 hover:bg-gray-100 text-gray-700 text-sm">
+                <Link
+                  key={item.slug}
+                  href={`/industries/${item.slug}`}
+                  className="block px-3 py-2 rounded-md hover:bg-blue-50 text-gray-700 text-sm transition"
+                >
                   {item.title}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Careers */}
+          {/* CAREERS */}
           <div className="relative">
-            <Link href="/careers" className={isActive("/careers") ? "text-blue-600" : ""}>Careers</Link>
-            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/careers") ? "w-full" : "w-0"}`}></span>
+            <Link
+              href="/careers"
+              className={`hover:text-blue-600 transition ${
+                isActive("/careers") ? "text-blue-600" : ""
+              }`}
+            >
+              Careers
+            </Link>
+
+            <span
+              className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all duration-300 ${
+                isActive("/careers") ? "w-full" : "w-0"
+              }`}
+            />
           </div>
 
-          {/* Our Team */}
+          {/* TEAM */}
           <div className="relative">
-            <Link href="/about/core-team" className={isActive("/about/core-team") ? "text-blue-600" : ""}>Our Team</Link>
-            <span className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all ${isActive("/about/core-team") ? "w-full" : "w-0"}`}></span>
+            <Link
+              href="/about/core-team"
+              className={`hover:text-blue-600 transition ${
+                isActive("/about/core-team") ? "text-blue-600" : ""
+              }`}
+            >
+              Our Team
+            </Link>
+
+            <span
+              className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all duration-300 ${
+                isActive("/about/core-team") ? "w-full" : "w-0"
+              }`}
+            />
           </div>
 
           {/* CONTACT */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 py-4 cursor-pointer relative">
-              <Link href="/contact" className={isActive("/contact") ? "text-blue-600" : ""}>Contact</Link>
-              <ChevronDown size={14} className="group-hover:rotate-180 transition" />
-              <span className={`absolute left-0 bottom-2 h-[2px] bg-blue-600 transition-all ${isActive("/contact") ? "w-full" : "w-0"}`}></span>
+          <div
+            className="relative group"
+            onMouseEnter={() =>
+              window.innerWidth >= 1024 &&
+              setDesktopDropdown("contact")
+            }
+            onMouseLeave={() =>
+              window.innerWidth >= 1024 &&
+              setDesktopDropdown(null)
+            }
+          >
+            <div
+              className="flex items-center gap-1 py-4 cursor-pointer relative"
+              onClick={() => toggleDesktopDropdown("contact")}
+            >
+              <Link
+                href="/contact"
+                className={`hover:text-blue-600 transition ${
+                  isActive("/contact") ? "text-blue-600" : ""
+                }`}
+              >
+                Contact
+              </Link>
+
+              <ChevronDown
+                size={15}
+                className={`transition duration-300 ${
+                  desktopDropdown === "contact" ? "rotate-180" : ""
+                }`}
+              />
+
+              <span
+                className={`absolute left-0 bottom-2 h-[2px] bg-blue-600 transition-all duration-300 ${
+                  isActive("/contact") ? "w-full" : "w-0"
+                }`}
+              />
             </div>
 
-            <div className="absolute top-full right-0 mt-2 w-[240px] bg-white rounded-lg shadow-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
+            <div
+              className={`absolute top-full right-0 mt-2 w-[240px] bg-white rounded-xl shadow-2xl p-3 border transition-all duration-300 z-50 ${
+                desktopDropdown === "contact"
+                  ? "opacity-100 visible translate-y-0"
+                  : "opacity-0 invisible -translate-y-2"
+              }`}
+            >
               {contactUsLinks.map((s) => (
-                <Link key={s.slug} href={`/${s.slug}`} className="flex gap-2 p-2 hover:bg-gray-100 text-gray-700">
-                  {s.icon} {s.title}
+                <Link
+                  key={s.slug}
+                  href={`/${s.slug}`}
+                  className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-blue-50 text-gray-700 transition"
+                >
+                  {s.icon}
+                  {s.title}
                 </Link>
               ))}
             </div>
           </div>
-
         </div>
       </div>
 
-     {/* MOBILE MENU */}
-  <div
-    className={`absolute top-full left-0 w-full bg-white shadow-md md:hidden transition-all duration-300 ease-in-out ${
-    isMobileMenuOpen
-      ? "max-h-screen opacity-100"
-      : "max-h-0 opacity-0 overflow-hidden"
-  }`}
->
-    <div className="flex flex-col px-5 sm:px-6 md:px-8 py-4 gap-4 text-sm sm:text-base">
-
-    {/* HOME */}
-      <Link
-      href="/"
-      onClick={() => setIsMobileMenuOpen(false)}
-      className={`py-2 ${isActive("/") ? "text-blue-600 font-medium" : ""}`}
-      >
-      Home
-     </Link>
-
-    {/* ABOUT */}
-    <Link
-      href="/about"
-      onClick={() => setIsMobileMenuOpen(false)}
-      className={`py-2 ${isActive("/about") ? "text-blue-600 font-medium" : ""}`}
-    >
-      About
-    </Link>
-
-    {/* SERVICES */}
-    <div className="border-t pt-2">
-      <div className="flex justify-between items-center">
-        <Link
-          href="/services"
-          className={isActive("/services") ? "text-blue-600 font-medium" : ""}
-        >
-          Services
-        </Link>
-
-        <button
-          onClick={() =>
-            setOpenDropdown(openDropdown === "services" ? null : "services")
-          }
-        >
-          <ChevronDown
-            className={`transition-transform duration-300 ${
-              openDropdown === "services" ? "rotate-180" : ""
-            }`}
-          />
-        </button>
-        </div>
-
-        <div
-        className={`transition-all duration-300 overflow-hidden ${
-          openDropdown === "services" ? "max-h-96 mt-2" : "max-h-0"
-        }`}
-        >
-        <div className="pl-4 flex flex-col gap-2 text-gray-600 text-sm">
-          {serviceLinks.map((s) => (
-            <Link
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1"
-            >
-              {s.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    {/* INDUSTRY */}
-    <div className="border-t pt-2">
-      <div className="flex justify-between items-center">
-        <Link href="/industries">Industry We Serve</Link>
-
-        <button
-          onClick={() =>
-            setOpenDropdown(openDropdown === "industry" ? null : "industry")
-          }
-        >
-          <ChevronDown
-            className={`transition-transform duration-300 ${
-              openDropdown === "industry" ? "rotate-180" : ""
-            }`}
-          />
-        </button>
-      </div>
-
+      {/* MOBILE MENU */}
       <div
-        className={`transition-all duration-300 overflow-hidden ${
-          openDropdown === "industry" ? "max-h-60 mt-2" : "max-h-0"
+        className={`fixed top-[180px] sm:top-[180px] md:top-[180px] left-0 w-full h-[calc(100vh-72px)] bg-white z-[40] lg:hidden transition-all duration-300 overflow-y-auto ${
+          isMobileMenuOpen
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="pl-4 flex flex-col gap-2 text-gray-600 text-sm overflow-y-auto max-h-60">
-          {industrySolutions.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/industries/${item.slug}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1"
-            >
-              {item.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
+        <div className="flex flex-col px-5 py-6 gap-2 text-[15px] text-[#000033]">
 
-    {/* CONTACT */}
-    <div className="border-t pt-2">
-      <div className="flex justify-between items-center">
-        <Link
-          href="/contact"
-          className={isActive("/contact") ? "text-blue-600 font-medium" : ""}
-        >
-          Contact
-        </Link>
-
-        <button
-          onClick={() =>
-            setOpenDropdown(openDropdown === "contact" ? null : "contact")
-          }
-        >
-          <ChevronDown
-            className={`transition-transform duration-300 ${
-              openDropdown === "contact" ? "rotate-180" : ""
+          {/* HOME */}
+          <Link
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`py-3 border-b ${
+              isActive("/") ? "text-blue-600 font-semibold" : ""
             }`}
-          />
-        </button>
-      </div>
+          >
+            Home
+          </Link>
 
-      <div
-        className={`transition-all duration-300 overflow-hidden ${
-          openDropdown === "contact" ? "max-h-40 mt-2" : "max-h-0"
-        }`}
-      >
-        <div className="pl-4 flex flex-col gap-2 text-gray-600 text-sm">
-          {contactUsLinks.map((s) => (
-            <Link
-              key={s.slug}
-              href={`/${s.slug}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1"
+          {/* ABOUT */}
+          <Link
+            href="/about"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`py-3 border-b ${
+              isActive("/about") ? "text-blue-600 font-semibold" : ""
+            }`}
+          >
+            About
+          </Link>
+
+          {/* SERVICES */}
+          <div className="border-b py-3">
+            <div className="flex justify-between items-center">
+              <Link
+                href="/services"
+                onClick={() => setIsMobileMenuOpen(false)} 
+                className={
+                  isActive("/services")
+                    ? "text-blue-600 font-semibold"
+                    : ""
+                }
+              >
+                Services
+              </Link>
+
+              <button
+                onClick={() =>
+                  setOpenDropdown(
+                    openDropdown === "services" ? null : "services"
+                  )
+                }
+              >
+                <ChevronDown
+                  className={`transition-transform duration-300 ${
+                    openDropdown === "services" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+
+            <div
+              className={`transition-all duration-300 overflow-hidden ${
+                openDropdown === "services"
+                  ? "max-h-[700px] mt-4"
+                  : "max-h-0"
+              }`}
             >
-              {s.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
+              <div className="pl-3 flex flex-col gap-1 text-gray-600 text-sm">
+                {serviceLinks.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="py-2"
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
 
-    {/* EXTRA LINKS */}
-    <Link
-      href="/careers"
-      onClick={() => setIsMobileMenuOpen(false)}
-      className={`py-2 ${isActive("/careers") ? "text-blue-600 font-medium" : ""}`}
-    >
-      Careers
-    </Link>
+          {/* INDUSTRY */}
+          <div className="border-b py-3">
+            <div className="flex justify-between items-center">
+  <Link
+    href="/industries"
+    onClick={() => setIsMobileMenuOpen(false)}
+  >
+    Industry We Serve
+  </Link>
 
-    <Link
-      href="/about/core-team"
-      onClick={() => setIsMobileMenuOpen(false)}
-      className={`py-2 ${
-        isActive("/about/core-team") ? "text-blue-600 font-medium" : ""
+  <button
+    onClick={() =>
+      setOpenDropdown(
+        openDropdown === "industry" ? null : "industry"
+      )
+    }
+  >
+    <ChevronDown
+      className={`transition-transform duration-300 ${
+        openDropdown === "industry" ? "rotate-180" : ""
       }`}
-    >
-      Our Team
-    </Link>
-  </div>
+    />
+  </button>
 </div>
 
+            <div
+              className={`transition-all duration-300 overflow-hidden ${
+                openDropdown === "industry"
+                  ? "max-h-[400px] mt-4"
+                  : "max-h-0"
+              }`}
+            >
+              <div className="pl-3 flex flex-col gap-1 text-gray-600 text-sm overflow-y-auto max-h-[300px]">
+                {industrySolutions.map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={`/industries/${item.slug}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="py-2"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CONTACT */}
+          <div className="border-b py-3">
+            <div className="flex justify-between items-center">
+              <Link
+                href="/contact"
+                 onClick={() => setIsMobileMenuOpen(false)} 
+                className={
+                  isActive("/contact")
+                    ? "text-blue-600 font-semibold"
+                    : ""
+                }
+              >
+                Contact
+              </Link>
+
+              <button
+                onClick={() =>
+                  setOpenDropdown(
+                    openDropdown === "contact" ? null : "contact"
+                  )
+                }
+              >
+                <ChevronDown
+                  className={`transition-transform duration-300 ${
+                    openDropdown === "contact" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+
+            <div
+              className={`transition-all duration-300 overflow-hidden ${
+                openDropdown === "contact"
+                  ? "max-h-[200px] mt-4"
+                  : "max-h-0"
+              }`}
+            >
+              <div className="pl-3 flex flex-col gap-1 text-gray-600 text-sm">
+                {contactUsLinks.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/${s.slug}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="py-2"
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CAREERS */}
+          <Link
+            href="/careers"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`py-3 border-b ${
+              isActive("/careers") ? "text-blue-600 font-semibold" : ""
+            }`}
+          >
+            Careers
+          </Link>
+
+          {/* TEAM */}
+          <Link
+            href="/about/core-team"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`py-3 border-b ${
+              isActive("/about/core-team")
+                ? "text-blue-600 font-semibold"
+                : ""
+            }`}
+          >
+            Our Team
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }

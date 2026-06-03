@@ -34,7 +34,8 @@ export default function ContactPage() {
     { name: "Noida", url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14019.123681878993!2d77.40943!3d28.546304!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce9002ae7998f%3A0xf04535f4cbb02663!2sOMX%20Info%20Management%20Ltd.!5e0!3m2!1sen!2sin!4v1773997521581!5m2!1sen!2sin" },
     { name: "Delhi", url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14001.891900215232!2d77.143127!3d28.675495!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x444265d0984d2861%3A0x6147c9a215eb0a11!2sOmx%20Info%20Management%20Ltd.!5e0!3m2!1sen!2sin!4v1773997461325!5m2!1sen!2sin" },
     { name: "Faridabad", url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28060.852832025175!2d77.310465!3d28.461273!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdb007fd692b9%3A0xb48435f528e7cc7d!2sOMX%20Info%20Management%20Ltd.%20-%20Faridabad!5e0!3m2!1sen!2sin!4v1773997363453!5m2!1sen!2sin" },
-    { name: "Jamalpur", url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14041.469622583367!2d76.835165!3d28.377969!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3f00517a91d1%3A0x60c896d28e1828ba!2sOMX%20Info%20Management%20Ltd.%20-%20Jamalpur!5e0!3m2!1sen!2sin!4v1773997259987!5m2!1sen!2sin" }
+    { name: "Jamalpur", url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14041.469622583367!2d76.835165!3d28.377969!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3f00517a91d1%3A0x60c896d28e1828ba!2sOMX%20Info%20Management%20Ltd.%20-%20Jamalpur!5e0!3m2!1sen!2sin!4v1773997259987!5m2!1sen!2sin" },
+    { name: "Hydrabad", url: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3291.325441680489!2d78.48116607517197!3d17.69227798324779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQxJzMyLjIiTiA3OMKwMjknMDEuNSJF!5e1!3m2!1sen!2sin!4v1780031448686!5m2!1sen!2sin"}
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -95,7 +96,7 @@ export default function ContactPage() {
   {/* HERO */}
   <section className="relative w-full h-[55vh] md:h-[80vh] overflow-hidden">
     <Image src="/images/contact.jpg" alt="OMX Contact Infrastructure" fill priority className="object-cover scale-105" />
-    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+    <div className="absolute inset-0 bg-gradient-to-r from-[#062b57]/95 via-[#08519c]/55" />
     <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20">
       <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
         CONNECT TO <br /> INTERFACE
@@ -212,11 +213,10 @@ export default function ContactPage() {
     <h2 className="text-3xl md:text-5xl text-center mb-12">National Directory</h2>
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      {/*  OLD: key={i} */}
       {/* FIX: better key */}
       {branches.map((b) => (
         <div key={b.city} className="rounded-2xl p-6 bg-gradient-to-br from-white via-blue-50 to-purple-50 border">
-          <p className="text-xs font-bold text-green-600 uppercase">{b.state}</p>
+          <p className="text-xs font-bold text-[#1574AD] uppercase">{b.state}</p>
           <h4 className="text-2xl font-bold mt-2">{b.city}</h4>
           <p className="text-sm text-gray-500 mt-3">{b.address}</p>
         </div>
@@ -272,4 +272,10 @@ export default function ContactPage() {
   )}
 
 </div>
-)}
+)} 
+
+
+
+
+
+

@@ -9,7 +9,7 @@ type Props = {
 
 export default function TopBar({ setActiveForm }: Props) {
   return (
-    <div className="w-full bg-[#191970] text-white py-2 px-4 sm:px-6 lg:px-10 border-b border-white/5">
+    <div className="w-full bg-[#1574AD] text-white py-2 px-4 sm:px-6 lg:px-10 border-b border-white/5">
 
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
 

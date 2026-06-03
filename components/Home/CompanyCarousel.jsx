@@ -1,7 +1,5 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 
 // swiper styles
@@ -36,19 +34,18 @@ export default function CompanyCarousel() {
       </div>
 
       {/* Swiper */}
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-full mx-auto px-4">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[]}
           spaceBetween={20}
           slidesPerView={2}
           loop={true}
           centeredSlides={true}
           autoplay={{
-            delay: 2500,
+            delay: 1000,
             disableOnInteraction: false,
           }}
           navigation
-          pagination={{ clickable: true }}
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },

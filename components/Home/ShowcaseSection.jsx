@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ShowcaseSection() {
   return (
-    <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+    <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden border-2 border-gray-300 shadow-2xl rounded-xl">
 
       {/* IMAGE */}
       <Image
@@ -16,7 +16,7 @@ export default function ShowcaseSection() {
       />
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
 
       {/* CONTENT */}
       <div className="absolute inset-0 flex items-center">
@@ -26,7 +26,7 @@ export default function ShowcaseSection() {
             Best Record Management Storage Solution
           </h2>
 
-          <p className="text-sm md:text-base mt-3 md:mt-5 text-gray-200 leading-relaxed">
+          <p className="text-sm md:text-base mt-3 md:mt-5  leading-relaxed">
             We specialize in smarter record management, document storage,
             scanning, digital storage, DMS software, and confidential
             document shredding services. Our solutions ensure safety,

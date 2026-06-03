@@ -1,5 +1,7 @@
 "use client";
 import Modal from "@/components/Ui/Modal";
+import { Certificate } from "crypto";
+import { ArrowDownRightSquare } from "lucide-react";
 import { useState } from "react";
 
 type Props = {
@@ -19,7 +21,7 @@ export default function EnquiryForm({ setActiveForm }: Props) {
   });
 
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false); // ✅ NEW
+  const [loading, setLoading] = useState(false); //  NEW
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -33,7 +35,7 @@ export default function EnquiryForm({ setActiveForm }: Props) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (loading) return; // ✅ prevent double submit
+    if (loading) return; //prevent double submit
     setLoading(true);
     setMessage("");
 
@@ -217,3 +219,5 @@ export default function EnquiryForm({ setActiveForm }: Props) {
     </Modal>
   );
 }
+
+

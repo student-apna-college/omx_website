@@ -1,42 +1,49 @@
 import HeroSection from "@/components/Home/HeroCarousel";
 import TechnicalSection from "@/components/Home/AnimatedSection";
 import IndustryTicker from "@/components/Home/IndustryTicker";
-import ShowcaseSection from "@/components/Home/ShowcaseSection";
 import Accordian from "@/components/Home/Accordian";
 import ClientCarousel from "@/components/About/ClientCarousel";
-import TestimonialCarousel from "@/components/Testimonial/TestimonialCarousel"
+import TestimonialCarousel from "@/components/Testimonial/TestimonialCarousel";
 import CompanyCarousel from "@/components/Home/CompanyCarousel"
 
 export default function Home() {
 
   const slides = [
-    {
-      title: "Eco Friendly Shredding Services",
-      sub: "OMX Info Management Ltd.provides Eco-friendly shredding solutions ensuring safest document destruction, protecting sensitive information, supporting compliance standards, and promoting sustainable recycling practices for businesses.",
-      img: "/industry/FMCG2.jpeg",
-      accent: "OMX INFO MANAGEMENT LTD",
-    },
-    {
-      title: "Next-Gen Document Storage Facility",
-      sub: "We offer Next-generation document storage facility offering smarter, scalable solutions for efficient record management, quick access, data protection, and seamless integration with modern business operations.",
-      img: "/images/wharehouse4.jpeg",
-      accent: "OMX INFO MANAGEMENT LTD",
-    },
+
+  {
+  title: "Document Digitization Service",
+  sub: "OMX Info Management Ltd. provides secure and efficient document digitization services, converting physical records into organized digital formats for easy access, improved data management, enhanced security, and long-term business productivity.",
+  img: "/banner/6.jpg",
+  accent: "OMX INFO MANAGEMENT LTD",
+  },
+
     {
       title: "Document Management System",
       sub: "Advanced document scanning and DMS solutions enabling Safest storage, quick retrieval, improved accuracy, workflow automation, and seamless digital transformation for businesses.",
       img: "/images/1111.png",
       accent: "OMX INFO MANAGEMENT LTD",
     },
+    
+    {
+      title: "Next-Gen Document Storage Facility",
+      sub: "We offer Next-generation document storage facility offering smarter, scalable solutions for efficient record management, quick access, data protection, and seamless integration with modern business operations.",
+      img: "/images/wharehouse4.jpeg",
+      accent: "OMX INFO MANAGEMENT LTD",
+    },
+
+    {
+      title: "Eco Friendly Shredding Services",
+      sub: "OMX Info Management Ltd.provides Eco-friendly shredding solutions ensuring safest document destruction, protecting sensitive information, supporting compliance standards, and promoting sustainable recycling practices for businesses.",
+      img: "/industry/FMCG2.jpeg",
+      accent: "OMX INFO MANAGEMENT LTD",
+    },
+   
   ];
 
   const industries = [
     "Banking","Insurance","Hospitals","Telecom","Pharma",
     "Real Estate","Airlines","FMCG","Logistics"
   ];
-
-
-
 
   const clientData = [
     { name: "World Health Organization", logo: "/logo/client1.jpg" },
@@ -66,7 +73,6 @@ export default function Home() {
     { name: "Stella Industries", logo: "/logo/stella industries.png" },
     { name: "surya", logo: "/logo/surya.jpg" },
     { name: "Yatharth", logo: "/logo/yatharth.png" },
-,
   ];
 
  
@@ -78,14 +84,7 @@ export default function Home() {
 
     {/* TECH */}
     <TechnicalSection />
-
-    {/* SHOWCASE */}
-    <ShowcaseSection />
-
-    {/* FAQ */}
     
-      <Accordian />
-
     {/* CLIENTS */}
     <section className="py-12 md:py-4 bg-white">
 
@@ -101,7 +100,12 @@ export default function Home() {
 
     <TestimonialCarousel></TestimonialCarousel>
     <CompanyCarousel></CompanyCarousel>
+    <Accordian />
 
 </section>
   </div>
 );}
+
+
+
+

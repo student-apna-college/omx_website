@@ -30,14 +30,14 @@ export default function CoreTeamPage() {
 
           <h1 className="text-3xl mt-10 sm:text-4xl md:text-5xl font-light leading-tight">
             Meet Our{" "}
-            <span className="font-semibold text-[#000033]">Core Team</span>
+            <span className="font-semibold text-[#1574AD]">Core Team</span>
           </h1>
 
           <div className="w-16 h-1 bg-green-600 mx-auto mt-4 rounded-full"></div>
 
           <p className="text-gray-600 mt-6 text-sm sm:text-base md:text-lg leading-relaxed">
             In the dynamic and visionary landscape of{" "}
-            <span className="font-semibold text-[#000033]">
+            <span className="font-semibold text-[#1574AD]">
               Om Logistics Supply Chain
             </span>{" "}
             our core team stands as the driving force behind our continued success.

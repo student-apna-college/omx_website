@@ -8,8 +8,6 @@ type Industry = {
   content: string;
 };
 
-
-
 export const industriesData: Record<string, Industry> = {
   "finance-banking": {
   title: "Finance & Banking",

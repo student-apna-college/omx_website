@@ -4,10 +4,9 @@ import Image from 'next/image';
 import {
   Database, Zap, Trash2, Shield,
   CheckCircle2,
-  FileScanIcon,
-  MonitorCloud
 } from 'lucide-react';
-import { ShieldCheck, Clock, Truck, BadgeCheck,Building2, FileText, Mail} from "lucide-react";
+import {Building2, FileText, Mail} from "lucide-react";
+import CardService from "@/components/Service/CardServices";
 
 type ServiceType = {
   title: string;
@@ -106,12 +105,12 @@ const serviceContent: Record<string, ServiceType> = {
   imageSrc: "/banner/4.jpeg",
   metaTitle: "Digital Document Management System (DMS) Services | OMX Info Management",
   metaDesc: "Streamline, store, and manage your business documents securely with our advanced DMS solutions featuring access control, workflow automation, and cloud integration."
-},
+ },
 
 
 
   'secure-shredding': {
-    title: "Certified Secure Destruction",
+    title: "Securing Your Data Secrecy",
     id: "SRV-003",
     tagline: "Compliance-driven purging of semi-active and inactive records",
     icon: <Trash2 size={32} strokeWidth={1.5} />,
@@ -171,7 +170,7 @@ const serviceContent: Record<string, ServiceType> = {
   imageSrc: "/banner/7.jpg",
   metaTitle: "Data Security & Compliance Services | OMX Info Management",
   metaDesc: "Ensure complete protection of your business data with advanced cybersecurity solutions, compliance frameworks, and 24/7 monitoring."
-},
+ },
 
 
   'record-management-infra-solution': {
@@ -194,7 +193,7 @@ const serviceContent: Record<string, ServiceType> = {
   imageSrc: "/banner/5.jpg",
   metaTitle: "Record Management Infrastructure Setup Services | OMX Info Management",
   metaDesc: "Design and deploy safer, compliant, and scalable record storage infrastructure with advanced tracking, safety systems, and optimized warehouse planning."
-},
+ },
 
 
 
@@ -218,7 +217,7 @@ const serviceContent: Record<string, ServiceType> = {
   imageSrc: "/banner/data.jpg",
   metaTitle: "Filing, Binding & Indexing Services | OMX Info Management",
   metaDesc: "Organize, bind, and index your documents efficiently with structured filing systems for quick retrieval and long-term preservation."
-},
+ },
 
 
   'mail-room-services': {
@@ -241,7 +240,7 @@ const serviceContent: Record<string, ServiceType> = {
   imageSrc: "/banner/2.jpeg",
   metaTitle: "Mail Room Management Services | OMX Info Management",
   metaDesc: "Streamline your business communication with efficient mailroom management services including sorting, dispatch, tracking, and secure handling."
-},
+ },
 
   'record-information-management': {
   title: "Record & Information Management",
@@ -262,8 +261,8 @@ const serviceContent: Record<string, ServiceType> = {
   imageSrc: "/banner/image10.jpg",
   metaTitle: "Record & Information Management Services | OMX Info Management",
   metaDesc: "Manage, store, and control your business records efficiently with our comprehensive record and information management solutions ensuring compliance and quick access."
-}
-};
+ }
+ };
 
 // FIXED METADATA (no await)
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -274,7 +273,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: service?.metaTitle || "Service | OMX Info Management",
     description: service?.metaDesc || "OMX Info Management technical services.",
   };
-}
+ }
 
 //  FIXED PARAM TYPE
 export default async function ServicePage({ params }: { params: { slug: string } }) {
@@ -287,108 +286,187 @@ export default async function ServicePage({ params }: { params: { slug: string }
   return (
     <div className="bg-gradient-to-b from-[#f8fbff] via-white to-[#f4f8ff] text-[#1a1a1a] mt-15 sm:mt-5 md:mt-5 lg:mt-5">
 
-      {/* HERO */}
-      <section className="relative w-full bg-black">
+     {/* ================= PREMIUM HERO ================= */}
+<section className="relative overflow-hidden">
 
-       <div className="relative w-full h-[45vh] sm:h-[55vh] md:h-[75vh] lg:h-[90vh] min-h-[300px] overflow-hidden flex items-center justify-center bg-black">
+  <div className="relative w-full h-[55vh] sm:h-[65vh] md:h-[80vh] lg:h-[95vh] min-h-[420px]">
 
-  <Image
-    src={service.imageSrc}
-    alt={service.title}
-    fill
-    priority
-    sizes="(max-width: 640px) 100vw, 
-           (max-width: 768px) 100vw, 
-           (max-width: 1024px) 100vw, 
-           100vw"
-    className="
-      object-cover 
-      object-[center_top] 
-      sm:object-center 
-      md:object-center 
-      lg:object-center
-      scale-100
-    "
-  />
+    {/* IMAGE */}
+    <Image
+      src={service.imageSrc}
+      alt={service.title}
+      fill
+      priority
+      sizes="
+        (max-width: 640px) 100vw,
+        (max-width: 768px) 100vw,
+        (max-width: 1024px) 100vw,
+        100vw
+      "
+      className="
+        object-cover
+        object-[center_18%]
+        sm:object-[center_15%]
+        md:object-center
+        lg:object-center
+        scale-105
+      "
+    />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80" />
-</div>
+    {/* PREMIUM OVERLAY */}
+    <div className="absolute inset-0 bg-gradient-to-r from-[#021B3A]/90 via-[#021B3A]/55  z-10" />
 
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-[1400px] mx-auto px-6 w-full">
+    {/* LIGHT GLOW */}
+    <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-500/20 blur-3xl rounded-full z-10" />
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-light leading-tight max-w-[700px]">
-              {service.title}
-            </h1>
+    {/* CONTENT */}
+    <div className="absolute inset-0 z-20 flex mt-25">
 
-            <p className="text-gray-300 mt-4 max-w-xl text-base md:text-lg">
-              {service.tagline}
-            </p>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 w-full">
+
+        <div className="max-w-3xl">
+
+          {/* TOP LABEL */}
+          <div className="flex items-center gap-4 mb-6">
+
+            <div className="h-[2px] w-14 bg-white"></div>
+
+            <span className="uppercase tracking-[0.3em] text-xs font-semibold text-white/80">
+              Enterprise Services
+            </span>
 
           </div>
+
+          {/* TITLE */}
+          <h1 className="
+            text-white
+            text-4xl
+            sm:text-5xl
+            md:text-6xl
+            lg:text-4xl
+            font-light
+            leading-tight
+            mb-6
+          ">
+            {service.title}
+          </h1>
+
+          {/* TAGLINE */}
+          <p className="
+            text-white/85
+            text-base
+            sm:text-lg
+            md:text-xl
+            leading-relaxed
+            max-w-2xl
+          ">
+            {service.tagline}
+          </p>
+
+          {/* BUTTONS */}
+          <div className="flex flex-wrap gap-4 mt-8">
+
+            <Link
+              href="/contact"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                bg-white
+                text-[#021B3A]
+                px-7
+                py-3
+                rounded-full
+                font-semibold
+                shadow-xl
+                hover:scale-105
+                transition-all
+                duration-500
+              "
+            >
+              Get Started
+            </Link>
+
+            <Link
+              href="/services"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                border
+                border-white/40
+                text-white
+                px-7
+                py-3
+                rounded-full
+                font-semibold
+                hover:bg-white
+                hover:text-[#021B3A]
+                transition-all
+                duration-500
+              "
+            >
+              Explore Services
+            </Link>
+
+          </div>
+
         </div>
 
-      </section>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
       {/* FEATURES */}
-      <section className="py-20 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-10 md:py-14">
+  <div className="max-w-[1200px] mx-auto px-6">
 
-          <h2 className="text-2xl md:text-4xl font-semibold text-center mb-12 text-[#0f172a]">
-            Key Features
-          </h2>
+    <h2 className="text-2xl md:text-4xl font-semibold text-center mb-8 text-[#0f172a]">
+      Key Features
+    </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {service.features.map((f, i) => (
-              <div key={i} className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
-                <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-[#1e3a8a] mt-1 group-hover:scale-110 transition" />
-                    <span className="font-medium text-gray-700 text-base md:text-base">
-                      {f}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+      {service.features.map((f, i) => (
+        <div key={i} className="group relative p-[1px]">
+          
+          {/* BLUE CARD */}
+          <div
+              className="bg-[#1574AD] rounded-2xl p-6 shadow-sm 
+              hover:shadow-2xl hover:scale-105 
+              transition-all duration-300 ease-in-out"
+  >
+  <div className="flex items-start gap-3">
+    
+    <CheckCircle2 className="text-white mt-1 group-hover:scale-110 transition duration-300" />
 
-          </div>
+    <span className="font-medium text-white text-base md:text-base">
+      {f}
+    </span>
 
+  </div>
+</div>
         </div>
-      </section>
+      ))}
 
-      {/* STATS */}
-      <section className="py-20 bg-gradient-to-r from-[#f8fbff] via-white to-[#f3f7ff] border-y">
-        <div className="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
+    </div>
+  </div>
+</section>
 
-          {[ 
-            { icon: ShieldCheck, title: "Safer and Trusted Storage", color: "from-blue-200/50 to-blue-500" },
-            { icon: Clock, title: "Efficient and Timely Retrieval", color: "from-purple-200/50 to-purple-500" },
-            { icon: Truck, title: "100% TAT Adherence Guaranteed", color: "from-green-200/50 to-green-500" },
-            { icon: BadgeCheck, title: "Eco-Friendly Certified Shradding", color: "from-orange-200/50 to-orange-500" },
-            { icon: MonitorCloud, title: "Robust and Secure DMS Software", color: "from-red-200/50 to-red-500" },
-            { icon: FileScanIcon, title: "High Resolution Scanning", color: "from-yellow-200/50 to-yellow-500" },
-
-          ].map((item, i) => (
-            <div key={i} className={`relative p-[1px] rounded-2xl bg-gradient-to-br ${item.color} group`}>
-              <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition duration-300">
-                <item.icon className="mx-auto mb-4 text-[#0f172a] group-hover:scale-110 transition duration-300" size={36} />
-                <p className="font-semibold text-gray-700 group-hover:text-[#0f172a] transition">
-                  {item.title}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      
+      {/* card section  */}
+      <CardService></CardService>
 
       {/* CTA */}
       <section className="py-20 text-center">
         <Link
           href="/services"
-          className="inline-block px-6 py-3 rounded-full bg-[#0f172a] text-white font-semibold hover:bg-[#1e3a8a] transition"
+          className="inline-block px-6 py-3 rounded-full bg-[#1574AD] text-white font-semibold hover:bg-[#1e3a8a] transition"
         >
           View All Services →
         </Link>
@@ -396,4 +474,4 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
     </div>
   );
-}
+ }

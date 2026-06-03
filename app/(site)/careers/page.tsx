@@ -22,7 +22,7 @@ const jobPostings = [
     id: "OMX-002",
     role: "Scanning & Data Entry Executives",
     location:
-      "Hyderabad, Kochin, Bengaluru, Pune, Mumbai, Chandigarh, Jaipur, Indore, Faridabad",
+      "Delhi NCR, Hyderabad, Kochin, Bengaluru, Pune, Mumbai, Chandigarh, Jaipur, Indore, Faridabad",
     type: "Full-Time",
 
     qualifications: "Any Graduate",
@@ -31,14 +31,15 @@ const jobPostings = [
     description: [
       "Handle document scanning and digitization",
       "Ensure data accuracy and quality checks",
-      "Maintain document workflows"
+      "Maintain document workflows",
+      
     ],
   },
 ];
 
 export default function CareersPage() {
   return (
-    <div className="bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 text-[#1a1a1a]">
+    <div className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-[#1a1a1a]">
 
       <Hero />
 
@@ -51,7 +52,7 @@ export default function CareersPage() {
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Build Your{" "}
-              <span className="font-semibold text-[#0f172a]">Career</span> With Us
+              <span className="font-semibold text-[#1574AD]">Career</span> With Us
             </h1>
 
             <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0">
@@ -67,7 +68,7 @@ export default function CareersPage() {
           {/* RIGHT CARD */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
 
-            <div className="w-full max-w-md rounded-2xl p-[1px] bg-[#ff9433]">
+            <div className="w-full max-w-md rounded-2xl p-[1px] bg-[#1574AD]">
 
               <div className="rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition relative overflow-hidden">
 
@@ -78,11 +79,11 @@ export default function CareersPage() {
 
                 <div className="relative z-10 space-y-4 text-center lg:text-left">
 
-                  <h3 className="text-xl md:text-2xl font-light">
+                  <h3 className="text-xl md:text-2xl font-light text-white">
                     Career Consultation
                   </h3>
 
-                  <p className="text-sm">
+                  <p className="text-sm text-white">
                     Get guidance from our HR team for the right role.
                   </p>
 
@@ -114,3 +115,5 @@ export default function CareersPage() {
     </div>
   );
 }
+
+

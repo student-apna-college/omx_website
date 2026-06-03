@@ -71,10 +71,6 @@ text-white">
 
         </div>
 
-
-
-
-
         {/* BLOCK 1 */}
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
@@ -116,6 +112,80 @@ text-white">
             />
           </motion.div>
         </div>
+
+
+      {/* BLOCK 3 */}
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+
+          {/* IMAGE */}
+          <motion.div
+            initial={{ x: -80, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[380px] bg-gray-100 border border-gray-200 shadow-lg overflow-hidden rounded-xl"
+          >
+            <Image
+              src="/images/placeholder6.jpeg"
+              alt="Safer Record Storage Facility"
+              fill
+              sizes="100vw"
+              className="object-fit object-center md:object-[center_50%]"
+            />
+          </motion.div>
+
+          {/* TEXT */}
+          <motion.div
+            initial={{ x: 80, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-5"
+          >
+            <h2 className="text-lg md:text-2xl font-semibold text-slate-800 tracking-tight leading-snug">
+  Document Management System
+</h2>
+
+<h3 className="text-xl md:text-1xl font-semibold leading-snug text-[#1a1a1a]">
+  We provide secure document management solutions including record storage,
+  scanning, digital archiving, DMS software, and confidential shredding
+  services for businesses.
+</h3>
+
+<p className="text-sm md:text-base text-gray-500 leading-relaxed border-l-4 border-tomato pl-4">
+  Our storage facilities include 24/7 security, fire protection, barcode
+  tracking, and organized indexing for safe storage and quick document
+  retrieval.
+</p>
+
+{/* Highlights */}
+<div className="grid grid-cols-2 gap-4 pt-2">
+
+  <div>
+    <h4 className="font-semibold text-[#1a1a1a]">
+      Secure Storage
+    </h4>
+
+    <p className="text-xs md:text-sm text-gray-500">
+      Protected warehouses with secure access and document tracking systems.
+    </p>
+  </div>
+
+  <div>
+    <h4 className="font-semibold text-[#1a1a1a]">
+      Digital Access
+    </h4>
+
+    <p className="text-xs md:text-sm text-gray-500">
+      Easy digital retrieval with scanning and cloud-based management.
+    </p>
+  </div>
+
+</div>
+          </motion.div>
+
+        </div>
+
       </div>
     </section>
   );
