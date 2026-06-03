@@ -2,31 +2,35 @@
 
 import { useState } from "react";
 
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
 export default function EmployeeLogin() {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+  const [form, setForm] = useState<LoginForm>({
+  email: "",
+  password: "",
+});
 
   const [error, setError] = useState("");
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setForm({ ...form, [e.target.name]: e.target.value });
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    if (!form.email || !form.password) {
-      setError("All fields are required");
-      return;
-    }
+  if (!form.email || !form.password) {
+    setError("All fields are required");
+    return;
+  }
 
-    // API call yaha hoga
-    console.log("Login Data:", form);
+  console.log("Login Data:", form);
 
-    setError("");
-  };
+  setError("");
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-white">
